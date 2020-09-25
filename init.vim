@@ -13,6 +13,11 @@ Plug 'vim-scripts/ReplaceWithRegister'
 
 call plug#end() 
 
+autocmd VimEnter *
+  \  if len(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
+
 filetype on    
 filetype plugin off    
 filetype indent on    
