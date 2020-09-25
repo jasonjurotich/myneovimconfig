@@ -6,6 +6,7 @@ Plug 'Quramy/tsuquyomi'
 Plug 'rust-lang/rust.vim'    
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf'
 
 "Plug 'jiangmiao/auto-pairs' 
 "Plug 'tpope/vim-surround'
