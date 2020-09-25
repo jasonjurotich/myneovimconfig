@@ -68,6 +68,7 @@ let g:tsuquyomi_disable_quickfix = 1
 
 
 " COC CONFIG BEGIN
+
 set hidden
 set nobackup
 set nowritebackup
