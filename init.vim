@@ -37,8 +37,7 @@ set cursorline
 set laststatus=2    
 set splitright    
 set mouse=a 
-set winblend=15
-set pumblend=15 
+" set winblend=15
 
 inoremap ff <Esc> 
 nnoremap L <C-W><C-W>    
