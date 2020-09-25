@@ -186,7 +186,8 @@ let g:coc_global_extensions = ["coc-css",
   \ "coc-ultisnips",
   \ "coc-tailwindcss",
   \ "coc-vetur",
-  \ "coc-rust-analyzer"]
+  \ "coc-rust-analyzer",
+  \ "coc-pairs"]
 
 " COC CONFIG END
 
