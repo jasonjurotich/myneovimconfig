@@ -5,11 +5,12 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'Quramy/tsuquyomi'    
 Plug 'rust-lang/rust.vim'    
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree'
 
-Plug 'jiangmiao/auto-pairs' 
-Plug 'tpope/vim-surround'
-Plug 'tomtom/tcomment_vim'                                                                                                   
-Plug 'vim-scripts/ReplaceWithRegister'
+"Plug 'jiangmiao/auto-pairs' 
+"Plug 'tpope/vim-surround'
+"Plug 'tomtom/tcomment_vim'                                                                                                   
+"Plug 'vim-scripts/ReplaceWithRegister'
 
 call plug#end() 
 
@@ -172,6 +173,19 @@ let g:lightline = {
   \ 'currentfunction': 'CocCurrentFunction'    
   \ },
   \ }
+
+let g:coc_global_extensions = ["coc-css",
+  \ "coc-eslint",
+  \ "coc-html",
+  \ "coc-json",
+  \ "coc-prettier",
+  \ "coc-python",
+  \ "coc-tslint",
+  \ "coc-tsserver",
+  \ "coc-ultisnips",
+  \ "coc-tailwindcss",
+  \ "coc-vetur",
+  \ "coc-rust-analyzer"]
 
 " COC CONFIG END
 
