@@ -198,9 +198,3 @@ hi EndOfBuffer guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE
 " hi CursorLine ctermbg=NONE
 " hi Pmenu guifg=NONE ctermbg=NONE
-
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-" Requires 'textDocument/selectionRange' support of language server.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
