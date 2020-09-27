@@ -47,7 +47,7 @@ tnoremap dk <C-\><C-N><C-W><C-W>
 " map ft :bprev<CR>    
 " map fe :bnext<CR>    
 map fd :tabnew 
-map te :tabclose
+map re :tabclose
 map Q :qa<CR>    
 map W :Vex<CR>    
 map E <C-d>    
