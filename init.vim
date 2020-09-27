@@ -4,7 +4,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tomasiser/vim-code-dark'    
 Plug 'rust-lang/rust.vim'    
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
+Plugin 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tomtom/tcomment_vim'
