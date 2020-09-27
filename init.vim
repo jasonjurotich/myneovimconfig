@@ -2,15 +2,17 @@ call plug#begin('~/.vim/plugged')
 Plug '907th/vim-auto-save'    
 Plug 'itchyny/lightline.vim'    
 Plug 'tomasiser/vim-code-dark'    
-Plug 'Quramy/tsuquyomi'    
 Plug 'rust-lang/rust.vim'    
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tomtom/tcomment_vim'
 
+"Plug 'Quramy/tsuquyomi'
 "Plug 'jiangmiao/auto-pairs' 
 "Plug 'tpope/vim-surround'
-"Plug 'tomtom/tcomment_vim'                                                                                                   
+                                                                                                   
 "Plug 'vim-scripts/ReplaceWithRegister'
 
 call plug#end() 
