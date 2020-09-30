@@ -8,13 +8,9 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tomtom/tcomment_vim'
-
-"Plug 'Quramy/tsuquyomi'
-"Plug 'jiangmiao/auto-pairs' 
-"Plug 'tpope/vim-surround'
-                                                                                                   
-"Plug 'vim-scripts/ReplaceWithRegister'
-
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+Plug 'dart-lang/dart-vim-plugin'
 call plug#end() 
 
 autocmd VimEnter *
@@ -189,6 +185,7 @@ let g:coc_global_extensions = ["coc-css",
   \ "coc-tailwindcss",
   \ "coc-vetur",
   \ "coc-rust-analyzer",
+  \ "coc-flutter",
   \ "coc-pairs"]
 
 " COC CONFIG END
