@@ -8,9 +8,9 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tomtom/tcomment_vim'
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
-Plug 'dart-lang/dart-vim-plugin'
 call plug#end() 
 
 autocmd VimEnter *
