@@ -55,7 +55,7 @@ map x <C-b>
 map B :vnew term://bash<CR>    
 " map K :below new<CR>:terminal<CR>
 map ss ZZ    
-map F :vert res 50<CR>    
+map F :vert res 80<CR>    
 map M <C-z>    
 map S :s///g<left><left><left>    
 map R :%s///g<left><left><left>    
