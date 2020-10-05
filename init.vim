@@ -37,7 +37,7 @@ set splitright
 set mouse=a 
 " set winblend=15
 
-inoremap jj <Esc> 
+inoremap tt <Esc> 
 nnoremap L <C-W><C-W>    
 nnoremap H <C-W><C-H>    
 tnoremap dk <C-\><C-N><C-W><C-W>          
