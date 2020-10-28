@@ -31,7 +31,8 @@ set expandtab
 set autoindent    
 set number
 set relativenumber    
-set cursorline    
+set cursorline
+set cursorcolumn
 set laststatus=2    
 set splitright    
 set mouse=a 
@@ -196,5 +197,7 @@ hi Normal guibg=NONE ctermbg=NONE
 hi LineNr guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE
+
+" hi CursorColumn cterm=NONE 
 " hi CursorLine ctermbg=NONE
 " hi Pmenu guifg=NONE ctermbg=NONE
