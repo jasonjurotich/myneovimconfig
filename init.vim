@@ -48,9 +48,7 @@ tnoremap dk <C-\><C-N><C-W><C-W>
 map fd :tabnew 
 map re :tabclose
 map Q :qa<CR>    
-map W :Vex<CR>    
-map E <C-d>    
-map R <C-u>    
+map W :Vex<CR>       
 map z <C-f>    
 map x <C-b>    
 map B :vnew term://bash<CR>    
@@ -58,8 +56,8 @@ map B :vnew term://bash<CR>
 map ss ZZ    
 map F :vertical resize 80<CR> 
 map M <C-z>    
-map S :s///g<left><left><left>    
-map R :%s///g<left><left><left>    
+map R :s///g<left><left><left>    
+map S :%s///gI<left><left><left>    
 map vb :vs    
     
 let g:netrw_banner = 0    
