@@ -1,12 +1,11 @@
-```
-
-1. INSTALL BREW: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew update
+### INSTALL BREW
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew update
 (that will install xcode command line tools as well)
 
 brew upgrade && brew upgrade --cask
 brew search --casks
 
-2. INSTALL XCODE AND MAS
+### INSTALL XCODE AND MAS
 Xcode is over 7 GB and take about 90 minutes to download and install
 open and accept permisions
 then brew install --build-from-source mas
@@ -32,7 +31,7 @@ mas signin mas@example.com
 mas signin --dialog mas@example.com
 mas signin mas@example.com 'appleidpass'
 
-3. INSTALL APPS
+### INSTALL APPS
 brew upgrade && brew upgrade --cask && brew install git gcc authy node mosh postgresql wget miniforge Boop iterm2 && brew install --HEAD pyenv && brew install --HEAD pyenv-virtualenv && pyenv install -v 3.9.1 && brew install --HEAD luajit && brew install --HEAD neovim && npm -g install typescript && npm i -S @types/google-apps-script && npm install -g @google/clasp && npm -g install eslint prettier eslint-config-prettier eslint-plugin-prettier && npm audit fix && sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && chsh -s /bin/zsh && mkdir -p .config/nvim && curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim && git clone https://github.com/jasonjurotich/myneovimconfig && cd ~/myneovimconfig && cat alias.txt >> ~/.oh-my-zsh/custom/aliases.zsh && cd && echo 'eval "$(pyenv init -)"' >> ~/.zshrc && echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc && source ~/.zshrc && cp ~/myneovimconfig/init.vim ~/.config/nvim/init.vim
 
 ** IF you use pyenv, use pyenv global 3.9.1 or pyenv local 3.9.1
