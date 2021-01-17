@@ -35,7 +35,9 @@ mas signin mas@example.com 'appleidpass'
 brew upgrade && brew upgrade --cask && brew install git gcc authy node mosh postgresql wget miniforge Boop iterm2 && brew install --HEAD pyenv && brew install --HEAD pyenv-virtualenv && pyenv install -v 3.9.1 && brew install --HEAD luajit && brew install --HEAD neovim && npm -g install typescript && npm i -S @types/google-apps-script && npm install -g @google/clasp && npm -g install eslint prettier eslint-config-prettier eslint-plugin-prettier && npm audit fix && sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && chsh -s /bin/zsh && mkdir -p .config/nvim && curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim && git clone https://github.com/jasonjurotich/myneovimconfig && cd ~/myneovimconfig && cat alias.txt >> ~/.oh-my-zsh/custom/aliases.zsh && cd && echo 'eval "$(pyenv init -)"' >> ~/.zshrc && echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc && source ~/.zshrc && cp ~/myneovimconfig/init.vim ~/.config/nvim/init.vim
 
 IF you use pyenv, use pyenv global 3.9.1 or pyenv local 3.9.1
+
 You can install notion from brew, but does not install the M1 version, go to website instead.
+
 Install Chrome Intel, then extensions, then delete Chrome Intel, and install Chrome M1
 
 ### CONFIGURE PYTHON
