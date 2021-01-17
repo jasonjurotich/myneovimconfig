@@ -38,7 +38,7 @@ brew upgrade && brew upgrade --cask && brew install git gcc authy node mosh post
 ** You can install notion from brew, but does not install the M1 version, go to website instead.
 ** Install Chrome Intel, then extensions, then delete Chrome Intel, and install Chrome M1
 
-4. CONFIGURE PYTHON
+### CONFIGURE PYTHON
 wget -c https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha0/tensorflow_macos-0.1alpha0.tar.gz && tar -xvf tensorflow_macos-0.1alpha0.tar.gz && cd tensorflow_macos/arm64 && conda create -n tf24 && conda init zsh 
 
 reboot iterm
@@ -46,4 +46,4 @@ reboot iterm
 ** you MUST check the versions of what is downloaded from github or there will be an error. 
 
 cd tensorflow_macos/arm64 && conda activate tf24 && conda install -y python==3.8.6 && pip install --upgrade pip && conda install -y pandas matplotlib scikit-learn jupyterlab scipy pillow scikit-learn && pip install --force pip==20.2.4 wheel setuptools cached-property six && pip install --upgrade --no-dependencies --force numpy-1.18.5-cp38-cp38-macosx_11_0_arm64.whl grpcio-1.33.2-cp38-cp38-macosx_11_0_arm64.whl h5py-2.10.0-cp38-cp38-macosx_11_0_arm64.whl tensorflow_addons-0.11.2+mlcompute-cp38-cp38-macosx_11_0_arm64.whl && pip install absl-py astunparse flatbuffers gast google_pasta keras_preprocessing opt_einsum protobuf tensorflow_estimator termcolor typing_extensions wrapt wheel tensorboard typeguard && pip install --upgrade --force --no-dependencies tensorflow_macos-0.1a0-cp38-cp38-macosx_11_0_arm64.whl && pip install wheel jedi neovim pylint Pygments six asyncio asyncpg joblib selenium unicodedata2 requests-html beautifulsoup4 multiprocess httplib2 django flask aiogram google-api-python-client google_auth_oauthlib google_spreadsheet py-cpuinfo glances python-telegram-bot scrapy scrapy-selenium matplotlib pretty_html_table psycopg2 python-telegram-bot google-api-python-client "ipython[all]" google_auth_oauthlib wheel setuptools cached-property six audiotsm
-```
+
