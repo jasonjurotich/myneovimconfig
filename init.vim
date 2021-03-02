@@ -51,10 +51,10 @@ map Q :qa<CR>
 map W :Vex<CR>       
 map z <C-f>    
 map x <C-b>    
-map B :vnew term://bash<CR>    
+map B :vs|:term|:vertical resize 105<CR>    
 " map K :below new<CR>:terminal<CR>
 map ss ZZ    
-map F :vertical resize 80<CR> 
+map F :vertical resize 105<CR> 
 map M <C-z>    
 map R :s///g<left><left><left>    
 map S :%s///gI<left><left><left>    
