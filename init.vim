@@ -51,7 +51,7 @@ map Q :qa<CR>
 map W :Vex<CR>       
 map z <C-f>    
 map x <C-b>    
-map B :vs|:term|:vertical resize 105<CR>    
+map B :vs<Bar>:term<CR>L<Bar>:vertical resize 105<CR>   
 " map K :below new<CR>:terminal<CR>
 map ss ZZ    
 map F :vertical resize 105<CR> 
