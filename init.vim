@@ -40,7 +40,9 @@ set mouse=a
 
 inoremap tt <Esc> 
 nnoremap L <C-W><C-W>    
-nnoremap H <C-W><C-H>    
+nnoremap H <C-W><C-H>
+nnoremap O :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
+nnoremap P :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
 tnoremap dk <C-\><C-N><C-W><C-W>          
       
 " map ft :bprev<CR>    
