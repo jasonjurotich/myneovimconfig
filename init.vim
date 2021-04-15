@@ -11,6 +11,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
+Plug 'codota/tabnine-vim'
 call plug#end() 
 
 autocmd VimEnter *
@@ -187,7 +188,9 @@ let g:coc_global_extensions = ["coc-css",
   \ "coc-vetur",
   \ "coc-rust-analyzer",
   \ "coc-flutter",
-  \ "coc-pairs"]
+  \ "coc-pairs",
+  \ "coc-tabnine"]
+  
 
 " COC CONFIG END
 
