@@ -200,7 +200,6 @@ hi Normal guibg=NONE ctermbg=NONE
 hi LineNr guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE
-
+hi CursorLine ctermbg=NONE
 " hi CursorColumn cterm=NONE 
-" hi CursorLine ctermbg=NONE
 " hi Pmenu guifg=NONE ctermbg=NONE
