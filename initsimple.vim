@@ -34,7 +34,15 @@ nnoremap L <C-W><C-W>
 nnoremap H <C-W><C-H>
 nnoremap O :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
 nnoremap P :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
-tnoremap dk <C-\><C-N><C-W><C-W>          
+tnoremap dk <C-\><C-N><C-W><C-W> 
+
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
         
 map fd :tabnew 
 map re :tabclose
