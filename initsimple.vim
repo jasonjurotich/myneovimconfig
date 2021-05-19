@@ -1,7 +1,8 @@
 call plug#begin('~/.vim/plugged')
 Plug '907th/vim-auto-save'    
 Plug 'itchyny/lightline.vim'    
-Plug 'tomasiser/vim-code-dark'    
+Plug 'tomasiser/vim-code-dark'
+Plug 'tomtom/tcomment_vim'
 call plug#end() 
 
 autocmd VimEnter *
