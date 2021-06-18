@@ -2,7 +2,8 @@
 ~/.config/alacritty/alacritty.yml
 
 env:
-  TERM: alacritty
+  TERM: xterm-256color
+  
 live_config_reload: true
 background_opacity: 0.60
 
