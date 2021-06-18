@@ -3,7 +3,7 @@
 env:
   TERM: alacritty
 live_config_reload: true
-background_opacity: 0.5
+background_opacity: 0.60
 
 window:
   dimensions:
@@ -64,7 +64,7 @@ font:
   
 colors:
   primary:
-    background: '0x2a2e38'
+    background: '0x000000'
     foreground: '0xF0FDFF'
     # dim_foreground: '0x9a9a9a'
     # bright_foreground: '0xffffff'
