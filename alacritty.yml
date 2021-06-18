@@ -53,7 +53,7 @@ font:
   bold_italic:
     family: "Menlo"
     style: Italic
-  size: 15.0
+  size: 14.0
   offset:
     x: 0
     y: 0
