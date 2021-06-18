@@ -14,9 +14,9 @@ window:
     x: 2
     y: 2
   dynamic_padding: false
-  startup_mode: Fullscreen
+  startup_mode: SimpleFullscreen
   # startup_mode: Windowed
-  decorations: none
+  decorations: full
   
 scrolling:
   history: 10000
