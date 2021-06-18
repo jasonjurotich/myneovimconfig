@@ -1,3 +1,5 @@
+~/.config/alacritty/alacritty.yml
+
 env:
   TERM: alacritty
 live_config_reload: true
@@ -109,9 +111,6 @@ mouse:
   hide_when_typing: false
   url:
     launcher: open
-  
-  
-  
   
 key_bindings:
   - { key: LBracket, mods: Command, chars: "\x5c\x70" }
