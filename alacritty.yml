@@ -1,6 +1,3 @@
-# pip install --upgrade neovim
-~/.config/alacritty/alacritty.yml
-
 env:
   TERM: xterm-256color
   
