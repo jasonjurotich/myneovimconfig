@@ -2,7 +2,8 @@ call plug#begin('~/.vim/plugged')
 Plug '907th/vim-auto-save'    
 Plug 'itchyny/lightline.vim'    
 Plug 'tomasiser/vim-code-dark'    
-Plug 'rust-lang/rust.vim'    
+Plug 'rust-lang/rust.vim' 
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -39,6 +40,16 @@ set splitright
 set mouse=a 
 " set winblend=15
 
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=1
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
+let mapleader = ","
+
 inoremap tt <Esc> 
 nnoremap L <C-W><C-W>    
 nnoremap H <C-W><C-H>
@@ -61,7 +72,10 @@ map F :vertical resize 105<CR>
 map M <C-z>    
 map R :s///g<left><left><left>    
 map S :%s///gI<left><left><left>    
-map vb :vs    
+map vb :vs  
+
+map <leader>g :NERDTree<CR>
+
     
 let g:netrw_banner = 0    
 let g:netrw_liststyle = 3    
@@ -73,16 +87,13 @@ let g:auto_save_silent = 1
 let g:auto_save_events = ["InsertLeave","TextChanged","TextChangedI"]    
 let g:tsuquyomi_disable_quickfix = 1  
 
+let g:ale_linters = {
+    \   'python': ['pylint'],
+    \   'javascript': ['eslint'],
+    \}
+
 
 " COC CONFIG BEGIN
-
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=1
-set updatetime=300
-set shortmess+=c
-set signcolumn=yes
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -190,6 +201,7 @@ let g:coc_global_extensions = ["coc-css",
   \ "coc-flutter",
   \ "coc-pairs",
   \ "coc-tabnine"]
+" \ "coc-spell-checker"  
   
 
 " COC CONFIG END
@@ -201,5 +213,5 @@ hi LineNr guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE
 hi CursorLine ctermbg=NONE
-" hi CursorColumn cterm=NONE 
+" hi CursorColumn ctermbg=NONE 
 " hi Pmenu guifg=NONE ctermbg=NONE
