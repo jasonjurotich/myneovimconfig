@@ -3,7 +3,6 @@ Plug '907th/vim-auto-save'
 Plug 'itchyny/lightline.vim'    
 Plug 'tomasiser/vim-code-dark'    
 Plug 'rust-lang/rust.vim' 
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
