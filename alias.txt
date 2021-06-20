@@ -1,6 +1,6 @@
 alias df='git add -A && git commit -m "updated" && git push'
 alias dg='git pull origin master'
-alias py='python'
+alias py='python3'
 alias ex='exit'
 alias cl='clear'                                                                                              
 alias v='nvim'
