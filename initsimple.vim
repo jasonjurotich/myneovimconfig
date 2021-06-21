@@ -37,6 +37,8 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 
+let mapleader = ","
+
 inoremap tt <Esc> 
 nnoremap L <C-W><C-W>    
 nnoremap H <C-W><C-H>
