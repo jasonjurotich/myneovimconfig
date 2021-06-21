@@ -29,6 +29,14 @@ set laststatus=2
 set splitright    
 set mouse=a 
 
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=1
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
 inoremap tt <Esc> 
 nnoremap L <C-W><C-W>    
 nnoremap H <C-W><C-H>
