@@ -3,6 +3,7 @@ Plug '907th/vim-auto-save'
 Plug 'itchyny/lightline.vim'    
 Plug 'tomasiser/vim-code-dark'
 Plug 'tomtom/tcomment_vim'
+Plug 'jiangmiao/auto-pairs'
 call plug#end() 
 
 autocmd VimEnter *
@@ -68,6 +69,7 @@ map R :s///g<left><left><left>
 map S :%s///gI<left><left><left>    
 map vb :vs    
     
+let g:AutoPairsFlyMode = 1    
 let g:netrw_banner = 0    
 let g:netrw_liststyle = 3    
 let g:netrw_browse_split = 4    
