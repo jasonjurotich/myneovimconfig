@@ -22,7 +22,13 @@ autocmd VimEnter *
 filetype on    
 filetype plugin off    
 filetype indent on    
-        
+
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed "OSX
+else
+  set clipboard=unnamedplus "Linux
+endif
+
 set noshowmode    
 set tabstop=2    
 set shiftwidth=2    
