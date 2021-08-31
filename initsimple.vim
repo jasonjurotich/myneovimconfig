@@ -4,6 +4,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'tomtom/tcomment_vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 call plug#end() 
 
 autocmd VimEnter *
