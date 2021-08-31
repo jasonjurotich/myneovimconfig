@@ -12,6 +12,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'codota/tabnine-vim'
+Plug 'alvan/vim-closetag'
 call plug#end() 
 
 autocmd VimEnter *
