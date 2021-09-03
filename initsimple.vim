@@ -72,7 +72,7 @@ map ss ZZ
 map F :vertical resize 105<CR> 
 map M <C-z>        
 map S :s/ <left>    
-map vb :vs 
+map vn :vs 
 map bn :bd<CR>
 map E :tabp<CR>
 map T :tabn<CR>
