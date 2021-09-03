@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 Plug '907th/vim-auto-save'    
-Plug 'itchyny/lightline.vim'    
 Plug 'tomasiser/vim-code-dark'
 Plug 'tomtom/tcomment_vim'
 Plug 'jiangmiao/auto-pairs'
@@ -22,8 +21,7 @@ if system('uname -s') == "Darwin\n"
 else
   set clipboard=unnamedplus "Linux
 endif        
-           
-set noshowmode    
+              
 set tabstop=2    
 set shiftwidth=2    
 set softtabstop=2    
@@ -63,8 +61,7 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
         
-map fd :tabnew 
-map re :tabclose
+map fd :tabnew
 map Q :qa<CR>    
 map W :Vex<CR>       
 map z <C-f>    
@@ -77,6 +74,8 @@ map M <C-z>
 map S :s/ <left>    
 map vb :vs 
 map bn :bd<CR>
+map E :tabp<CR>
+map T :tabn<CR>
     
 let g:netrw_banner = 0    
 let g:netrw_liststyle = 3    
@@ -88,8 +87,6 @@ let g:auto_save_silent = 1
 let g:auto_save_events = ["InsertLeave","TextChanged","TextChangedI"]    
 let g:tsuquyomi_disable_quickfix = 1  
 
-
-
 colorscheme codedark
 hi Normal guibg=NONE ctermbg=NONE
 hi LineNr guibg=NONE ctermbg=NONE
@@ -98,3 +95,5 @@ hi NonText guibg=NONE ctermbg=NONE
 hi CursorColumn cterm=NONE 
 hi CursorLine ctermbg=NONE
 hi Pmenu guifg=NONE ctermbg=NONE
+hi TablineFill ctermbg=NONE
+hi StatusLine ctermbg=NONE cterm=NONE
