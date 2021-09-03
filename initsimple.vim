@@ -69,13 +69,14 @@ map Q :qa<CR>
 map W :Vex<CR>       
 map z <C-f>    
 map x <C-b>    
-map B :vs<Bar>:term<CR>L<Bar>:vertical resize 105<CR>   
+" map B :vs<Bar>:term<CR>L<Bar>:vertical resize 105<CR>  
+map B :vs<Bar>:term<CR>
 map ss ZZ    
 map F :vertical resize 105<CR> 
-map M <C-z>    
-map R :s///g<left><left><left>    
-map S :%s///gI<left><left><left>    
-map vb :vs    
+map M <C-z>        
+map S :s/ <left>    
+map vb :vs 
+map bn :bd<CR>
     
 let g:netrw_banner = 0    
 let g:netrw_liststyle = 3    
