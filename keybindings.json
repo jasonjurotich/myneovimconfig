@@ -82,8 +82,4 @@
         "key": "shift+cmd+x",
         "command": "workbench.action.toggleStatusbarVisibility"
     },
-    {
-      "key":"cmd+alt+,",
-      "command":"workbench.action.positionPanelRight"
-    },
 ]
