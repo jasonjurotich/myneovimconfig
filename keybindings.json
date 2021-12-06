@@ -1,0 +1,86 @@
+[
+    {
+        "key": "alt+a",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "alt+d",
+        "command": "workbench.action.toggleMultiCursorModifier"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.focusActiveEditorGroup"
+    },
+    {
+        "key": "alt+p",
+        "command": "spotify.playPause"
+    },
+    {
+        "key": "alt+s",
+        "command": "git.commitAll"
+    },
+    {
+        "key": "alt+z",
+        "command": "workbench.action.toggleActivityBarVisibility"
+    },
+    {
+        "key": "alt+f8",
+        "command": "-editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+cmd+right",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "alt+cmd+left",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "cmd+j",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "cmd+k",
+        "command": "workbench.action.openGlobalKeybindings"
+    },
+    {
+        "key": "ctrl+alt+,",
+        "command": "workbench.action.positionPanelRight"
+    },
+    {
+        "key": "ctrl+cmd+m",
+        "command": "livePreview.start.internalPreview.atFile"
+    },
+    {
+        "key": "ctrl+cmd+right",
+        "command": "workbench.action.resizePanelRight"
+    },
+    {
+        "key": "ctrl+cmd+left",
+        "command": "workbench.action.resizePanelLeft"
+    },
+    {
+        "key": "tab",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "shift+cmd+e",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+cmd+x",
+        "command": "workbench.action.toggleStatusbarVisibility"
+    },
+    {
+      "key":"cmd+alt+,",
+      "command":"workbench.action.positionPanelRight"
+
+    },
+]
