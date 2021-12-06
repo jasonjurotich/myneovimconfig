@@ -1,0 +1,72 @@
+{
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+    "editor.suggestSelection": "first",
+    "editor.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.scrollbar.horizontalScrollbarSize": 0,
+    "editor.lineNumbers": "relative",
+    "editor.renderLineHighlight":"line",
+    "editor.folding": false,
+    "editor.glyphMargin": true,
+    "editor.wordWrap": "on",
+    "editor.tabSize": 2,
+    "editor.cursorBlinking": "solid",
+    "editor.cursorWidth": 2,
+    "editor.detectIndentation": false,
+    "editor.hideCursorInOverviewRuler":false,
+    "remoteHub.commitDirectlyWarning": "off",
+
+    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "diffEditor.wordWrap": "on",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.scrollback": 20000,
+    "notebook.output.textLineLimit": 50,
+
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.editor.enablePreview": false,
+    "workbench.sideBar.location": "left",
+
+
+    "gitlens.advanced.messages": {
+        "suppressGitMissingWarning": true
+    },
+    "git.autofetch": true,
+    "git.postCommitCommand": "push",
+    "git.enableSmartCommit": true,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command",
+        "switch:command",
+        "push:command"
+    ],
+
+    "tabnine.experimentalAutoImports": true,
+    "tabnine.receiveBetaChannelUpdates": true,
+    "markdown.preview.fontSize": 15,
+    "python.insidersChannel": "weekly",
+    "indentRainbow.updateDelay": 1000,
+    "vsicons.dontShowNewVersionMessage": true,
+    "backgroundCover.imagePath": "/Users/jj/Downloads/GERMANCASTLE.jpg",
+    "settingsSync.keybindingsPerPlatform": false,
+    "remoteHub.commitDirectlyWarning": "off",
+
+    "vim.vimrc.enable": true,
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.insertModeKeyBindings":[
+      {
+        "before":[
+            "t",
+            "t"
+        ],
+        "after":[
+            "<Esc>"
+        ],
+      }
+    ],
+}
