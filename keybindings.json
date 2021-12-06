@@ -57,12 +57,12 @@
         "command": "livePreview.start.internalPreview.atFile"
     },
     {
-        "key": "ctrl+cmd+right",
-        "command": "workbench.action.resizePanelRight"
+        "key": "ctrl+cmd+left",
+        "command": "workbench.action.terminal.resizePaneLeft"
     },
     {
-        "key": "ctrl+cmd+left",
-        "command": "workbench.action.resizePanelLeft"
+        "key": "ctrl+cmd+right",
+        "command": "workbench.action.terminal.resizePaneRight"
     },
     {
         "key": "tab",
