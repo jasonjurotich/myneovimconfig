@@ -75,12 +75,15 @@
         "when": "editorFocus"
     },
     {
+        "key": "shift+cmd+s",
+        "command": "remoteHub.commit"
+    },
+    {
         "key": "shift+cmd+x",
         "command": "workbench.action.toggleStatusbarVisibility"
     },
     {
       "key":"cmd+alt+,",
       "command":"workbench.action.positionPanelRight"
-
     },
 ]
