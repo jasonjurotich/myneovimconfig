@@ -16,9 +16,15 @@
     "editor.cursorWidth": 2,
     "editor.detectIndentation": false,
     "editor.hideCursorInOverviewRuler":false,
-    "remoteHub.commitDirectlyWarning": "off",
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs":"active",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "rust-analyzer.rustfmt.enableRangeFormatting": true,
+    "[rust]": {
+      "editor.defaultFormatter": "matklad.rust-analyzer",
+      "editor.formatOnSave": true
+    },
 
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "afterDelay",
@@ -47,10 +53,7 @@
         "push:command"
     ],
 
-    "tabnine.experimentalAutoImports": true,
-    "tabnine.receiveBetaChannelUpdates": true,
     "markdown.preview.fontSize": 15,
-    "python.insidersChannel": "weekly",
     "indentRainbow.updateDelay": 1000,
     "vsicons.dontShowNewVersionMessage": true,
     "backgroundCover.imagePath": "/Users/jj/Downloads/GERMANCASTLE.jpg",
