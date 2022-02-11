@@ -42,7 +42,7 @@
     },
     {
         "key": "cmd+j",
-        "command": "workbench.action.togglePanel"
+        "command": "workbench.action.terminal.focus"
     },
     {
         "key": "cmd+k",
