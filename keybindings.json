@@ -4,16 +4,36 @@
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
-        "key": "alt+d",
-        "command": "workbench.action.toggleMultiCursorModifier"
+        "key": "alt+z",
+        "command": "workbench.action.toggleActivityBarVisibility"
+    },
+     {
+        "key": "shift+cmd+x",
+        "command": "workbench.action.toggleStatusbarVisibility"
     },
     {
-        "key": "alt+j",
-        "command": "workbench.action.terminal.focus"
+        "key": "cmd+j",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "terminal.focus"
     },
     {
         "key": "alt+k",
         "command": "workbench.action.focusActiveEditorGroup"
+    },
+    {
+        "key": "cmd+k",
+        "command": "workbench.action.openGlobalKeybindings"
+    },
+    {
+        "key": "cmd+\",
+        "command": "workbench.action.splitEditor"
+    },
+    {
+        "key": "alt+d",
+        "command": "workbench.action.toggleMultiCursorModifier"
     },
     {
         "key": "alt+p",
@@ -22,10 +42,6 @@
     {
         "key": "alt+s",
         "command": "git.commitAll"
-    },
-    {
-        "key": "alt+z",
-        "command": "workbench.action.toggleActivityBarVisibility"
     },
     {
         "key": "alt+f8",
@@ -39,14 +55,6 @@
     {
         "key": "alt+cmd+left",
         "command": "workbench.action.previousEditor"
-    },
-    {
-        "key": "cmd+j",
-        "command": "workbench.action.terminal.focus"
-    },
-    {
-        "key": "cmd+k",
-        "command": "workbench.action.openGlobalKeybindings"
     },
     {
         "key": "ctrl+alt+,",
@@ -78,8 +86,5 @@
         "key": "shift+cmd+s",
         "command": "remoteHub.commit"
     },
-    {
-        "key": "shift+cmd+x",
-        "command": "workbench.action.toggleStatusbarVisibility"
-    },
+    
 ]
