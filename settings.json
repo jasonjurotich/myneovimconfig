@@ -74,4 +74,9 @@
         ],
       }
     ],
+    "explorer.confirmDelete": false,
+    "files.exclude": {
+      "": true,
+      "**/.git": false
+    }
 }
