@@ -16,7 +16,7 @@
         "command": "workbench.action.toggleAuxiliaryBar"
     },
     {
-        "key": "ctrl+j",
+        "key": "alt+j",
         "command": "terminal.focus"
     },
     {
