@@ -1,9 +1,12 @@
 call plug#begin('~/.vim/plugged')
-Plug '907th/vim-auto-save'    
-Plug 'itchyny/lightline.vim'    
+Plug '907th/vim-auto-save' 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'tomasiser/vim-code-dark'    
 Plug 'preservim/nerdtree'
 Plug 'tomtom/tcomment_vim'
+Plug 'alvan/vim-closetag'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
@@ -180,18 +183,12 @@ EOF
 
 " LSP CONFIG END
 
+let g:airline_theme='base16'
 
-let g:lightline = {    
-  \ 'colorscheme': 'wombat',    
-  \ 'active': {    
-  \ 'left': [ [ 'mode', 'paste' ],    
-  \ [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]    
-  \ },    
-  \ 'component_function': {    
-  \ 'cocstatus': 'coc#status',    
-  \ 'currentfunction': 'CocCurrentFunction'    
-  \ },
-  \ }
+" AIRLINE START
+
+
+" AIRLINE END
 
 colorscheme codedark
 hi Normal guibg=NONE ctermbg=NONE
