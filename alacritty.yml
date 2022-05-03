@@ -1,8 +1,9 @@
+# says that background_opacity will change to window.opacity, but is not active yet
 env:
   TERM: xterm-256color
   
 live_config_reload: true
-window.opacity: 0.70
+background_opacity: 0.70
 
 window:
   dimensions:
