@@ -71,7 +71,15 @@ nnoremap L <C-W><C-W>
 nnoremap H <C-W><C-H>
 nnoremap O :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
 nnoremap P :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
-tnoremap dk <C-\><C-N><C-W><C-W>          
+tnoremap dk <C-\><C-N><C-W><C-W>
+
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
       
 " map ft :bprev<CR>    
 " map fe :bnext<CR>    
@@ -119,7 +127,7 @@ local opts = {
         autoSetHints = true,
         hover_with_actions = true,
         inlay_hints = {
-            show_parameter_hints = false,
+            show_parameter_hints = true,
             parameter_hints_prefix = "",
             other_hints_prefix = "",
         },
