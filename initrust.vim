@@ -74,6 +74,8 @@ nnoremap L <C-W><C-W>
 nnoremap H <C-W><C-H>
 nnoremap O :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
 nnoremap P :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
+nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 tnoremap dk <C-\><C-N><C-W><C-W>
 
 inoremap " ""<left>
