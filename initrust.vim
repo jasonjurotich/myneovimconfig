@@ -102,6 +102,7 @@ map M <C-z>
 map R :s///g<left><left><left>    
 map S :%s///gI<left><left><left>    
 map vb :vs  
+map bn :bd<CR>
 
 map <leader>g :NERDTree<CR>
 
