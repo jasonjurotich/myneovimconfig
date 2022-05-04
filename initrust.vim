@@ -116,13 +116,9 @@ let g:auto_save_silent = 1
 let g:auto_save_events = ["InsertLeave","TextChanged","TextChangedI"]    
 let g:tsuquyomi_disable_quickfix = 1  
 
-let g:ale_linters = {
-    \   'python': ['pylint'],
-    \   'javascript': ['eslint'],
-    \}
-
-
 " LSP CONFIG BEGIN
+autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
 
 lua <<EOF
 local nvim_lsp = require'lspconfig'
