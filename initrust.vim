@@ -105,7 +105,7 @@ map vb :vs
 map bn :bd<CR>
 
 map <leader>g :NERDTree<CR>
-
+map ,, :lua vim.lsp.buf.formatting()<CR>
     
 let g:netrw_banner = 0    
 let g:netrw_liststyle = 3    
@@ -118,8 +118,10 @@ let g:auto_save_events = ["InsertLeave","TextChanged","TextChangedI"]
 let g:tsuquyomi_disable_quickfix = 1  
 
 " LSP CONFIG BEGIN
+" autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
+
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
+
 
 lua <<EOF
 local nvim_lsp = require'lspconfig'
