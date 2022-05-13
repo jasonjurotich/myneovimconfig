@@ -85,6 +85,8 @@ inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
+inoremap pr print("{:#?}",);<left><left>
+
       
 " map ft :bprev<CR>    
 " map fe :bnext<CR>    
