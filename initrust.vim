@@ -83,6 +83,7 @@ inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
+inoremap < <><left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 inoremap pp print("{:#?}",);<left><left>
@@ -187,6 +188,7 @@ EOF
 " LSP CONFIG END
 
 let g:airline_theme='base16'
+let g:airline_section_c='%F'
 
 " AIRLINE START
 
