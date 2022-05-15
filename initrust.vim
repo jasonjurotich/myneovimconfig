@@ -86,7 +86,7 @@ inoremap { {}<left>
 inoremap < <><left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
-inoremap pp print("{:#?}",);<left><left>
+inoremap pp println!("{:#?}",);<left><left>
 
       
 " map ft :bprev<CR>    
