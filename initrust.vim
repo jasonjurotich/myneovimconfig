@@ -203,3 +203,5 @@ hi NonText guibg=NONE ctermbg=NONE
 hi CursorLine ctermbg=NONE
 " hi CursorColumn ctermbg=NONE 
 hi Pmenu guifg=NONE ctermbg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
+
