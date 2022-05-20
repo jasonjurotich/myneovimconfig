@@ -22,7 +22,7 @@
     "editor.formatOnType": true,
     "rust-analyzer.rustfmt.enableRangeFormatting": true,
     "[rust]": {
-      "editor.defaultFormatter": "matklad.rust-analyzer",
+      "editor.defaultFormatter": "rust-lang.rust-analyzer",
       "editor.formatOnSave": true
     },
 
