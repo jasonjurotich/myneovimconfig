@@ -1,122 +1,127 @@
 {
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-
-    "editor.suggestSelection": "first",
-    "editor.fontSize": 14,
-    "editor.minimap.enabled": false,
-    "editor.scrollbar.verticalScrollbarSize": 0,
-    "editor.scrollbar.horizontalScrollbarSize": 0,
-    "editor.lineNumbers": "relative",
-    "editor.renderLineHighlight":"line",
-    "editor.folding": false,
-    "editor.glyphMargin": true,
-    "editor.wordWrap": "on",
-    "editor.tabSize": 2,
-    "editor.cursorBlinking": "solid",
-    "editor.cursorWidth": 2,
-    "editor.detectIndentation": false,
-    "editor.hideCursorInOverviewRuler":false,
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs":"active",
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "rust-analyzer.rustfmt.enableRangeFormatting": true,
-    "[rust]": {
-      "editor.defaultFormatter": "rust-lang.rust-analyzer",
-      "editor.formatOnSave": true
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.suggestSelection": "first",
+  "editor.fontSize": 14,
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.scrollbar.horizontalScrollbarSize": 0,
+  "editor.lineNumbers": "relative",
+  "editor.renderLineHighlight": "line",
+  "editor.folding": false,
+  "editor.glyphMargin": true,
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorWidth": 2,
+  "editor.detectIndentation": false,
+  "editor.hideCursorInOverviewRuler": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "diffEditor.wordWrap": "on",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.scrollback": 100000,
+  "notebook.output.textLineLimit": 50,
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.editor.enablePreview": false,
+  "gitlens.advanced.messages": {
+    "suppressGitMissingWarning": true
+  },
+  "git.autofetch": true,
+  "git.postCommitCommand": "push",
+  "git.enableSmartCommit": true,
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "stash-push:command",
+    "switch:command",
+    "push:command"
+  ],
+  "markdown.preview.fontSize": 15,
+  "indentRainbow.updateDelay": 1000,
+  "vsicons.dontShowNewVersionMessage": true,
+  "backgroundCover.imagePath": "/Users/jj/Downloads/GERMANCASTLE.jpg",
+  "settingsSync.keybindingsPerPlatform": false,
+  "remoteHub.commitDirectlyWarning": "off",
+  "vim.vimrc.enable": true,
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["t","t"],
+      "after": ["<Esc>"]
     },
-
-    "files.trimTrailingWhitespace": true,
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 1000,
-    "diffEditor.wordWrap": "on",
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.scrollback": 20000,
-    "notebook.output.textLineLimit": 50,
-
-    "workbench.startupEditor": "none",
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.editor.enablePreview": false,
-    "workbench.sideBar.location": "left",
-
-
-    "gitlens.advanced.messages": {
-        "suppressGitMissingWarning": true
+    {
+      "before": ["r","r"],
+      "commands": [
+        {
+          "command": "editor.action.insertSnippet",
+          "args": { "snippet": "println!(\"{:#?}\",$0);"}
+        }
+      ],
     },
-    "git.autofetch": true,
-    "git.postCommitCommand": "push",
-    "git.enableSmartCommit": true,
-    "gitlens.gitCommands.skipConfirmations": [
-        "fetch:command",
-        "stash-push:command",
-        "switch:command",
-        "push:command"
-    ],
-
-    "markdown.preview.fontSize": 15,
-    "indentRainbow.updateDelay": 1000,
-    "vsicons.dontShowNewVersionMessage": true,
-    "backgroundCover.imagePath": "/Users/jj/Downloads/GERMANCASTLE.jpg",
-    "settingsSync.keybindingsPerPlatform": false,
-    "remoteHub.commitDirectlyWarning": "off",
-
-    "vim.vimrc.enable": true,
-    "vim.cursorStylePerMode.insert": "line",
-    "vim.cursorStylePerMode.normal": "block",
-    "vim.insertModeKeyBindings":[
-      {
-        "before":[
-            "t",
-            "t"
-        ],
-        "after":[
-            "<Esc>"
-        ],
-      }
-    ],
-    "explorer.confirmDelete": false,
-    "files.exclude": {
-      "": true,
-      "**/.git": false
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<tab>"],
+      "commands": ["workbench.action.nextEditor"]
     },
-    "cSpell.enabledLanguageIds": [
+    {
+      "before": ["<S-tab>"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["x"],
+      "after": ["C-b"]
+    },
+    {
+      "before": ["z"],
+      "after": ["C-f"]
+    }
+  ],
+  "explorer.confirmDelete": false,
+  "files.exclude": {
+    "": true,
+    "**/.git": false
+  },
+  "cSpell.enabledLanguageIds": [
     "asciidoc",
-    "c",
-    "cpp",
-    "csharp",
     "css",
     "git-commit",
-    "go",
     "graphql",
-    "handlebars",
-    "haskell",
     "html",
     "jade",
-    "java",
-    "javascript",
-    "javascriptreact",
     "json",
     "jsonc",
     "jupyter",
     "latex",
     "less",
     "markdown",
-    "php",
     "plaintext",
-    "python",
-    "pug",
     "restructuredtext",
-    "scala",
     "scss",
-    "swift",
     "text",
-    "typescript",
-    "typescriptreact",
-    "vue",
     "yaml",
     "yml"
   ],
   "editor.multiCursorModifier": "ctrlCmd",
   "rust-analyzer.rustfmt.rangeFormatting.enable": true,
-  "rust-analyzer.checkOnSave.command": "clippy"
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "filePathBar.statusBarAlignment": "right",
+  "spotify.showLyricsButton": false,
+  "spotify.showSignInButton": false,
+  "spotify.showSignOutButton": false,
+  "tabnine.experimentalAutoImports": true,
+  "clock.format": "ddd mmm dd yyyy HH:MM",
+  "clock.alignment": "Right",
+  "clock.priority": 1,
+  "workbench.colorTheme": "Default Dark+"
 }
