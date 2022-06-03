@@ -60,7 +60,7 @@
       "after": ["<Esc>"]
     },
     {
-      "before": ["r","r"],
+      "before": ["w","w"],
       "commands": [
         {
           "command": "editor.action.insertSnippet",
