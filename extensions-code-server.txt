@@ -1,0 +1,17 @@
+ckolkman.vscode-postgres
+davidanson.vscode-markdownlint
+formulahendry.auto-close-tag
+formulahendry.code-runner
+janisdd.vscode-edit-csv
+lyonsyonii.rust-syntax
+matklad.rust-analyzer
+mechatroner.rainbow-csv
+qufiwefefwoyn.inline-sql-syntax
+rid9.datetime
+shalldie.background
+streetsidesoftware.code-spell-checker
+tabnine.tabnine-vscode
+valentjn.vscode-ltex
+vscodevim.vim
+wakatime.vscode-wakatime
+yzhang.markdown-all-in-one
