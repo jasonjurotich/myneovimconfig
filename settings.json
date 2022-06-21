@@ -123,5 +123,13 @@
   "clock.format": "ddd mmm dd yyyy HH:MM",
   "clock.alignment": "Right",
   "clock.priority": 1,
-  "workbench.colorTheme": "Default Dark+"
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Default Dark+",
+  "markdown.experimental.editor.pasteLinks.enabled": true,
+  "editor.experimental.pasteActions.enabled": true,
+  "editor.linkedEditing": true,
+  "rust-analyzer.cargo.unsetTest":[
+    "tokio",
+    "tokio-macros"
+  ]
 }
