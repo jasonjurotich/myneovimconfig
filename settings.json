@@ -130,5 +130,12 @@
   "rust-analyzer.cargo.unsetTest":[
     "tokio",
     "tokio-macros"
+  ],
+  "workbench.activityBar.visible": false,
+  "activitusbar.views": [
+    {
+      "name": "scm",
+      "codicon": "source-control-view-icon"
+    },
   ]
 }
