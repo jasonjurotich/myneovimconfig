@@ -83,6 +83,11 @@
     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
   },
   {
+    "key": "shift+tab",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
     "key": "shift+cmd+e",
     "command": "editor.action.marker.next",
     "when": "editorFocus"
@@ -97,12 +102,24 @@
     "when": "editorTextFocus"
   },
   {
-    "key": "shift+o",
+    "key": "cmd+o",
     "command": "editor.action.revealDefinition",
     "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
   },
   {
-    "key": "shift+l",
+    "key": "cmd+l",
     "command": "workbench.action.navigateBack",
+  },
+  {
+    "key": "ctrl+cmd+left",
+    "command": "workbench.action.decreaseViewSize"
+  },
+  {
+    "key": "ctrl+cmd+right",
+    "command": "workbench.action.increaseViewSize"
+  },
+  {
+    "key": "shift+l",
+    "command": "workbench.action.navigateEditorGroups"
   },
 ]
