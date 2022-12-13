@@ -70,21 +70,117 @@
     },
   ],
   "vim.normalModeKeyBindings": [
-    {
-      "before": ["<tab>"],
-      "commands": ["workbench.action.nextEditor"]
+       {
+      "before": [
+        "<tab>"
+      ],
+      "commands": [
+        "workbench.action.nextEditor"
+      ]
     },
     {
-      "before": ["<S-tab>"],
-      "commands": ["workbench.action.previousEditor"]
+      "before": [
+        "<S-tab>"
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
     },
     {
-      "before": ["x"],
-      "after": ["C-b"]
+      "before": [
+        "<S-l>"
+      ],
+      "commands": [
+        "workbench.action.navigateEditorGroups"
+      ],
     },
     {
-      "before": ["z"],
-      "after": ["C-f"]
+      "before": [
+        "<leader>",
+        "e"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ],
+    },
+    {
+      "before": [
+        "[",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.next"
+      ],
+    },
+    {
+      "before": [
+        "]",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.prev"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "d"
+      ],
+      "commands": [
+        "editor.action.revealDefinition"
+      ],
+    },
+    {
+      "before": [
+        "v",
+        "s"
+      ],
+      "commands": [
+        "workbench.action.splitEditor"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "f"
+      ],
+      "commands": [
+        "editor.action.goToReferences"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "b"
+      ],
+      "commands": [
+        "workbench.action.navigateBack"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "a"
+      ],
+      "commands": [
+        "editor.action.quickFix"
+      ],
+    },
+    {
+      "before": [
+        "x"
+      ],
+      "after": [
+        "C-b"
+      ]
+    },
+    {
+      "before": [
+        "z"
+      ],
+      "after": [
+        "C-f"
+      ]
     }
   ],
   "explorer.confirmDelete": false,
