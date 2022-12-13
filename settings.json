@@ -96,8 +96,7 @@
     },
     {
       "before": [
-        "<leader>",
-        "e"
+        "<S-k>"
       ],
       "commands": [
         "editor.action.showHover"
