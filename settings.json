@@ -167,6 +167,15 @@
     },
     {
       "before": [
+        "<leader>",
+        "e"
+      ],
+      "commands": [
+        "workbench.view.explorer"
+      ],
+    },
+    {
+      "before": [
         "x"
       ],
       "after": [
