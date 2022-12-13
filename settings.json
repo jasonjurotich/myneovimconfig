@@ -227,11 +227,25 @@
     "tokio",
     "tokio-macros"
   ],
-  "workbench.activityBar.visible": false,
-  "activitusbar.views": [
-    {
-      "name": "scm",
-      "codicon": "source-control-view-icon"
-    },
-  ]
+ "git.allowForcePush": true,
+  "git.allowNoVerifyCommit": true,
+  "git.branchProtectionPrompt": "alwaysCommit",
+  "git.confirmEmptyCommits": false,
+  "git.confirmForcePush": false,
+  "git.confirmNoVerifyCommit": false,
+  "resmon.show.cputemp": true,
+  "explorer.confirmDragAndDrop": false,
+  "lldb.suppressUpdateNotifications": true,
+  "markdown.validate.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "code-runner.executorMapByGlob": {
+    "pom.xml": "cd $dir && mvn clean package"
+  },
+  "workbench.editor.enablePreview": false,
+  "vscode-postgres.virtualFolders": [
+    "functions"
+  ],
+  "workbench.editor.splitInGroupLayout": "vertical",
+  "workbench.activityBar.visible": false
 }
