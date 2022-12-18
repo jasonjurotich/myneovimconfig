@@ -61,7 +61,6 @@ vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 vim.diagnostic.config({ virtual_text = false })
 -- set leader key to space
 vim.g.mapleader = " "
-
 local keymap = vim.keymap -- for conciseness
 
 ---------------------
@@ -524,16 +523,19 @@ cmpnc.setup({
       select = true,
     }),
   }),
-
-  -- sources for autocompletion
+  window = {
+    completion = cmpnc.config.window.bordered({
+      -- https://github.com/hrsh7th/nvim-cmp/issues/671
+      -- winhighlight = "Normal:None,FloatBorder:None,CursorLine:None,Search:None",
+    }),
+    documentation = cmpnc.config.window.bordered(),
+  },
   sources = cmpnc.config.sources({
     { name = "nvim_lsp" }, -- lsp
     { name = "luasnip" }, -- snippets
     { name = "buffer" }, -- text within current buffer
     { name = "path" }, -- file system paths
   }),
-
-  -- configure lspkind for vs-code like icons
   formatting = {
     format = lspkind.cmp_format({
       maxwidth = 50,
@@ -682,3 +684,4 @@ require("rust-tools").setup({
     },
   },
 })
+
