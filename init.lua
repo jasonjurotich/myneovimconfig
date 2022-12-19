@@ -19,7 +19,6 @@ require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
   use("Mofiqul/vscode.nvim")
   use("nvim-lua/plenary.nvim")
-  use("mfussenegger/nvim-dap")
   use("mbbill/undotree")
   use("kdheepak/lazygit.nvim")
   use("junegunn/goyo.vim")
@@ -49,6 +48,15 @@ require("packer").startup(function(use)
   use("glepnir/lspsaga.nvim")
   use("jose-elias-alvarez/null-ls.nvim")
 
+  -- these are for git, do not delete, stil need to be configured
+  use("sindrets/diffview.nvim")
+  use("TimUntersberger/neogit")
+
+  -- these are for debugging, do not delete, still need to be configured
+  use("mfussenegger/nvim-dap")
+  use("puremourning/vimspector")
+
+    
   use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 
   use({
