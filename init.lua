@@ -143,7 +143,8 @@ vim.opt.smartcase = true
 vim.opt.mouse = "a"
 
 vim.opt.cursorline = false
--- vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes"
+
 
 vim.opt.termguicolors = true
 -- vim.opt.background = "dark"
