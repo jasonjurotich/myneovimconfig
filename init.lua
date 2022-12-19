@@ -1,3 +1,7 @@
+---------------------
+-- Packer
+---------------------
+
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -237,7 +241,7 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
 ---------------------
--- Packer
+-- Requirements
 ---------------------
 
 require("Comment").setup({
