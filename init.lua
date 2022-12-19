@@ -489,10 +489,9 @@ cmp.setup({
     }),
   }),
   window = {
-    scrollbar = nil,
-    scrolloff = 0,
+    
     completion = cmp.config.window.bordered({
-
+      scrollbar = false,
       -- https://www.youtube.com/watch?v=wcVcfozoTBM
       -- https://www.youtube.com/watch?v=uDPZ2yJS6os
       -- https://github.com/hrsh7th/nvim-cmp/issues/671
@@ -500,6 +499,7 @@ cmp.setup({
       winhighlight = "Normal:MyNormal,FloatBorder:MyFloatBorder,CursorLine:MyCursorLine,Search:None",
     }),
     documentation = cmp.config.window.bordered({
+      scrollbar = false,
       border = "rounded",
       winhighlight = "Normal:MyNormal,FloatBorder:MyFloatBorder,CursorLine:MyCursorLine,Search:None",
     }),
