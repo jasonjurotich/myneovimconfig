@@ -1,131 +1,3 @@
----------------------
--- Options
----------------------
-
-vim.opt.relativenumber = true
-vim.opt.number = true
-
-vim.opt.list = true
-
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.undofile = true
-
-vim.opt.wrap = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.mouse = "a"
-
-vim.opt.cursorline = false
--- vim.opt.signcolumn = "yes"
-
-vim.opt.termguicolors = true
--- vim.opt.background = "dark"
-vim.cmd([[colorscheme vscode]])
--- you cannot put spaces after commas in lua, causes an error
-vim.opt.backspace = "indent,eol,start"
-
--- see if this causes conflict with tmux
-vim.opt.clipboard:append("unnamedplus")
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-vim.opt.fillchars = "eob: "
-
--- this allows the dash to be part of a word like a normal letter
-vim.opt.iskeyword:append("-")
-
-vim.opt.shortmess:append("c")
-
-vim.opt.completeopt = "menu,menuone,noselect,noinsert"
-
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
--- vim.g.nvim_tree_width = 25
-
--- vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
--- vim.cmd([[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]])
--- vim.cmd([[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]])
--- vim.cmd([[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]])
--- vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
--- vim.cmd([[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])
--- vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
--- vim.cmd([[hi NormalNC guibg=NONE ctermbg=NONE]])
-
-vim.cmd([[inoremap ww println!("{:#?}",);<left><left>]])
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
-
-vim.diagnostic.config({ virtual_text = false })
--- set leader key to space
-vim.g.mapleader = " "
-local keymap = vim.keymap -- for conciseness
-
----------------------
--- General Keymaps
----------------------
-local opts = { noremap = true, silent = true }
-
-keymap.set("i", "tt", "<ESC>:w<CR>")
-keymap.set("t", "J", "<C-\\><C-N><C-W><C-W>")
-
-keymap.set("n", "Q", ":x<CR>") -- close current split window
-keymap.set("n", "L", "<C-W><C-W>")
-keymap.set("n", "H", "<C-W><C-H>")
-keymap.set("n", "gb", "<C-o>")
-keymap.set("n", "ss", "ZZ")
-keymap.set("n", "vs", ":vs<CR>")
-keymap.set("n", "te", ":ToggleTerm size=80 dir direction=vertical hidden=true <CR>")
-keymap.set("n", "<Tab>", ":bnext<CR>", opts)
-keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
-keymap.set("n", "<leader>db", ":w<CR>:Bdelete!<CR>")
-keymap.set("n", "gv", ":lua vim.lsp.buf.format()<CR>")
-keymap.set("n", "z", "<C-f>")
-keymap.set("n", "x", "<C-b>")
-keymap.set("n", "<leader>w", ":w<CR>")
-
-keymap.set("n", "<S-Up>", ":resize -2<CR>", opts)
-keymap.set("n", "<S-Down>", ":resize +2<CR>", opts)
-keymap.set("n", "<S-Left>", ":vertical resize -2<CR>", opts)
-keymap.set("n", "<S-Right>", ":vertical resize +2<CR>", opts)
-
--- window management
-keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
-
-keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
-keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
-keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
-
--- vim-maximizer
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
-
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-
--- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
-keymap.set("n", "<leader>fh", "<cmd>Telescope diagnostics<CR>", opts)
-
--- telescope git commands (not on youtube nvim video)
-keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
-keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
-keymap.set("n", "<leader>go", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
-keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
-
--- restart lsp server (not on youtube nvim video)
-keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-
----------------------
--- Packer
----------------------
-
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -141,7 +13,6 @@ local packer_bootstrap = ensure_packer()
 
 require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
-  use("lunarvim/darkplus.nvim")
   use("Mofiqul/vscode.nvim")
   use("nvim-lua/plenary.nvim")
   use("mfussenegger/nvim-dap")
@@ -236,11 +107,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 -- REQUIERS
-require("vscode").setup({
-  transparent = true,
-  italic_comments = true,
-  disable_nvimtree_bg = true,
-})
 
 local custom_vscode = require("lualine.themes.vscode")
 custom_vscode.normal.c.bg = "None"
@@ -252,6 +118,127 @@ require("lualine").setup({
     section_separators = "",
   },
 })
+
+---------------------
+-- Options
+---------------------
+
+vim.opt.relativenumber = true
+vim.opt.number = true
+
+vim.opt.list = true
+
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.undofile = true
+vim.opt.wrap = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.mouse = "a"
+
+vim.opt.cursorline = false
+-- vim.opt.signcolumn = "yes"
+
+vim.opt.termguicolors = true
+-- vim.opt.background = "dark"
+-- you cannot put spaces after commas in lua, causes an error
+vim.opt.backspace = "indent,eol,start"
+
+-- see if this causes conflict with tmux
+vim.opt.clipboard:append("unnamedplus")
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.fillchars = "eob: "
+
+-- this allows the dash to be part of a word like a normal letter
+vim.opt.iskeyword:append("-")
+
+vim.opt.shortmess:append("c")
+
+vim.opt.completeopt = "menu,menuone,noselect,noinsert"
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- vim.g.nvim_tree_width = 25
+
+-- vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
+-- vim.cmd([[hi NormalNC guibg=NONE ctermbg=NONE]])
+
+vim.cmd([[inoremap ww println!("{:#?}",);<left><left>]])
+vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
+
+vim.cmd([[colorscheme vscode]])
+vim.diagnostic.config({ virtual_text = false })
+-- set leader key to space
+vim.g.mapleader = " "
+local keymap = vim.keymap -- for conciseness
+
+---------------------
+-- General Keymaps
+---------------------
+local opts = { noremap = true, silent = true }
+
+keymap.set("i", "tt", "<ESC>")
+keymap.set("t", "J", "<C-\\><C-N><C-W><C-W>")
+
+keymap.set("n", "Q", ":x<CR>") -- close current split window
+keymap.set("n", "L", "<C-W><C-W>")
+keymap.set("n", "H", "<C-W><C-H>")
+keymap.set("n", "gb", "<C-o>")
+keymap.set("n", "ss", "ZZ")
+keymap.set("n", "vs", ":vs<CR>")
+keymap.set("n", "te", ":ToggleTerm size=80 dir direction=vertical hidden=true <CR>")
+keymap.set("n", "<Tab>", ":bnext<CR>", opts)
+keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
+keymap.set("n", "<leader>db", ":w<CR>:Bdelete!<CR>")
+keymap.set("n", "gv", ":lua vim.lsp.buf.format()<CR>")
+keymap.set("n", "z", "<C-f>")
+keymap.set("n", "x", "<C-b>")
+keymap.set("n", "<leader>w", ":w<CR>")
+
+keymap.set("n", "<S-Up>", ":resize -2<CR>", opts)
+keymap.set("n", "<S-Down>", ":resize +2<CR>", opts)
+keymap.set("n", "<S-Left>", ":vertical resize -2<CR>", opts)
+keymap.set("n", "<S-Right>", ":vertical resize +2<CR>", opts)
+
+-- window management
+keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
+keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
+
+keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
+keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
+keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
+keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
+
+-- vim-maximizer
+keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
+
+-- nvim-tree
+keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+
+-- telescope
+keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
+keymap.set("n", "<leader>fh", "<cmd>Telescope diagnostics<CR>", opts)
+
+-- telescope git commands (not on youtube nvim video)
+keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
+keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
+keymap.set("n", "<leader>go", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
+keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
+
+-- restart lsp server (not on youtube nvim video)
+keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+---------------------
+-- Packer
+---------------------
 
 require("Comment").setup({
   toggler = {
@@ -386,6 +373,10 @@ require("bufferline").setup({
       fg = { attribute = "fg", highlight = "blue" },
       bg = { attribute = "bg", highlight = "Normal" },
     },
+    fill = {
+      fg = { attribute = "fg", highlight = "Normal" },
+      bg = { attribute = "bg", highlight = "StatusLineNC" },
+    },
   },
 })
 
@@ -502,35 +493,58 @@ tel.setup({
   },
 })
 
+require("vscode").setup({
+  transparent = true,
+  italic_comments = true,
+  disable_nvimtree_bg = true,
+})
+
 local luasnip = require("luasnip")
 local lspkind = require("lspkind")
-local cmpnc = require("cmp")
-cmpnc.setup({
+
+require("luasnip/loaders/from_vscode").lazy_load()
+local cmp = require("cmp")
+
+-- ATTENTION! THESE MUST BE AFTER THE REQUIRE VSCODE PART OR THEY DO NOTHING
+vim.api.nvim_set_hl(0, "MyNormal", { bg = "None", fg = "White" })
+vim.api.nvim_set_hl(0, "MyFloatBorder", { bg = "None", fg = "#464140" })
+vim.api.nvim_set_hl(0, "MyCursorLine", { bg = "#837674", fg = "White" })
+
+cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
   },
-  mapping = cmpnc.mapping.preset.insert({
-    ["<S-Tab>"] = cmpnc.mapping.select_prev_item(), -- previous suggestion
-    ["<Tab>"] = cmpnc.mapping.select_next_item(), -- next suggestion
-    ["<C-d>"] = cmpnc.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmpnc.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmpnc.mapping.complete(), -- show completion suggestions
-    ["<C-e>"] = cmpnc.mapping.abort(), -- close completion window
-    ["<CR>"] = cmpnc.mapping.confirm({
-      behavior = cmpnc.ConfirmBehavior.Insert,
+  mapping = cmp.mapping.preset.insert({
+    ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+    ["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
+    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+    ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+    ["<CR>"] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     }),
   }),
   window = {
-    completion = cmpnc.config.window.bordered({
+    scrollbar = nil,
+    scrolloff = 0,
+    completion = cmp.config.window.bordered({
+
+      -- https://www.youtube.com/watch?v=wcVcfozoTBM
+      -- https://www.youtube.com/watch?v=uDPZ2yJS6os
       -- https://github.com/hrsh7th/nvim-cmp/issues/671
-      -- winhighlight = "Normal:None,FloatBorder:None,CursorLine:None,Search:None",
+      border = "rounded",
+      winhighlight = "Normal:MyNormal,FloatBorder:MyFloatBorder,CursorLine:MyCursorLine,Search:None",
     }),
-    documentation = cmpnc.config.window.bordered(),
+    documentation = cmp.config.window.bordered({
+      border = "rounded",
+      winhighlight = "Normal:MyNormal,FloatBorder:MyFloatBorder,CursorLine:MyCursorLine,Search:None",
+    }),
   },
-  sources = cmpnc.config.sources({
+  sources = cmp.config.sources({
     { name = "nvim_lsp" }, -- lsp
     { name = "luasnip" }, -- snippets
     { name = "buffer" }, -- text within current buffer
@@ -543,8 +557,6 @@ cmpnc.setup({
     }),
   },
 })
-
-local ll = require("luasnip/loaders/from_vscode").lazy_load()
 
 local cmplsps = require("lspsaga")
 cmplsps.init_lsp_saga({
@@ -684,4 +696,3 @@ require("rust-tools").setup({
     },
   },
 })
-
