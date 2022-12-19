@@ -56,8 +56,16 @@ require("packer").startup(function(use)
   use("mfussenegger/nvim-dap")
   use("puremourning/vimspector")
 
-    
-  use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+  use({
+		"tzachar/cmp-tabnine",
+		run = "./install.sh",
+	})
+
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "v3.*",
+		requires = "nvim-tree/nvim-web-devicons",
+	})
 
   use({
     "neovim/nvim-lspconfig",
