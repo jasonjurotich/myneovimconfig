@@ -62,6 +62,16 @@ require("packer").startup(function(use)
 		requires = "hrsh7th/nvim-cmp",
 	})
 
+	-- postgres integration
+	use({
+		"kristijanhusak/vim-dadbod-ui",
+		requires = {
+			"tpope/vim-dadbod",
+			"tpope/vim-dotenv",
+			"kristijanhusak/vim-dadbod-completion",
+		},
+	})
+
 	use({
 		"akinsho/bufferline.nvim",
 		tag = "v3.*",
@@ -181,6 +191,59 @@ vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 
 vim.cmd([[colorscheme vscode]])
 vim.diagnostic.config({ virtual_text = false })
+
+vim.g.db_ui_use_nerd_fonts = 1
+vim.g.db_ui_show_database_icon = 1
+vim.g.db_ui_force_echo_notifications = 1
+vim.g.db_ui_win_position = "left"
+vim.g.db_ui_winwidth = 30
+
+vim.g.db_ui_icons = {
+	expanded = {
+		db = "▾ ",
+		buffers = "▾ ",
+		saved_queries = "▾ ",
+		schemas = "▾ ",
+		schema = "▾ פּ",
+		tables = "▾ 藺",
+		table = "▾ ",
+	},
+	collapsed = {
+		db = "▸ ",
+		buffers = "▸ ",
+		saved_queries = "▸ ",
+		schemas = "▸ ",
+		schema = "▸ פּ",
+		tables = "▸ 藺",
+		table = "▸ ",
+	},
+	saved_query = "",
+	new_query = "璘",
+	tables = "離",
+	buffers = "﬘",
+	add_connection = "",
+	connection_ok = "✓",
+	connection_error = "✕",
+}
+
+vim.g.db_ui_table_helpers = {
+	postgres = {
+		Count = "select count(*) from {table}",
+		List = "select * from {table} order by id asc",
+	},
+	sqlite = {
+		Describe = "PRAGMA table_info({table})",
+	},
+}
+vim.g.db_ui_auto_execute_table_helpers = 1
+-- vim.keymap.set("n", "<leader><leader>db", ":tab DBUI<cr>", {})
+-- vim.keymap.set("n", "<leader><leader>tq", ":tabclose<cr>")
+
+-- PUT POSTGRES INFO HERE
+vim.g.dbs = {
+	dev = "postgres://postgres:mypassword@localhost:5432/my-dev-db",
+}
+
 -- set leader key to space
 vim.g.mapleader = " "
 local keymap = vim.keymap -- for conciseness
@@ -528,6 +591,7 @@ cmp.setup({
 		{ name = "buffer" }, -- text within current buffer
 		{ name = "path" }, -- file system paths
 		{ name = "cmp_tabnine" },
+		{ name = "vim-dadbod-completion" },
 	}),
 
 	formatting = {
