@@ -235,12 +235,12 @@ vim.g.db_ui_table_helpers = {
 		Describe = "PRAGMA table_info({table})",
 	},
 }
+
 vim.g.db_ui_auto_execute_table_helpers = 1
--- vim.keymap.set("n", "<leader><leader>db", ":tab DBUI<cr>", {})
--- vim.keymap.set("n", "<leader><leader>tq", ":tabclose<cr>")
 
 -- PUT POSTGRES INFO HERE
 vim.g.dbs = {
+	
 	dev = "postgres://postgres:mypassword@localhost:5432/my-dev-db",
 }
 
@@ -281,9 +281,11 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 
 keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
+keymap.set("n", "<leader>tu", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
+keymap.set("n", "<leader>dt", ":tab DBUI<cr>", {})
+keymap.set("n", "<leader>du", ":tabclose<CR>:bnext<CR>:Bdelete!<CR><C-W><C-W>ZZ", {})
 
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
@@ -538,6 +540,7 @@ local source_mapping = {
 	nvim_lua = "[Lua]",
 	cmp_tabnine = "[TN]",
 	path = "[Path]",
+	["vim-dadbod-completion"] = "[DB]",
 }
 
 require("luasnip/loaders/from_vscode").lazy_load()
@@ -591,7 +594,6 @@ cmp.setup({
 		{ name = "buffer" }, -- text within current buffer
 		{ name = "path" }, -- file system paths
 		{ name = "cmp_tabnine" },
-		{ name = "vim-dadbod-completion" },
 	}),
 
 	formatting = {
@@ -608,6 +610,15 @@ cmp.setup({
 			return vim_item
 		end,
 	},
+})
+
+local autocomplete_group = vim.api.nvim_create_augroup("vimrc_autocompletion", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "sql", "mysql", "plsql" },
+	callback = function()
+		cmp.setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
+	end,
+	group = autocomplete_group,
 })
 
 local cmplsps = require("lspsaga")
