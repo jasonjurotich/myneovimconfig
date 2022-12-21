@@ -96,6 +96,8 @@ require("packer").startup(function(use)
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
+			"amarakon/nvim-cmp-lua-latex-symbols",
+			"f3fora/cmp-spell",
 		},
 	})
 
@@ -179,6 +181,9 @@ vim.opt.shortmess:append("c")
 
 vim.opt.completeopt = "menu,menuone,noselect,noinsert"
 
+-- vim.opt.spell = true
+-- vim.opt.spelllang = { "en_us" }
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- vim.g.nvim_tree_width = 25
@@ -196,7 +201,7 @@ vim.g.db_ui_use_nerd_fonts = 1
 vim.g.db_ui_show_database_icon = 1
 vim.g.db_ui_force_echo_notifications = 1
 vim.g.db_ui_win_position = "left"
-vim.g.db_ui_winwidth = 30
+vim.g.db_ui_winwidth = 25
 
 vim.g.db_ui_icons = {
 	expanded = {
@@ -243,6 +248,7 @@ vim.g.dbs = {
 	
 	dev = "postgres://postgres:mypassword@localhost:5432/my-dev-db",
 }
+vim.g.db_ui_save_location = "~/Documents/RUSTDEV/POSTGRS"
 
 -- set leader key to space
 vim.g.mapleader = " "
@@ -256,7 +262,8 @@ local opts = { noremap = true, silent = true }
 keymap.set("i", "tt", "<ESC>")
 keymap.set("t", "J", "<C-\\><C-N><C-W><C-W>")
 
-keymap.set("n", "Q", ":x<CR>") -- close current split window
+keymap.set("n", "Q", ":x<CR>")
+keymap.set("n", "W", ":x<CR>:x<CR>")
 keymap.set("n", "L", "<C-W><C-W>")
 keymap.set("n", "H", "<C-W><C-H>")
 keymap.set("n", "gb", "<C-o>")
@@ -270,6 +277,7 @@ keymap.set("n", "gv", ":lua vim.lsp.buf.format()<CR>")
 keymap.set("n", "z", "<C-f>")
 keymap.set("n", "x", "<C-b>")
 keymap.set("n", "<leader>w", ":w<CR>")
+keymap.set("n", "<leader>r", ":res +20<CR>")
 
 keymap.set("n", "<S-Up>", ":resize -2<CR>", opts)
 keymap.set("n", "<S-Down>", ":resize +2<CR>", opts)
@@ -386,12 +394,25 @@ require("toggleterm").setup({
 })
 
 local Terminal = require("toggleterm.terminal").Terminal
+
 local spotify = Terminal:new({ cmd = "spt", hidden = true, direction = "float" })
 function _SPOTIFY()
 	spotify:toggle()
 end
 
 vim.api.nvim_set_keymap("n", "sp", "<cmd>lua _SPOTIFY()<CR>", { noremap = true, silent = true })
+
+local dbss = Terminal:new({
+	cmd = "nvim -c :DBUI",
+	hidden = true,
+	direction = "float",
+})
+
+function _DBSS()
+	dbss:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "sn", "<cmd>lua _DBSS()<CR>", { noremap = true, silent = true })
 
 require("nvim-treesitter.configs").setup({
 	highlight = {
@@ -424,6 +445,7 @@ require("nvim-treesitter.configs").setup({
 		"dockerfile",
 		"gitignore",
 		"rust",
+		"latex",
 	},
 	-- auto install above language parsers
 	auto_install = true,
@@ -442,6 +464,7 @@ require("mason-lspconfig").setup({
 		"jsonls",
 		"marksman",
 		"taplo",
+		"ltex",
 	},
 	automatic_installation = true,
 })
@@ -475,6 +498,7 @@ null_ls.setup({
 		formatting.rustfmt, -- rust formatter
 		formatting.prettier, -- js/ts formatter
 		formatting.stylua, -- lua formatter
+		formatting.markdownlint,
 		diagnostics.eslint_d.with({
 			condition = function(utils)
 				return utils.root_has_file(".eslintrc.js")
@@ -536,10 +560,11 @@ local lspkind = require("lspkind")
 
 local source_mapping = {
 	buffer = "[Buffer]",
+	path = "[Path]",
 	nvim_lsp = "[LSP]",
 	nvim_lua = "[Lua]",
 	cmp_tabnine = "[TN]",
-	path = "[Path]",
+	spell = "[SP]",
 	["vim-dadbod-completion"] = "[DB]",
 }
 
@@ -550,6 +575,9 @@ local cmp = require("cmp")
 vim.api.nvim_set_hl(0, "MyNormal", { bg = "None", fg = "White" })
 vim.api.nvim_set_hl(0, "MyFloatBorder", { bg = "None", fg = "#464140" })
 vim.api.nvim_set_hl(0, "MyCursorLine", { bg = "#837674", fg = "White" })
+
+-- for future sources
+-- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
 
 cmp.setup({
 
@@ -594,6 +622,16 @@ cmp.setup({
 		{ name = "buffer" }, -- text within current buffer
 		{ name = "path" }, -- file system paths
 		{ name = "cmp_tabnine" },
+		{ name = "lua-latex-symbols", option = { cache = true } },
+		{
+			name = "spell",
+			option = {
+				keep_all_entries = false,
+				enable_in_context = function()
+					return true
+				end,
+			},
+		},
 	}),
 
 	formatting = {
@@ -691,20 +729,20 @@ require("lualine").setup({
 
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
-	local opts = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set("n", "gl", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
-	vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
-	vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-	vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
-	vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-	vim.keymap.set("n", "gD", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
-	vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
-	vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
-	vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
-	vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-	vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
-	vim.keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
+	local opts1 = { noremap = true, silent = true, buffer = bufnr }
+	vim.keymap.set("n", "gl", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts1) -- show diagnostics for cursor
+	vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts1) -- show definition, references
+	vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts1) -- got to declaration
+	vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts1) -- go to implementation
+	vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>", opts1) -- see available code actions
+	vim.keymap.set("n", "gD", "<cmd>Lspsaga peek_definition<CR>", opts1) -- see definition and make edits in window
+	vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts1) -- smart rename
+	vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts1) -- show  diagnostics for line
+	vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts1)
+	vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts1) -- jump to previous diagnostic in buffer
+	vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts1) -- jump to next diagnostic in buffer
+	vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts1) -- show documentation for what is under cursor
+	vim.keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts1) -- see outline on right hand side
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -732,6 +770,13 @@ require("lspconfig")["html"].setup({
 require("lspconfig")["cssls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+})
+
+-- configure ltex server
+require("lspconfig")["ltex"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex" },
 })
 
 -- configure tailwindcss server
