@@ -181,10 +181,16 @@ vim.opt.shortmess:append("c")
 
 vim.opt.completeopt = "menu,menuone,noselect,noinsert"
 
+-- vim.opt.spell = true
 vim.opt.spelllang = { "en_us" }
-vim.cmd([[autocmd FileType markdown setlocal spell]])
-vim.cmd([[autocmd FileType markdown setlocal complete+=kspell]])
-
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "html", "markdown", "text" },
+	callback = function()
+		vim.opt_local.spell = true
+	end,
+})
+-- vim.cmd([[autocmd FileType markdown setlocal spell]])
+-- vim.cmd([[autocmd FileType markdown setlocal complete+=kspell]])
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -318,6 +324,10 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+vim.keymap.set("n", "<leader>s", function()
+	require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))
+end, { desc = "Spelling Suggestions" })
 
 ---------------------
 -- Requirements
@@ -628,7 +638,7 @@ cmp.setup({
 		{
 			name = "spell",
 			option = {
-				keep_all_entries = false,
+				keep_all_entries = true,
 				enable_in_context = function()
 					return true
 				end,
@@ -775,12 +785,17 @@ require("lspconfig")["cssls"].setup({
 })
 
 -- configure ltex server
-require("lspconfig")["ltex"].setup({
+-- require("lspconfig")["ltex"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
+
+-- markdown
+require("lspconfig")["marksman"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex" },
 })
-
+--
 -- configure tailwindcss server
 require("lspconfig")["tailwindcss"].setup({
 	capabilities = capabilities,
