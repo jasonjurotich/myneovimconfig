@@ -10,13 +10,10 @@ local function font_with_fallback(name, params)
 	return wezterm.font_with_fallback(names, params)
 end
 
-local fonts = {
-	"Hack Nerd Font Mono",
-}
-
-local font = fonts[2]
+local font = "Hack Nerd Font Mono"
 
 return {
+	color_scheme = "ayu",
 	-- General configuration
 	set_environment_variables = {
 		COLORTERM = "truecolor",
@@ -52,16 +49,15 @@ return {
 	},
 	font_size = 15,
 	use_resize_increments = true,
-	line_height = 1.0,
-	color_scheme = "Abernathy",
+	line_height = 1.2,
+	cell_width = 1.0,
 
 	-- window_background_opacity = 0.8,
-	-- Background
 	window_background_image = "/Users/jj/Documents/GERMANCASTLE.jpg",
 	window_background_image_hsb = {
 		brightness = 0.08,
-		-- 	hue = 1,
-		-- 	saturation = 1,
+		hue = 1,
+		saturation = 1,
 	},
 	colors = {
 		ansi = {
