@@ -19,7 +19,7 @@ return {
 		COLORTERM = "truecolor",
 	},
 	bold_brightens_ansi_colors = true,
-	custom_block_glyphs = false,
+	custom_block_glyphs = true,
 
 	scrollback_lines = 50000,
 	audible_bell = "Disabled",
