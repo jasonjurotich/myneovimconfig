@@ -181,8 +181,10 @@ vim.opt.shortmess:append("c")
 
 vim.opt.completeopt = "menu,menuone,noselect,noinsert"
 
--- vim.opt.spell = true
--- vim.opt.spelllang = { "en_us" }
+vim.opt.spelllang = { "en_us" }
+vim.cmd([[autocmd FileType markdown setlocal spell]])
+vim.cmd([[autocmd FileType markdown setlocal complete+=kspell]])
+
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
