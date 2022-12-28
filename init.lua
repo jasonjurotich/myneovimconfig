@@ -142,7 +142,7 @@ end)
 ---------------------
 -- Options
 ---------------------
-
+vim.g.rust_recommended_style = 0
 vim.opt.relativenumber = true
 vim.opt.number = true
 
