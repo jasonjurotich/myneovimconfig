@@ -1,0 +1,50 @@
+theme = "dark_plus"
+
+[editor]
+line-number = "relative"
+mouse = true
+middle-click-paste = true
+auto-completion = true
+idle-timeout = 0
+completion-trigger-len = 2
+auto-info = true
+auto-save = true
+auto-format = true
+auto-pairs = true
+true-color = true
+color-modes = true
+gutters = ["diagnostics", "line-numbers"]
+bufferline = "multiple"
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+
+[editor.indent-guides]
+render = true
+character =  "▏"
+skip-levels = 0
+
+[editor.lsp]
+display-messages = true
+auto-signature-help = true
+display-signature-help-docs = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.insert]
+t = { t = "normal_mode" }
+w = { w = ":pipe echo 'println!(\"{:?}\",)'"}
+# w = { w = [":pipe echo 'fmt.Println(\"-----> \")'", "move_cursor_left*2"]}
+# w = { w = [":pipe echo 'whattheheck'", "move_next_word_end", "move_char_left"]}
+# w = { w = [":pipe echo 'println!({:?},)'", "move_next_word_end", "move_next_word_end"]}
+
+[keys.normal]
+Q = ":x"
+R = ":reflow"
+v = {s = ":vs"}
