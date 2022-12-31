@@ -1,6 +1,7 @@
 alias dh='git add -A && git commit -m "updated" && git push'
 alias dg='git reset --hard HEAD && git clean -f -d && git pull'
 alias py='python3'
+alias pq='psql postgres'
 alias ex='exit'
 alias cl='clear'                                                                                              
 alias v='nvim'
