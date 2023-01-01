@@ -770,6 +770,7 @@ require("lualine").setup({
 		theme = custom_vscode,
 		component_separators = "|",
 		section_separators = "",
+		path = 2
 	},
 })
 
