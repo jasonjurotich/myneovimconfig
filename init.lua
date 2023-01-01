@@ -410,6 +410,7 @@ require("toggleterm").setup({
 
 local Terminal = require("toggleterm.terminal").Terminal
 
+-- SPOTIFY
 local spotify = Terminal:new({ cmd = "spt", hidden = true, direction = "float" })
 function _SPOTIFY()
 	spotify:toggle()
@@ -417,6 +418,15 @@ end
 
 vim.api.nvim_set_keymap("n", "sp", "<cmd>lua _SPOTIFY()<CR>", { noremap = true, silent = true })
 
+-- BOTTOM
+local bottom = Terminal:new({ cmd = "btm", hidden = true, direction = "float" })
+function _BOTTOM()
+	bottom:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "bm", "<cmd>lua _BOTTOM()<CR>", { noremap = true, silent = true })
+
+-- POSTGRES
 local dbss = Terminal:new({
 	cmd = "nvim -c :DBUI",
 	hidden = true,
@@ -429,6 +439,7 @@ end
 
 vim.api.nvim_set_keymap("n", "sn", "<cmd>lua _DBSS()<CR>", { noremap = true, silent = true })
 
+-- TREESITTER
 require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
