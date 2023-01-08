@@ -335,6 +335,7 @@ keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>fp", "<cmd>Telescope find_files cwd=~/<cr>") -- find files within root directory
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
@@ -574,8 +575,11 @@ tel.setup({
 	defaults = {
 		mappings = {
 			i = {
-				["<C-k>"] = actions.move_selection_previous, -- move to prev result
-				["<C-j>"] = actions.move_selection_next, -- move to next result
+								["<leader>q"] = actions.close, -- move to prev result
+				["<leader>e"] = actions.preview_scrolling_up, -- move to prev result
+				["<leader>d"] = actions.preview_scrolling_down, -- move to prev result
+				["<S-Tab>"] = actions.move_selection_previous, -- move to prev result
+				["<Tab>"] = actions.move_selection_next, -- move to next result
 				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
 			},
 		},
