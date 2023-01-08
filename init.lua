@@ -445,7 +445,7 @@ function _BOTTOM()
 	bottom:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "bm", "<cmd>lua _BOTTOM()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "mb", "<cmd>lua _BOTTOM()<CR>", { noremap = true, silent = true })
 
 -- POSTGRES
 local dbss = Terminal:new({
