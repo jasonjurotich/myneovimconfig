@@ -575,7 +575,8 @@ tel.setup({
 	defaults = {
 		mappings = {
 			i = {
-								["<leader>q"] = actions.close, -- move to prev result
+				["<leader>q"] = actions.close, -- move to prev result
+				["<leader>v"] = actions.select_vertical, -- open vertically
 				["<leader>e"] = actions.preview_scrolling_up, -- move to prev result
 				["<leader>d"] = actions.preview_scrolling_down, -- move to prev result
 				["<S-Tab>"] = actions.move_selection_previous, -- move to prev result
