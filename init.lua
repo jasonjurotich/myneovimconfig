@@ -203,6 +203,7 @@ vim.opt.shortmess:append("c")
 vim.opt.completeopt = "menu,menuone,noselect,noinsert"
 
 -- vim.opt.spell = true
+vim.g.loaded_spellfile_plugin = 0
 vim.opt.spelllang = { "en_us", "es_mx" }
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "html", "markdown", "text" },
