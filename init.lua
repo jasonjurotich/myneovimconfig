@@ -203,6 +203,7 @@ vim.opt.shortmess:append("c")
 vim.opt.completeopt = "menu,menuone,noselect,noinsert"
 
 -- vim.opt.spell = true
+vim.g.spellfile_URL = "https://ftp.nluug.nl/vim/runtime/spell/"
 vim.g.loaded_spellfile_plugin = 0
 vim.opt.spelllang = { "en_us", "es_mx" }
 vim.api.nvim_create_autocmd("FileType", {
@@ -848,10 +849,15 @@ require("lspconfig")["cssls"].setup({
 })
 
 -- configure ltex server
--- require("lspconfig")["ltex"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
+-- you need to run brew install ltex-ls first
+-- still does not work correctly and does not have spanish
+require("lspconfig")["ltex"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	cmd = { "ltex-ls" },
+	filetypes = { "markdown", "text" },
+	flags = { debounce_text_changes = 300 },
+})
 
 -- markdown
 require("lspconfig")["marksman"].setup({
