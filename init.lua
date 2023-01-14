@@ -203,6 +203,11 @@ vim.opt.shortmess:append("c")
 vim.opt.completeopt = "menu,menuone,noselect,noinsert"
 
 -- vim.opt.spell = true
+-- https://github.com/neovim/neovim/blob/master/runtime/autoload/spellfile.vim
+-- for Neovim you have to first create the folder .config/nvim/spell
+-- Then you have to download es.utf-8.spl from https://ftp.nluug.nl/vim/runtime/spell/
+-- Then you put that file in the new folder.
+
 vim.g.spellfile_URL = "https://ftp.nluug.nl/vim/runtime/spell/"
 vim.g.loaded_spellfile_plugin = 0
 vim.opt.spelllang = { "en_us", "es_mx" }
