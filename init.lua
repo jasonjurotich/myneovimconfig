@@ -359,6 +359,9 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
+-- goyo
+keymap.set("n", "<leader>gy", ":Goyo 80<CR>") -- mapping to restart lsp if necessary
+
 vim.keymap.set("n", "<leader>s", function()
 	require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))
 end, { desc = "Spelling Suggestions" })
@@ -950,3 +953,28 @@ require("rust-tools").setup({
 		},
 	},
 })
+
+local augroup2 = vim.api.nvim_create_augroup("goyo_cmds", { clear = true })
+local autocmd = vim.api.nvim_create_autocmd
+
+vim.g.goyo_height = "100%"
+-- vim.g.limelight_conceal_ctermfg = 800
+vim.g.limelight_conceal_guifg = "#808080"
+vim.g.limelight_default_coefficient = 0.1
+vim.g.limelight_priority = -1
+vim.g.limelight_paragraph_span = 0
+
+local enter = function()
+	vim.opt.wrap = true
+	vim.opt.linebreak = true
+	vim.cmd("Limelight")
+end
+
+local leave = function()
+	vim.opt.wrap = false
+	vim.opt.linebreak = false
+	vim.cmd("Limelight!")
+end
+
+autocmd("User", { pattern = "GoyoEnter", group = augroup2, callback = enter })
+autocmd("User", { pattern = "GoyoLeave", group = augroup2, callback = leave })
