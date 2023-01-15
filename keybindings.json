@@ -13,7 +13,7 @@
   },
   {
     "key": "cmd+j",
-    "command": "workbench.action.toggleAuxiliaryBar"
+    "command": "workbench.action.terminal.toggleTerminal"
   },
   {
     "key": "alt+j",
@@ -26,10 +26,6 @@
   {
     "key": "cmd+k",
     "command": "workbench.action.openGlobalKeybindings"
-  },
-  {
-    "key": "cmd+\\",
-    "command": "workbench.action.splitEditor"
   },
   {
     "key": "alt+d",
@@ -88,27 +84,8 @@
     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
   },
   {
-    "key": "shift+cmd+e",
-    "command": "editor.action.marker.next",
-    "when": "editorFocus"
-  },
-  {
     "key": "shift+cmd+s",
     "command": "remoteHub.commit"
-  },
-  {
-    "key": "shift+k",
-    "command": "editor.action.showHover",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "cmd+o",
-    "command": "editor.action.revealDefinition",
-    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-  },
-  {
-    "key": "cmd+l",
-    "command": "workbench.action.navigateBack",
   },
   {
     "key": "ctrl+cmd+left",
@@ -119,7 +96,51 @@
     "command": "workbench.action.increaseViewSize"
   },
   {
-    "key": "shift+l",
-    "command": "workbench.action.navigateEditorGroups"
+    "key": "cmd+shift+k",
+    "command": "workbench.action.terminal.focusNext"
+  },
+  {
+    "key": "cmd+shift+j",
+    "command": "workbench.action.terminal.focusPrevious"
+  },
+  {
+    "key": "f5",
+    "command": "workbench.action.debug.continue",
+    "when": "debugState == 'stopped'"
+  },
+  {
+    "key": "f5",
+    "command": "-workbench.action.debug.continue",
+    "when": "debugState == 'stopped'"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "-workbench.view.debug",
+    "when": "viewContainer.workbench.view.debug.enabled"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "vscode-postgres.runQuery",
+    "when": "editorLangId == 'postgres'"
+  },
+  {
+    "key": "f5",
+    "command": "-vscode-postgres.runQuery",
+    "when": "editorLangId == 'postgres'"
+  },
+  {
+    "key": "enter",
+    "command": "-filesExplorer.openFilePreserveFocus",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "space r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "space k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
 ]
