@@ -32,7 +32,6 @@
   "notebook.output.textLineLimit": 50,
   "workbench.startupEditor": "none",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.editor.enablePreview": false,
   "gitlens.advanced.messages": {
     "suppressGitMissingWarning": true
   },
@@ -48,7 +47,7 @@
   "markdown.preview.fontSize": 15,
   "indentRainbow.updateDelay": 1000,
   "vsicons.dontShowNewVersionMessage": true,
-  "backgroundCover.imagePath": "/Users/jj/Downloads/GERMANCASTLE.jpg",
+  "backgroundCover.imagePath": "/Users/jj/Documents/RUSTDEV/rustglobal/GERMANCASTLE.jpg",
   "settingsSync.keybindingsPerPlatform": false,
   "remoteHub.commitDirectlyWarning": "off",
   "vim.vimrc.enable": true,
@@ -56,21 +55,31 @@
   "vim.cursorStylePerMode.normal": "block",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["t","t"],
-      "after": ["<Esc>"]
+      "before": [
+        "t",
+        "t"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     },
     {
-      "before": ["w","w"],
+      "before": [
+        "w",
+        "w"
+      ],
       "commands": [
         {
           "command": "editor.action.insertSnippet",
-          "args": { "snippet": "println!(\"{:#?}\",$0);"}
+          "args": {
+            "snippet": "println!(\"{:#?}\",$0);"
+          }
         }
       ],
     },
   ],
   "vim.normalModeKeyBindings": [
-       {
+    {
       "before": [
         "<tab>"
       ],
@@ -96,7 +105,7 @@
     },
     {
       "before": [
-        "<S-k>"
+        "<S-k>",
       ],
       "commands": [
         "editor.action.showHover"
@@ -171,7 +180,25 @@
         "e"
       ],
       "commands": [
-        "workbench.view.explorer"
+        "workbench.action.toggleSidebarVisibility"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "k"
+      ],
+      "commands": [
+        "workbench.action.focusActiveEditorGroup"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "o"
+      ],
+      "commands": [
+        "workbench.action.focusSideBar"
       ],
     },
     {
@@ -191,6 +218,7 @@
       ]
     }
   ],
+  "vim.leader": "<space>",
   "explorer.confirmDelete": false,
   "files.exclude": {
     "": true,
@@ -231,17 +259,18 @@
   "markdown.experimental.editor.pasteLinks.enabled": true,
   "editor.experimental.pasteActions.enabled": true,
   "editor.linkedEditing": true,
-  "rust-analyzer.cargo.unsetTest":[
+  "rust-analyzer.cargo.unsetTest": [
     "tokio",
     "tokio-macros"
   ],
- "git.allowForcePush": true,
+  "git.allowForcePush": true,
   "git.allowNoVerifyCommit": true,
   "git.branchProtectionPrompt": "alwaysCommit",
   "git.confirmEmptyCommits": false,
   "git.confirmForcePush": false,
   "git.confirmNoVerifyCommit": false,
   "resmon.show.cputemp": true,
+  "resmon.disk.drives": false,
   "explorer.confirmDragAndDrop": false,
   "lldb.suppressUpdateNotifications": true,
   "markdown.validate.enabled": true,
@@ -255,5 +284,7 @@
     "functions"
   ],
   "workbench.editor.splitInGroupLayout": "vertical",
+  "editor.inlayHints.enabled": "off",
+  "indentRainbow.indicatorStyle": "light",
   "workbench.activityBar.visible": false
 }
