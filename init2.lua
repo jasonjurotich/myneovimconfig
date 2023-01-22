@@ -1,5 +1,5 @@
 ---------------------
--- Packer
+-- packer
 ---------------------
 
 local ensure_packer = function()
@@ -15,13 +15,13 @@ end
 local packer_bootstrap = ensure_packer()
 
 -- you can use lazy git to configure everything if something breaks in the future
--- https://github.com/VonHeikemen/lsp-zero.nvim/blob/main/advance-usage.md
+-- https://github.com/vonheikemen/lsp-zero.nvim/blob/main/advance-usage.md
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/plenary.nvim")
 
 	-- color
-	use("Mofiqul/vscode.nvim")
+	use("mofiqul/vscode.nvim")
 
 	-- writing
 	use("junegunn/goyo.vim")
@@ -29,7 +29,7 @@ require("packer").startup(function(use)
 	use("junegunn/limelight.vim")
 
 	-- auto save
-	use("Pocco81/auto-save.nvim")
+	use("pocco81/auto-save.nvim")
 
 	-- time worked
 	use("wakatime/vim-wakatime")
@@ -40,44 +40,44 @@ require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("akinsho/toggleterm.nvim")
 	use("nvim-lualine/lualine.nvim")
-	use("numToStr/Comment.nvim")
+	use("numtostr/comment.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("moll/vim-bbye")
 	use("szw/vim-maximizer")
 
-	-- NVIM TREE
+	-- nvim tree
 	use("nvim-tree/nvim-tree.lua")
 	use("nvim-tree/nvim-web-devicons")
 
 	-- autocompletion, must be before lsp
-	use("hrsh7th/nvim-cmp") -- Required
-	use("hrsh7th/cmp-nvim-lsp") -- Required
-	use("hrsh7th/cmp-buffer") -- Optional
-	use("hrsh7th/cmp-path") -- Optional
-	use("saadparwaiz1/cmp_luasnip") -- Optional
-	use("hrsh7th/cmp-nvim-lua") -- Optional
+	use("hrsh7th/nvim-cmp") -- required
+	use("hrsh7th/cmp-nvim-lsp") -- required
+	use("hrsh7th/cmp-buffer") -- optional
+	use("hrsh7th/cmp-path") -- optional
+	use("saadparwaiz1/cmp_luasnip") -- optional
+	use("hrsh7th/cmp-nvim-lua") -- optional
 	use("onsails/lspkind.nvim")
 
-	-- Snippets
-	use("L3MON4D3/LuaSnip") -- Required
-	use("rafamadriz/friendly-snippets") -- Optional
+	-- snippets
+	use("l3mon4d3/luasnip") -- required
+	use("rafamadriz/friendly-snippets") -- optional
 
-	-- install LSP package manager, must be before lsp
+	-- install lsp package manager, must be before lsp
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 
-	-- NULL LS for formatting and linting
+	-- null ls for formatting and linting
 	use("jayp0521/mason-null-ls.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 
-	-- LSP
+	-- lsp
 	use("neovim/nvim-lspconfig")
 	use("simrat39/rust-tools.nvim")
 
-	-- DAP
+	-- dap
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
-	use("theHamsta/nvim-dap-virtual-text")
+	use("thehamsta/nvim-dap-virtual-text")
 
 	-- bufferline
 	use({
@@ -117,7 +117,7 @@ require("packer").startup(function(use)
 	-- formating and linting with null
 	use("jose-elias-alvarez/null-ls.nvim")
 
-	-- GIT
+	-- git
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -125,14 +125,14 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	-- TAB NINE
+	-- tab nine
 	use({
 		"tzachar/cmp-tabnine",
 		run = "./install.sh",
 		requires = "hrsh7th/nvim-cmp",
 	})
 
-	-- POSTGRES
+	-- postgres
 	use({
 		"kristijanhusak/vim-dadbod-ui",
 		requires = {
@@ -148,7 +148,7 @@ require("packer").startup(function(use)
 end)
 
 ---------------------
--- Options
+-- options
 ---------------------
 vim.g.rust_recommended_style = 0
 vim.opt.ls = 0
@@ -192,31 +192,31 @@ vim.opt.shortmess:append("c")
 
 vim.opt.completeopt = "menu,menuone,noselect,noinsert"
 
--- DO NOT ERASE, INFO FOR SPELLING!
+-- do not erase, info for spelling!
 -- vim.opt.spell = true
 -- https://github.com/neovim/neovim/blob/master/runtime/autoload/spellfile.vim
--- for Neovim you have to first create the folder .config/nvim/spell
--- Then you have to download es.utf-8.spl from https://ftp.nluug.nl/vim/runtime/spell/
--- Then you put that file in the new folder.
+-- for neovim you have to first create the folder .config/nvim/spell
+-- then you have to download es.utf-8.spl from https://ftp.nluug.nl/vim/runtime/spell/
+-- then you put that file in the new folder.
 
-vim.g.spellfile_URL = "https://ftp.nluug.nl/vim/runtime/spell/"
+vim.g.spellfile_url = "https://ftp.nluug.nl/vim/runtime/spell/"
 vim.g.loaded_spellfile_plugin = 0
 vim.opt.spelllang = { "en_us", "es_mx" }
-vim.api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd("filetype", {
 	pattern = { "html", "markdown", "text" },
 	callback = function()
 		vim.opt_local.spell = true
 	end,
 })
--- vim.cmd([[autocmd FileType markdown setlocal spell]])
--- vim.cmd([[autocmd FileType markdown setlocal complete+=kspell]])
+-- vim.cmd([[autocmd filetype markdown setlocal spell]])
+-- vim.cmd([[autocmd filetype markdown setlocal complete+=kspell]])
 
 vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrwplugin = 1
 -- vim.g.nvim_tree_width = 25
 
 vim.cmd([[inoremap ww println!("{:#?}",);<left><left>]])
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
+vim.cmd([[autocmd bufwritepre * lua vim.lsp.buf.format()]])
 
 vim.cmd([[colorscheme vscode]])
 vim.diagnostic.config({ virtual_text = false })
@@ -257,121 +257,121 @@ vim.g.db_ui_icons = {
 
 vim.g.db_ui_table_helpers = {
 	postgres = {
-		Count = "select count(*) from {table}",
-		List = "select * from {table} order by id asc",
+		count = "select count(*) from {table}",
+		list = "select * from {table} order by id asc",
 	},
 	sqlite = {
-		Describe = "PRAGMA table_info({table})",
+		describe = "pragma table_info({table})",
 	},
 }
 
 vim.g.db_ui_auto_execute_table_helpers = 1
 
--- PUT POSTGRES INFO HERE
+-- put postgres info here
 vim.g.dbs = {
 
 	dev = "postgres://postgres:mypassword@localhost:5432/my-dev-db",
 }
-vim.g.db_ui_save_location = "~/Documents/RUSTDEV/POSTGRS"
+vim.g.db_ui_save_location = "~/documents/rustdev/postgrs"
 
 -- set leader key to space
 vim.g.mapleader = " "
 local keymap = vim.keymap -- for conciseness
 
 ---------------------
--- General Keymaps
+-- general keymaps
 ---------------------
 local opts = { noremap = true, silent = true }
 
-keymap.set("i", "tt", "<ESC>")
-keymap.set("t", "J", "<C-\\><C-N><C-W><C-W>")
-keymap.set("t", "kj", "<C-\\><C-N>")
-keymap.set("t", "<C-j>", "<Cmd>wincmd j<CR>")
-keymap.set("t", "<C-k>", "<Cmd>wincmd k<CR>")
+keymap.set("i", "tt", "<esc>")
+keymap.set("t", "j", "<c-\\><c-n><c-w><c-w>")
+keymap.set("t", "kj", "<c-\\><c-n>")
+keymap.set("t", "<c-j>", "<cmd>wincmd j<cr>")
+keymap.set("t", "<c-k>", "<cmd>wincmd k<cr>")
 
-keymap.set("n", "Q", ":x<CR>")
-keymap.set("n", "W", ":x<CR>:x<CR>")
-keymap.set("n", "L", "<C-W><C-W>")
-keymap.set("n", "H", "<C-W><C-H>")
-keymap.set("n", "gb", "<C-o>")
-keymap.set("n", "ss", "ZZ")
-keymap.set("n", "vs", ":vs<CR>")
-keymap.set("n", "<Tab>", ":bnext<CR>", opts)
-keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
-keymap.set("n", "<leader>db", ":w<CR>:Bdelete!<CR>")
-keymap.set("n", "gv", ":lua vim.lsp.buf.format()<CR>")
-keymap.set("n", "z", "<C-f>")
-keymap.set("n", "x", "<C-b>")
-keymap.set("n", "<leader>w", ":w<CR>")
+keymap.set("n", "q", ":x<cr>")
+keymap.set("n", "w", ":x<cr>:x<cr>")
+keymap.set("n", "l", "<c-w><c-w>")
+keymap.set("n", "h", "<c-w><c-h>")
+keymap.set("n", "gb", "<c-o>")
+keymap.set("n", "ss", "zz")
+keymap.set("n", "vs", ":vs<cr>")
+keymap.set("n", "<tab>", ":bnext<cr>", opts)
+keymap.set("n", "<s-tab>", ":bprevious<cr>", opts)
+keymap.set("n", "<leader>db", ":w<cr>:bdelete!<cr>")
+keymap.set("n", "gv", ":lua vim.lsp.buf.format()<cr>")
+keymap.set("n", "z", "<c-f>")
+keymap.set("n", "x", "<c-b>")
+keymap.set("n", "<leader>w", ":w<cr>")
 keymap.set("n", "<leader>5", "g_")
-keymap.set("n", "<leader>r", ":res +20<CR>")
+keymap.set("n", "<leader>r", ":res +20<cr>")
 
-keymap.set("n", "<S-Up>", ":resize -2<CR>", opts)
-keymap.set("n", "<S-Down>", ":resize +2<CR>", opts)
-keymap.set("n", "<S-Left>", ":vertical resize -2<CR>", opts)
-keymap.set("n", "<S-Right>", ":vertical resize +2<CR>", opts)
+keymap.set("n", "<s-up>", ":resize -2<cr>", opts)
+keymap.set("n", "<s-down>", ":resize +2<cr>", opts)
+keymap.set("n", "<s-left>", ":vertical resize -2<cr>", opts)
+keymap.set("n", "<s-right>", ":vertical resize +2<cr>", opts)
 
 -- window management
-keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
+keymap.set("n", "<leader>sh", "<c-w>s") -- split window horizontally
+keymap.set("n", "<leader>se", "<c-w>=") -- make split windows equal width & height
 
-keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
-keymap.set("n", "<leader>tu", ":tabclose<CR>") -- close current tab
-keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
-keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
-keymap.set("n", "<leader>dt", ":tab DBUI<cr>", {})
-keymap.set("n", "<leader>du", ":tabclose<CR>:bnext<CR>:Bdelete!<CR><C-W><C-W>ZZ", {})
+keymap.set("n", "<leader>to", ":tabnew<cr>") -- open new tab
+keymap.set("n", "<leader>tu", ":tabclose<cr>") -- close current tab
+keymap.set("n", "<leader>tn", ":tabn<cr>") --  go to next tab
+keymap.set("n", "<leader>tp", ":tabp<cr>") --  go to previous tab
+keymap.set("n", "<leader>dt", ":tab dbui<cr>", {})
+keymap.set("n", "<leader>du", ":tabclose<cr>:bnext<cr>:bdelete!<cr><c-w><c-w>zz", {})
 
 -- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+keymap.set("n", "<leader>e", ":nvimtreetoggle<cr>") -- toggle file explorer
 
 -- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fg", "<cmd>Telescope git_files<cr>") -- find files within github folder
-keymap.set("n", "<leader>fp", "<cmd>Telescope find_files cwd=~/<cr>") -- find files within root directory
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
-keymap.set("n", "<leader>fh", "<cmd>Telescope diagnostics<CR>", opts)
+keymap.set("n", "<leader>ff", "<cmd>telescope find_files<cr>") -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>fg", "<cmd>telescope git_files<cr>") -- find files within github folder
+keymap.set("n", "<leader>fp", "<cmd>telescope find_files cwd=~/<cr>") -- find files within root directory
+keymap.set("n", "<leader>fs", "<cmd>telescope live_grep<cr>") -- find string in current working directory as you type
+keymap.set("n", "<leader>fc", "<cmd>telescope grep_string<cr>") -- find string under cursor in current working directory
+keymap.set("n", "<leader>fb", "<cmd>telescope buffers<cr>") -- list open buffers in current neovim instance
+keymap.set("n", "<leader>fh", "<cmd>telescope diagnostics<cr>", opts)
 
 -- telescope git commands (not on youtube nvim video)
-keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
-keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
-keymap.set("n", "<leader>go", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
-keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
+keymap.set("n", "<leader>gc", "<cmd>telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
+keymap.set("n", "<leader>gfc", "<cmd>telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
+keymap.set("n", "<leader>go", "<cmd>telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
+keymap.set("n", "<leader>gs", "<cmd>telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
 -- restart lsp server (not on youtube nvim video)
-keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+keymap.set("n", "<leader>rs", ":lsprestart<cr>") -- mapping to restart lsp if necessary
 
 -- vim-maximizer
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
+keymap.set("n", "<leader>sm", ":maximizertoggle<cr>") -- toggle split window maximization
 
 -- goyo
-keymap.set("n", "<leader>gy", ":Goyo 80<CR>") -- mapping to restart lsp if necessary
+keymap.set("n", "<leader>gy", ":goyo 80<cr>") -- mapping to restart lsp if necessary
 
 -- spelling
 vim.keymap.set("n", "<leader>s", function()
 	require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))
-end, { desc = "Spelling Suggestions" })
+end, { desc = "spelling suggestions" })
 
 ---------------------
--- Requirements
+-- requirements
 ---------------------
 
--- FOR COLOR PUT ALL AFTER THIS
+-- for color put all after this
 require("vscode").setup({
 	transparent = true,
 	italic_comments = true,
 	disable_nvimtree_bg = true,
 	group_overrides = {
-		BufferLineFill = { fg = "NONE" },
+		bufferlinefill = { fg = "none" },
 	},
 })
 
 local custom_vscode = require("lualine.themes.vscode")
-custom_vscode.normal.c.bg = "None"
-custom_vscode.insert.c.bg = "None"
-custom_vscode.command.c.bg = "None"
+custom_vscode.normal.c.bg = "none"
+custom_vscode.insert.c.bg = "none"
+custom_vscode.command.c.bg = "none"
 require("lualine").setup({
 	options = {
 		icons_enabled = false,
@@ -382,16 +382,16 @@ require("lualine").setup({
 	},
 })
 
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "None", fg = "#464140" })
+vim.api.nvim_set_hl(0, "normalfloat", { bg = "none" })
+vim.api.nvim_set_hl(0, "floatborder", { bg = "none", fg = "#464140" })
 
--- vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
--- vim.cmd([[hi NormalNC guibg=NONE ctermbg=NONE]])
+-- vim.cmd([[hi normal guibg=none ctermbg=none]])
+-- vim.cmd([[hi normalnc guibg=none ctermbg=none]])
 
--- END FOR COLOR
+-- end for color
 
--- FORMAT FOR TEXT
-require("Comment").setup({
+-- format for text
+require("comment").setup({
 	toggler = {
 		line = "gcc",
 		block = "x,c",
@@ -427,17 +427,17 @@ require("nvim-tree").setup({
 
 require("auto-save").setup({
 	enabled = true,
-	trigger_events = { "InsertLeave" },
+	trigger_events = { "insertleave" },
 	write_all_buffers = false,
 })
 
 require("bufferline").setup({
 	options = {
 		numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-		close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-		right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-		left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
-		middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
+		close_command = "bdelete! %d", -- can be a string | function, see "mouse actions"
+		right_mouse_command = "bdelete! %d", -- can be a string | function, see "mouse actions"
+		left_mouse_command = "buffer %d", -- can be a string | function, see "mouse actions"
+		middle_mouse_command = nil, -- can be a string | function, see "mouse actions"
 		indicator_icon = nil,
 		indicator = { style = "icon", icon = "▎" },
 		buffer_close_icon = "",
@@ -453,7 +453,7 @@ require("bufferline").setup({
 		-- diagnostics_indicator = function(count, level, diagnostics_dict, context)
 		-- 	return "(" .. count .. ")"
 		-- end,
-		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+		offsets = { { filetype = "nvimtree", text = "", padding = 1 } },
 		show_buffer_icons = true,
 		show_buffer_close_icons = true,
 		show_close_icon = true,
@@ -468,12 +468,14 @@ require("bufferline").setup({
 			bold = true,
 			italic = true,
 			underline = false,
-			fg = "Yellow",
-			-- bg = "White",
+			fg = "yellow",
+			-- bg = "white",
 		},
 	},
 })
 
+-- https://github.com/pocco81/true-zen.nvim
+-- https://github.com/junegunn/limelight.vim/issues/7
 local augroup2 = vim.api.nvim_create_augroup("goyo_cmds", { clear = true })
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -487,21 +489,21 @@ vim.g.limelight_paragraph_span = 0
 local enter = function()
 	vim.opt.wrap = true
 	vim.opt.linebreak = true
-	vim.cmd("Limelight")
+	vim.cmd("limelight")
 end
 
 local leave = function()
 	vim.opt.wrap = false
 	vim.opt.linebreak = false
-	vim.cmd("Limelight!")
+	vim.cmd("limelight!")
 end
 
-autocmd("User", { pattern = "GoyoEnter", group = augroup2, callback = enter })
-autocmd("User", { pattern = "GoyoLeave", group = augroup2, callback = leave })
+autocmd("user", { pattern = "goyoenter", group = augroup2, callback = enter })
+autocmd("user", { pattern = "goyoleave", group = augroup2, callback = leave })
 
--- END OF FORMAT
+-- end of format
 
--- TELESCOPE
+-- telescope
 local tel = require("telescope")
 local actions = require("telescope.actions")
 tel.setup({
@@ -512,15 +514,15 @@ tel.setup({
 				["<leader>v"] = actions.select_vertical, -- open vertically
 				["<leader>e"] = actions.preview_scrolling_up, -- move to prev result
 				["<leader>d"] = actions.preview_scrolling_down, -- move to prev result
-				["<S-Tab>"] = actions.move_selection_previous, -- move to prev result
-				["<Tab>"] = actions.move_selection_next, -- move to next result
-				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
+				["<s-tab>"] = actions.move_selection_previous, -- move to prev result
+				["<tab>"] = actions.move_selection_next, -- move to next result
+				["<c-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
 			},
 		},
 	},
 })
 
--- TOGGLE TERM
+-- toggle term
 require("toggleterm").setup({
 	size = 80,
 	open_mapping = [[<c-\>]],
@@ -537,25 +539,25 @@ require("toggleterm").setup({
 	shell = vim.o.shell,
 })
 
-local Terminal = require("toggleterm.terminal").Terminal
+local terminal = require("toggleterm.terminal").terminal
 
--- SPOTIFY
-local spotify = Terminal:new({ cmd = "spt", hidden = true, direction = "float" })
-function _SPOTIFY()
+-- spotify
+local spotify = terminal:new({ cmd = "spt", hidden = true, direction = "float" })
+function _spotify()
 	spotify:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "sp", "<cmd>lua _SPOTIFY()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "sp", "<cmd>lua _spotify()<cr>", { noremap = true, silent = true })
 
--- BOTTOM
-local bottom = Terminal:new({ cmd = "btm", hidden = true, direction = "float" })
-function _BOTTOM()
+-- bottom
+local bottom = terminal:new({ cmd = "btm", hidden = true, direction = "float" })
+function _bottom()
 	bottom:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "mb", "<cmd>lua _BOTTOM()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "mb", "<cmd>lua _bottom()<cr>", { noremap = true, silent = true })
 
--- LSP installers, this only installs these, it does nothing else.
+-- lsp installers, this only installs these, it does nothing else.
 -- https://github.com/williamboman/mason.nvim
 -- mason must come before lspconfig
 require("mason").setup()
@@ -577,7 +579,7 @@ require("mason-lspconfig").setup({
 	automatic_installation = true,
 })
 
--- NULL LS FOR FORMATTING AND LINTING
+-- null ls for formatting and linting
 require("mason-null-ls").setup({
 	ensure_installed = {
 		"prettier", -- ts/js formatter
@@ -601,7 +603,7 @@ local lsp_formatting = function(bufnr)
 	})
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local augroup = vim.api.nvim_create_augroup("lspformatting", {})
 null_ls.setup({
 	sources = {
 		formatting.rustfmt, -- rust formatter
@@ -617,9 +619,9 @@ null_ls.setup({
 
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
-		if current_client.supports_method("textDocument/formatting") then
+		if current_client.supports_method("textdocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePre", {
+			vim.api.nvim_create_autocmd("bufwritepre", {
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
@@ -632,21 +634,21 @@ null_ls.setup({
 
 -- end of formatting and linting
 
--- POSTGRES
-local dbss = Terminal:new({
-	cmd = "nvim -c :DBUI",
+-- postgres
+local dbss = terminal:new({
+	cmd = "nvim -c :dbui",
 	hidden = true,
 	direction = "float",
 })
 
-function _DBSS()
+function _dbss()
 	dbss:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "sn", "<cmd>lua _DBSS()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "sn", "<cmd>lua _dbss()<cr>", { noremap = true, silent = true })
 -- end of postgres
 
--- TREESITTER
+-- treesitter
 require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
@@ -706,10 +708,10 @@ require("nvim-autopairs").setup({
 })
 
 ------------------
--- LSP
+-- lsp
 ------------------
 
--- CMP
+-- cmp
 local tabnine = require("cmp_tabnine.config")
 
 tabnine:setup({
@@ -725,13 +727,13 @@ local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 
 local source_mapping = {
-	buffer = "[Buffer]",
-	path = "[Path]",
-	nvim_lsp = "[LSP]",
-	nvim_lua = "[Lua]",
-	cmp_tabnine = "[TN]",
-	spell = "[SP]",
-	["vim-dadbod-completion"] = "[DB]",
+	buffer = "[buffer]",
+	path = "[path]",
+	nvim_lsp = "[lsp]",
+	nvim_lua = "[lua]",
+	cmp_tabnine = "[tn]",
+	spell = "[sp]",
+	["vim-dadbod-completion"] = "[db]",
 }
 
 require("luasnip/loaders/from_vscode").lazy_load()
@@ -745,14 +747,14 @@ cmp.setup({
 	},
 
 	mapping = cmp.mapping.preset.insert({
-		["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-		["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-		["<C-e>"] = cmp.mapping.abort(), -- close completion window
-		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Insert,
+		["<s-tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+		["<tab>"] = cmp.mapping.select_next_item(), -- next suggestion
+		["<c-d>"] = cmp.mapping.scroll_docs(-4),
+		["<c-f>"] = cmp.mapping.scroll_docs(4),
+		["<c-space>"] = cmp.mapping.complete(), -- show completion suggestions
+		["<c-e>"] = cmp.mapping.abort(), -- close completion window
+		["<cr>"] = cmp.mapping.confirm({
+			behavior = cmp.confirmbehavior.insert,
 			select = true,
 		}),
 	}),
@@ -760,16 +762,16 @@ cmp.setup({
 	window = {
 		completion = cmp.config.window.bordered({
 			scrollbar = false,
-			-- https://www.youtube.com/watch?v=wcVcfozoTBM
-			-- https://www.youtube.com/watch?v=uDPZ2yJS6os
+			-- https://www.youtube.com/watch?v=wcvcfozotbm
+			-- https://www.youtube.com/watch?v=udpz2yjs6os
 			-- https://github.com/hrsh7th/nvim-cmp/issues/671
 			border = "rounded",
-			winhighlight = "Normal:MyNormal,FloatBorder:MyFloatBorder,CursorLine:MyCursorLine,Search:None",
+			winhighlight = "normal:mynormal,floatborder:myfloatborder,cursorline:mycursorline,search:none",
 		}),
 		documentation = cmp.config.window.bordered({
 			scrollbar = false,
 			border = "rounded",
-			winhighlight = "Normal:MyNormal,FloatBorder:MyFloatBorder,CursorLine:MyCursorLine,Search:None",
+			winhighlight = "normal:mynormal,floatborder:myfloatborder,cursorline:mycursorline,search:none",
 		}),
 	},
 
@@ -803,7 +805,7 @@ cmp.setup({
 				end
 
 				if (entry.completion_item.data or {}).multiline then
-					vim_item.kind = vim_item.kind .. " " .. "[ML]"
+					vim_item.kind = vim_item.kind .. " " .. "[ml]"
 				end
 			end
 			local maxwidth = 80
@@ -813,31 +815,31 @@ cmp.setup({
 	},
 })
 
-vim.api.nvim_set_hl(0, "MyNormal", { bg = "None", fg = "White" })
-vim.api.nvim_set_hl(0, "MyFloatBorder", { bg = "None", fg = "#464140" })
-vim.api.nvim_set_hl(0, "MyCursorLine", { bg = "#837674", fg = "White" })
+vim.api.nvim_set_hl(0, "mynormal", { bg = "none", fg = "white" })
+vim.api.nvim_set_hl(0, "myfloatborder", { bg = "none", fg = "#464140" })
+vim.api.nvim_set_hl(0, "mycursorline", { bg = "#837674", fg = "white" })
 
--- LSPCONFIG
+-- lspconfig
 local on_attach = function(client, bufnr)
 	local opts1 = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set("n", "<leader>D", "<cmd>lua vim.diagnostic.show_line_diagnostics<CR>", opts1) -- show  diagnostics for line
-	vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts1)
-	vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.show_cursor_diagnostics<CR>", opts1) -- show diagnostics for cursor
-	vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts1) -- jump to previous diagnostic in buffer
-	vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts1) -- jump to next diagnostic in buffer
+	vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.show_line_diagnostics<cr>", opts1) -- show  diagnostics for line
+	vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<cr>", opts1)
+	vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.show_cursor_diagnostics<cr>", opts1) -- show diagnostics for cursor
+	vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts1) -- jump to previous diagnostic in buffer
+	vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts1) -- jump to next diagnostic in buffer
 
-	vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.peek_definition<CR>", opts1) -- see definition and make edits in window
-	vim.keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.lsp_finder<CR>", opts1) -- show definition, references
-	vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts1) -- smart rename
-	vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts1) -- show documentation for what is under cursor
-	vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts1) -- got to declaration
-	vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts1) -- go to implementation
-	vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts1) -- go to references
-	vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action<CR>", opts1) -- see available code actions
-	vim.keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts1) -- see outline on right hand side
+	vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.peek_definition<cr>", opts1) -- see definition and make edits in window
+	vim.keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.lsp_finder<cr>", opts1) -- show definition, references
+	vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts1) -- smart rename
+	vim.keymap.set("n", "k", "<cmd>lua vim.lsp.buf.hover()<cr>", opts1) -- show documentation for what is under cursor
+	vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts1) -- got to declaration
+	vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts1) -- go to implementation
+	vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts1) -- go to references
+	vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action<cr>", opts1) -- see available code actions
+	vim.keymap.set("n", "<leader>o", "<cmd>lsoutlinetoggle<cr>", opts1) -- see outline on right hand side
 end
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+vim.lsp.handlers["textdocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "rounded",
 })
 
@@ -848,10 +850,10 @@ local lsp_flags = {
 	debounce_text_changes = 150,
 }
 
--- Change the Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
+-- change the diagnostic symbols in the sign column (gutter)
+local signs = { error = " ", warn = " ", hint = "ﴞ ", info = " " }
 for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
+	local hl = "diagnosticsign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 --
@@ -871,11 +873,15 @@ require("lspconfig")["cssls"].setup({
 -- configure ltex server
 -- you need to run brew install ltex-ls first
 -- still does not work correctly and does not have spanish
+-- https://www.reddit.com/r/neovim/comments/s24zvh/how_can_i_load_a_user_dictionary_into_ltexls/
+-- https://gist.github.com/lbiaggi/a3eb761ac2fdbff774b29c88844355b8
+-- https://github.com/barreiroleo/ltex_extra.nvim
+-- https://neovim.discourse.group/t/help-wanted-trying-to-use-ltex-ls-server-with-nvim-lsp-code-actions-did-not-execute-correctly-i-think/421
 require("lspconfig")["ltex"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	cmd = { "ltex-ls" },
-	filetypes = { "markdown", "text" },
+	filetypes = { "markdown", "text", "md" },
 	flags = { debounce_text_changes = 300 },
 })
 
@@ -903,7 +909,7 @@ require("lspconfig")["sumneko_lua"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
-		Lua = {
+		lua = {
 			-- make the language server recognize "vim" global
 			diagnostics = {
 				globals = { "vim" },
@@ -911,7 +917,7 @@ require("lspconfig")["sumneko_lua"].setup({
 			workspace = {
 				-- make language server aware of runtime files
 				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.expand("$vimruntime/lua")] = true,
 					[vim.fn.stdpath("config") .. "/lua"] = true,
 				},
 			},
@@ -919,7 +925,7 @@ require("lspconfig")["sumneko_lua"].setup({
 	},
 })
 
--- RUST TOOLS
+-- rust tools
 -- https://github.com/simrat39/rust-tools.nvim
 require("rust-tools").setup({
 	tools = {
@@ -943,45 +949,45 @@ require("rust-tools").setup({
 		settings = {
 			["rust-analyzer"] = {
 				assist = {
-					importPrefix = "by_self",
+					importprefix = "by_self",
 				},
 				cargo = {
-					allFeatures = true,
+					allfeatures = true,
 				},
-				checkOnSave = {
+				checkonsave = {
 					command = "clippy",
 				},
 				lens = {
 					references = true,
-					methodReferences = true,
+					methodreferences = true,
 				},
 			},
 		},
 	},
 })
 
--- DAP
+-- dap
 -- https://github.com/mfussenegger/nvim-dap/issues/307
--- https://github.com/simrat39/rust-tools.nvim/wiki/Debugging
+-- https://github.com/simrat39/rust-tools.nvim/wiki/debugging
 require("dap").adapters.codelldb = {
 	type = "server",
 	port = "${port}",
 	executable = {
-		command = "/Users/jj/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/adapter/codelldb",
+		command = "/users/jj/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/adapter/codelldb",
 		args = { "--port", "${port}" },
 	},
 }
 
 require("dap").configurations.rust = {
 	{
-		name = "Launch file",
+		name = "launch file",
 		type = "codelldb",
 		request = "launch",
 		program = function()
-			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+			return vim.fn.input("path to executable: ", vim.fn.getcwd() .. "/", "file")
 		end,
-		cwd = "${workspaceFolder}",
-		stopOnEntry = false,
+		cwd = "${workspacefolder}",
+		stoponentry = false,
 	},
 }
 
