@@ -76,6 +76,8 @@ require("packer").startup(function(use)
 
 	-- DAP
 	use("mfussenegger/nvim-dap")
+	use("rcarriga/nvim-dap-ui")
+	use("theHamsta/nvim-dap-virtual-text")
 
 	-- bufferline
 	use({
@@ -957,3 +959,42 @@ require("rust-tools").setup({
 		},
 	},
 })
+
+-- DAP
+-- https://github.com/mfussenegger/nvim-dap/issues/307
+-- https://github.com/simrat39/rust-tools.nvim/wiki/Debugging
+require("dap").adapters.codelldb = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = "/Users/jj/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/adapter/codelldb",
+		args = { "--port", "${port}" },
+	},
+}
+
+require("dap").configurations.rust = {
+	{
+		name = "Launch file",
+		type = "codelldb",
+		request = "launch",
+		program = function()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopOnEntry = false,
+	},
+}
+
+require("nvim-dap-virtual-text").setup()
+require("dapui").setup()
+
+local dap, dapui = require("dap"), require("dapui")
+dap.listeners.after.event_initialized["dapui_config"] = function()
+	dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+	dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+	dapui.close()
+end
