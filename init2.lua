@@ -526,8 +526,9 @@ local augroup2 = vim.api.nvim_create_augroup("goyo_cmds", { clear = true })
 local autocmd = vim.api.nvim_create_autocmd
 
 vim.g.goyo_height = "100%"
--- vim.g.limelight_conceal_ctermfg = 800
 vim.g.limelight_conceal_guifg = "#808080"
+-- vim.g.limelight_conceal_ctermfg = "green"
+-- vim.g.limelight_conceal_ctermbg = "green"
 vim.g.limelight_default_coefficient = 0.1
 vim.g.limelight_priority = -1
 vim.g.limelight_paragraph_span = 0
@@ -536,6 +537,9 @@ local enter = function()
 	vim.opt.wrap = true
 	vim.opt.linebreak = true
 	vim.cmd("Limelight")
+	-- vim.highlight.get_attr_id("limelight_line", true, { background = "green" })
+	-- vim.cmd("let match = searchpos('\\%#', 'n')[1]")
+	-- vim.cmd("exe 'match limelight_line' match")
 end
 
 local leave = function()
