@@ -1,3 +1,4 @@
+// https://github.com/microsoft/vscode/issues/42253
 {
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.suggestSelection": "first",
@@ -189,7 +190,7 @@
         "k"
       ],
       "commands": [
-        "workbench.action.focusActiveEditorGroup"
+        "togs"
       ],
     },
     {
@@ -199,6 +200,15 @@
       ],
       "commands": [
         "workbench.action.focusSideBar"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "p"
+      ],
+      "commands": [
+        "spotify.playPause"
       ],
     },
     {
@@ -223,6 +233,18 @@
   "files.exclude": {
     "": true,
     "**/.git": false
+  },
+  "commands.commands": {
+    "togs": {
+      "sequence": [
+        {
+          "command": "workbench.action.focusActiveEditorGroup"
+        },
+        {
+          "command": "workbench.action.toggleSidebarVisibility"
+        }
+      ],
+    },
   },
   "cSpell.enabledLanguageIds": [
     "asciidoc",
@@ -284,7 +306,18 @@
     "functions"
   ],
   "workbench.editor.splitInGroupLayout": "vertical",
-  "editor.inlayHints.enabled": "off",
+  "editor.inlayHints.enabled": "offUnlessPressed",
   "indentRainbow.indicatorStyle": "light",
-  "workbench.activityBar.visible": false
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#1A1A1A",
+    "statusBar.noFolderBackground": "#212121",
+    "statusBar.debuggingBackground": "#263238",
+    "statusBar.foreground": "#689ab3"
+  },
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "always",
+  "rust-analyzer.inlayHints.discriminantHints.enable": "always",
+  "rust-analyzer.inlayHints.closingBraceHints.minLines": 1,
+  "terminal.integrated.tabs.enabled": false,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.activityBar.visible": false,
 }
