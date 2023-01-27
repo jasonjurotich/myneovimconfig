@@ -205,6 +205,15 @@
     {
       "before": [
         "<leader>",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
         "p"
       ],
       "commands": [
@@ -319,5 +328,7 @@
   "rust-analyzer.inlayHints.closingBraceHints.minLines": 1,
   "terminal.integrated.tabs.enabled": false,
   "workbench.editor.highlightModifiedTabs": true,
+  "rust-analyzer.completion.privateEditable.enable": true,
+  "rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
   "workbench.activityBar.visible": false,
 }
