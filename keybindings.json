@@ -16,11 +16,11 @@
     "command": "workbench.action.terminal.toggleTerminal"
   },
   {
-    "key": "alt+j",
+    "key": "ctrl+j",
     "command": "terminal.focus"
   },
   {
-    "key": "alt+k",
+    "key": "ctrl+k",
     "command": "workbench.action.focusActiveEditorGroup"
   },
   {
@@ -44,14 +44,6 @@
     "command": "-editor.action.marker.next",
     "when": "editorFocus"
   },
-  // {
-  //     "key": "alt+cmd+right",
-  //     "command": "workbench.action.nextEditor"
-  // },
-  // {
-  //     "key": "alt+cmd+left",
-  //     "command": "workbench.action.previousEditor"
-  // },
   {
     "key": "ctrl+alt+,",
     "command": "workbench.action.positionPanelRight"
@@ -61,12 +53,20 @@
     "command": "livePreview.start.internalPreview.atFile"
   },
   {
-    "key": "ctrl+cmd+left",
+    "key": "shift+left",
     "command": "workbench.action.terminal.resizePaneLeft"
   },
   {
-    "key": "ctrl+cmd+right",
+    "key": "shift+right",
     "command": "workbench.action.terminal.resizePaneRight"
+  },
+  {
+    "key": "cmd+right",
+    "command": "workbench.action.decreaseViewSize"
+  },
+  {
+    "key": "cmd+left",
+    "command": "workbench.action.increaseViewSize"
   },
   {
     "key": "tab",
@@ -129,16 +129,6 @@
     "when": "editorLangId == 'postgres'"
   },
   {
-    "key": "space r",
-    "command": "renameFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-  },
-  {
-    "key": "space k",
-    "command": "togs",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-  },
-  {
     "key": "f4 backspace",
     "command": "filesExplorer.openFilePreserveFocus",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
@@ -147,5 +137,9 @@
     "key": "enter",
     "command": "filesExplorer.openFilePreserveFocus",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "cmd+q",
+    "command": "workbench.action.quit"
   },
 ]
