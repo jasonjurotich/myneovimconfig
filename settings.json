@@ -187,10 +187,19 @@
     {
       "before": [
         "<leader>",
-        "f"
+        "s"
       ],
       "commands": [
         "workbench.action.focusSideBar"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "search.action.openNewEditor"
       ],
     },
     {
