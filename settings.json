@@ -187,16 +187,7 @@
     {
       "before": [
         "<leader>",
-        "k"
-      ],
-      "commands": [
-        "togs"
-      ],
-    },
-    {
-      "before": [
-        "<leader>",
-        "o"
+        "f"
       ],
       "commands": [
         "workbench.action.focusSideBar"
