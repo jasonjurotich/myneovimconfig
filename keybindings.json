@@ -12,8 +12,12 @@
     "command": "workbench.action.toggleStatusbarVisibility"
   },
   {
-    "key": "cmd+j",
+    "key": "ctrl+\\",
     "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "cmd+j",
+    "command": "workbench.action.toggleMaximizedPanel"
   },
   {
     "key": "ctrl+j",
