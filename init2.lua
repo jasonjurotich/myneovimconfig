@@ -43,12 +43,6 @@ require("packer").startup(function(use)
 	use("szw/vim-maximizer")
 	use("moll/vim-bbye")
 	use("onsails/lspkind.nvim")
-	use({
-		"j-hui/fidget.nvim",
-		config = function()
-			require("fidget").setup()
-		end,
-	})
 
 	-- NVIM TREE
 	use("nvim-tree/nvim-tree.lua")
@@ -61,6 +55,7 @@ require("packer").startup(function(use)
 	use("mbbill/undotree")
 	use("jbyuki/instant.nvim")
 	use({ "akinsho/bufferline.nvim", tag = "v3.*" })
+	use("j-hui/fidget.nvim")
 
 	-- CMP
 	use("hrsh7th/cmp-buffer")
@@ -242,6 +237,8 @@ vim.g.loaded_netrwPlugin = 1
 
 -- vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
 -- vim.cmd([[hi NormalNC guibg=NONE ctermbg=NONE]])
+--
+--
 
 vim.cmd([[inoremap ww println!("{:#?}",);<left><left>]])
 vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
@@ -410,7 +407,38 @@ require("lualine").setup({
 	},
 })
 
+require("fidget").setup({
+	text = {
+		spinner = "pipe", -- animation shown when tasks are ongoing
+		done = "✔", -- character shown when all tasks are complete
+		commenced = "Started", -- message shown when task starts
+		completed = "Completed", -- message shown when task completes
+	},
+	align = {
+		bottom = true, -- align fidgets along bottom edge of buffer
+		right = true, -- align fidgets along right edge of buffer
+	},
+	timer = {
+		spinner_rate = 125, -- frame rate of spinner animation, in ms
+		fidget_decay = 2000, -- how long to keep around empty fidget, in ms
+		task_decay = 1000, -- how long to keep around completed task, in ms
+	},
+	window = {
+		relative = "win", -- where to anchor, either "win" or "editor"
+		blend = 0, -- &winblend for the window
+		zindex = nil, -- the zindex value for the window
+		border = "none", -- style of border for the fidget window
+	},
+})
+
+-- https://www.reddit.com/r/neovim/comments/ooyjky/change_floating_window_both_background_and_border/
+-- https://caleb89taylor.medium.com/customizing-individual-neovim-windows-4a08f2d02b4e
+-- https://github.com/arkav/lualine-lsp-progress
+-- vim.api.nvim_set_hl(0, "FidgetTitle", { bg = "None", fg = "#00FF00" })
+-- vim.api.nvim_set_hl(0, "FidgetTask", { bg = "None", fg = "#00FF00" })
+
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None" })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "None" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "None", fg = "#464140" })
 
 -- end of color
@@ -814,9 +842,9 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "rounded",
 })
 
-vim.diagnostic.config {     
-    float = { border = "rounded" }, 
-}
+vim.diagnostic.config({
+	float = { border = "rounded" },
+})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
