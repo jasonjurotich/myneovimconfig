@@ -57,7 +57,7 @@ inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
-inoremap { {}<left>
+" inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
         
@@ -67,13 +67,13 @@ map W :Vex<CR>
 map z <C-f>    
 map x <C-b>    
 " map B :vs<Bar>:term<CR>L<Bar>:vertical resize 105<CR>  
-map B :vs<Bar>:term<CR>
+" map B :vs<Bar>:term<CR>
 map ss ZZ    
 map F :vertical resize 105<CR> 
 map M <C-z>        
 map S :s/ <left>    
 map vn :vs 
-map bn :bd<CR>
+" map bn :bd<CR>
 map E :tabp<CR>
 map T :tabn<CR>
     
