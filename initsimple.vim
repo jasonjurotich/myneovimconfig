@@ -21,7 +21,8 @@ if system('uname -s') == "Darwin\n"
 else
   set clipboard=unnamedplus "Linux
 endif        
-              
+
+set undofile
 set tabstop=2    
 set shiftwidth=2    
 set softtabstop=2    
