@@ -1,4 +1,3 @@
-// https://github.com/microsoft/vscode/issues/42253
 {
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.suggestSelection": "first",
@@ -22,7 +21,6 @@
   "editor.formatOnType": true,
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
-    "editor.formatOnSave": true
   },
   "files.trimTrailingWhitespace": true,
   "files.autoSave": "afterDelay",
@@ -181,16 +179,7 @@
         "e"
       ],
       "commands": [
-        "workbench.action.toggleSidebarVisibility"
-      ],
-    },
-    {
-      "before": [
-        "<leader>",
-        "s"
-      ],
-      "commands": [
-        "workbench.action.focusSideBar"
+        "tigs"
       ],
     },
     {
@@ -200,6 +189,15 @@
       ],
       "commands": [
         "search.action.openNewEditor"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "t"
+      ],
+      "commands": [
+        "todo-tree-view.focus"
       ],
     },
     {
@@ -253,6 +251,16 @@
         }
       ],
     },
+    "tigs": {
+      "sequence": [
+        {
+          "command": "workbench.action.toggleSidebarVisibility"
+        },
+        {
+          "command": "workbench.action.focusSideBar"
+        }
+      ],
+    },
   },
   "cSpell.enabledLanguageIds": [
     "asciidoc",
@@ -261,8 +269,6 @@
     "graphql",
     "html",
     "jade",
-    "json",
-    "jsonc",
     "jupyter",
     "latex",
     "less",
@@ -300,7 +306,7 @@
   "git.confirmForcePush": false,
   "git.confirmNoVerifyCommit": false,
   "resmon.show.cputemp": true,
-  "resmon.disk.drives": false,
+  // "resmon.disk.drives": false,
   "explorer.confirmDragAndDrop": false,
   "lldb.suppressUpdateNotifications": true,
   "markdown.validate.enabled": true,
@@ -337,5 +343,5 @@
   "rust-analyzer.lens.references.enumVariant.enable": true,
   "rust-analyzer.lens.references.trait.enable": true,
   "markdown.marp.enableHtml": true,
-  "workbench.activityBar.visible": false,
+  "vim.enableNeovim": true,
 }
