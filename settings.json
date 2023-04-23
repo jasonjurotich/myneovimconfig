@@ -202,6 +202,15 @@
     },
     {
       "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        "workbench.action.focusSideBar"
+      ],
+    }, 
+    {
+      "before": [
         "S-q",
       ],
       "commands": [
