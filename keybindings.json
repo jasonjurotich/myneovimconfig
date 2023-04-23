@@ -152,9 +152,9 @@
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
   },
   {
-    "key": "space c",
+    "key": "space r",
     "command": "togs",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "when": "explorerViewletVisible && sideBarFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
     "key": "k",
