@@ -139,8 +139,8 @@
     },
     {
       "before": [
-        "v",
-        "s"
+        "<leader>",
+        "v"
       ],
       "commands": [
         "workbench.action.splitEditor"
@@ -188,7 +188,7 @@
         "f"
       ],
       "commands": [
-        "search.action.openNewEditor"
+        "workbench.view.search"
       ],
     },
     {
@@ -202,19 +202,19 @@
     },
     {
       "before": [
+        "S-q",
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ],
+    },
+    {
+      "before": [
         "<leader>",
         "s"
       ],
       "commands": [
         "workbench.action.focusSideBar"
-      ],
-    }, 
-    {
-      "before": [
-        "S-q",
-      ],
-      "commands": [
-        "workbench.action.closeActiveEditor"
       ],
     },
     {
@@ -240,6 +240,14 @@
       ],
       "after": [
         "C-f"
+      ]
+    },
+    {
+      "before": [
+        "s","s"
+      ],
+      "after": [
+        "Z","Z"
       ]
     }
   ],
