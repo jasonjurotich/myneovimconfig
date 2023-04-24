@@ -17,10 +17,9 @@
   "editor.hideCursorInOverviewRuler": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
-  "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
   "files.trimTrailingWhitespace": true,
   "files.autoSave": "afterDelay",
@@ -46,7 +45,7 @@
   "markdown.preview.fontSize": 15,
   "indentRainbow.updateDelay": 1000,
   "vsicons.dontShowNewVersionMessage": true,
-  "backgroundCover.imagePath": "/Users/jj/Documents/RUSTDEV/rustglobal/GERMANCASTLE.jpg",
+  "backgroundCover.imagePath": "/Users/jj/Documents/GERMANCASTLE.jpg",
   "settingsSync.keybindingsPerPlatform": false,
   "remoteHub.commitDirectlyWarning": "off",
   "vim.vimrc.enable": true,
@@ -54,19 +53,11 @@
   "vim.cursorStylePerMode.normal": "block",
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        "t",
-        "t"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": ["t", "t"],
+      "after": ["<Esc>"]
     },
     {
-      "before": [
-        "w",
-        "w"
-      ],
+      "before": ["w", "w"],
       "commands": [
         {
           "command": "editor.action.insertSnippet",
@@ -74,181 +65,93 @@
             "snippet": "println!(\"{:#?}\",$0);"
           }
         }
-      ],
-    },
+      ]
+    }
   ],
   "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "<tab>"
-      ],
-      "commands": [
-        "workbench.action.nextEditor"
-      ]
+      "before": ["<tab>"],
+      "commands": ["workbench.action.nextEditor"]
     },
     {
-      "before": [
-        "<S-tab>"
-      ],
-      "commands": [
-        "workbench.action.previousEditor"
-      ]
+      "before": ["<S-tab>"],
+      "commands": ["workbench.action.previousEditor"]
     },
     {
-      "before": [
-        "<S-l>"
-      ],
-      "commands": [
-        "workbench.action.navigateEditorGroups"
-      ],
+      "before": ["<S-l>"],
+      "commands": ["workbench.action.navigateEditorGroups"]
     },
     {
-      "before": [
-        "<S-k>",
-      ],
-      "commands": [
-        "editor.action.showHover"
-      ],
+      "before": ["<S-k>"],
+      "commands": ["editor.action.showHover"]
     },
     {
-      "before": [
-        "[",
-        "d"
-      ],
-      "commands": [
-        "editor.action.marker.next"
-      ],
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.next"]
     },
     {
-      "before": [
-        "]",
-        "d"
-      ],
-      "commands": [
-        "editor.action.marker.prev"
-      ],
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.prev"]
     },
     {
-      "before": [
-        "g",
-        "d"
-      ],
-      "commands": [
-        "editor.action.revealDefinition"
-      ],
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"]
     },
     {
-      "before": [
-        "<leader>",
-        "v"
-      ],
-      "commands": [
-        "workbench.action.splitEditor"
-      ],
+      "before": ["<leader>", "v"],
+      "commands": ["workbench.action.splitEditor"]
     },
     {
-      "before": [
-        "g",
-        "f"
-      ],
-      "commands": [
-        "editor.action.goToReferences"
-      ],
+      "before": ["g", "f"],
+      "commands": ["editor.action.goToReferences"]
     },
     {
-      "before": [
-        "g",
-        "b"
-      ],
-      "commands": [
-        "workbench.action.navigateBack"
-      ],
+      "before": ["g", "b"],
+      "commands": ["workbench.action.navigateBack"]
     },
     {
-      "before": [
-        "g",
-        "a"
-      ],
-      "commands": [
-        "editor.action.quickFix"
-      ],
+      "before": ["g", "a"],
+      "commands": ["editor.action.quickFix"]
     },
     {
-      "before": [
-        "<leader>",
-        "e"
-      ],
-      "commands": [
-        "tigs"
-      ],
+      "before": ["<leader>", "e"],
+      "commands": ["tigs"]
     },
     {
-      "before": [
-        "<leader>",
-        "f"
-      ],
-      "commands": [
-        "workbench.view.search"
-      ],
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.view.search"]
     },
     {
-      "before": [
-        "<leader>",
-        "t"
-      ],
-      "commands": [
-        "todo-tree-view.focus"
-      ],
+      "before": ["<leader>", "t"],
+      "commands": ["todo-tree-view.focus"]
     },
     {
-      "before": [
-        "S-q",
-      ],
-      "commands": [
-        "workbench.action.closeActiveEditor"
-      ],
+      "before": ["S-q"],
+      "commands": ["workbench.action.closeActiveEditor"]
     },
     {
-      "before": [
-        "<leader>",
-        "s"
-      ],
-      "commands": [
-        "workbench.action.focusSideBar"
-      ],
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.focusSideBar"]
     },
     {
-      "before": [
-        "<leader>",
-        "q"
-      ],
-      "commands": [
-        "spotify.playPause"
-      ],
+      "before": ["<leader>", "q"],
+      "commands": ["spotify.playPause"]
     },
     {
-      "before": [
-        "x"
-      ],
-      "after": [
-        "C-b"
-      ]
+      "before": ["x"],
+      "after": ["C-b"]
     },
     {
-      "before": [
-        "z"
-      ],
-      "after": [
-        "C-f"
-      ]
+      "before": ["z"],
+      "after": ["C-f"]
     },
     {
-      "before": [
-        "s","s"
-      ],
-      "after": [
-        "Z","Z"
-      ]
+      "before": ["s", "s"],
+      "after": ["Z", "Z"]
+    },
+    {
+      "before": ["-"],
+      "after": ["g", "_"]
     }
   ],
   "vim.leader": "<space>",
@@ -266,7 +169,7 @@
         {
           "command": "workbench.action.toggleSidebarVisibility"
         }
-      ],
+      ]
     },
     "tigs": {
       "sequence": [
@@ -274,10 +177,10 @@
           "command": "workbench.action.toggleSidebarVisibility"
         },
         {
-          "command": "workbench.action.focusSideBar"
+          "command": "workbench.files.action.focusFilesExplorer"
         }
-      ],
-    },
+      ]
+    }
   },
   "cSpell.enabledLanguageIds": [
     "asciidoc",
@@ -312,10 +215,7 @@
   "markdown.experimental.editor.pasteLinks.enabled": true,
   "editor.experimental.pasteActions.enabled": true,
   "editor.linkedEditing": true,
-  "rust-analyzer.cargo.unsetTest": [
-    "tokio",
-    "tokio-macros"
-  ],
+  "rust-analyzer.cargo.unsetTest": ["tokio", "tokio-macros"],
   "git.allowForcePush": true,
   "git.allowNoVerifyCommit": true,
   "git.branchProtectionPrompt": "alwaysCommit",
@@ -333,9 +233,7 @@
     "pom.xml": "cd $dir && mvn clean package"
   },
   "workbench.editor.enablePreview": false,
-  "vscode-postgres.virtualFolders": [
-    "functions"
-  ],
+  "vscode-postgres.virtualFolders": ["functions"],
   "workbench.editor.splitInGroupLayout": "vertical",
   "editor.inlayHints.enabled": "offUnlessPressed",
   "indentRainbow.indicatorStyle": "light",
@@ -361,4 +259,8 @@
   "rust-analyzer.lens.references.trait.enable": true,
   "markdown.marp.enableHtml": true,
   "vim.enableNeovim": true,
+  "editor.formatOnSave": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
