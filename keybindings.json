@@ -162,8 +162,14 @@
     "when": "hasSearchResult || inSearchEditor"
   },
   {
-    "key": "shift+f4",
-    "command": "-search.action.focusPreviousSearchResult",
+    "key": "j",
+    "command": "search.action.focusNextSearchResult",
     "when": "hasSearchResult || inSearchEditor"
   },
+  {
+    "key": "ctrl+h",
+    "command": "search.action.focusNextSearchResult",
+    "when": "hasSearchResult || inSearchEditor"
+  },
+
 ]
