@@ -185,5 +185,5 @@
     "key": "ctrl+home",
     "command": "-extension.vim_ctrl+home",
     "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
-  },
+  }
 ]
