@@ -1,6 +1,6 @@
 [
   {
-    "key": "alt+a",
+    "key": "ctrl+h",
     "command": "workbench.action.toggleSidebarVisibility"
   },
   {
@@ -157,19 +157,33 @@
     "when": "explorerViewletVisible && sideBarFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
-    "key": "k",
+    "key": "shift+k",
     "command": "search.action.focusPreviousSearchResult",
     "when": "hasSearchResult || inSearchEditor"
   },
   {
-    "key": "j",
+    "key": "shift+j",
     "command": "search.action.focusNextSearchResult",
     "when": "hasSearchResult || inSearchEditor"
   },
   {
-    "key": "ctrl+h",
-    "command": "search.action.focusNextSearchResult",
-    "when": "hasSearchResult || inSearchEditor"
+    "key": "shift+cmd+backspace",
+    "command": "-search.searchEditor.action.deleteFileResults",
+    "when": "inSearchEditor"
   },
-
+  {
+    "key": "ctrl+h",
+    "command": "-deleteLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "-extension.vim_ctrl+h",
+    "when": "editorTextFocus && vim.active && vim.use<C-h> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+home",
+    "command": "-extension.vim_ctrl+home",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
+  },
 ]
