@@ -139,11 +139,11 @@
     },
     {
       "before": ["x"],
-      "after": ["C-b"]
+      "after": ["C-u"]
     },
     {
       "before": ["z"],
-      "after": ["C-f"]
+      "after": ["C-d"]
     },
     {
       "before": ["s", "s"],
