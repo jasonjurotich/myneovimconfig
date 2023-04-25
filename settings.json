@@ -257,6 +257,7 @@
   "rust-analyzer.lens.references.adt.enable": true,
   "rust-analyzer.lens.references.enumVariant.enable": true,
   "rust-analyzer.lens.references.trait.enable": true,
+  "rust-analyzer.highlighting.strings": false,
   "markdown.marp.enableHtml": true,
   "vim.enableNeovim": true,
   "editor.formatOnSave": true,
