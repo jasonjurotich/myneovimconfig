@@ -263,5 +263,8 @@
   "editor.formatOnSave": true,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "NOTE"],
+  "todo-tree.highlights.useColourScheme": true,
+  "todo-tree.tree.autoRefresh": true
 }
