@@ -1,3 +1,4 @@
+# these need to run first BEFORE using LSP hx --grammar fetch and hx --grammar build
 theme = "dark_plus"
 
 [editor]
