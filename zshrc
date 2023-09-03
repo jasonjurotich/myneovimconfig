@@ -103,4 +103,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/Cellar/postgresql@14/14.7/bin/:$PATH"
 export PATH="/opt/homebrew/bin/:$PATH"
+export PATH="/opt/homebrew/opt/ltex-ls:$PATH"
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
