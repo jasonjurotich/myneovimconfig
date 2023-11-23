@@ -1,0 +1,32 @@
+[[language]]
+name = "markdown"
+language-servers = ["ltex-ls" ]
+file-types = ["md", "txt"]
+scope = "source.md"
+# roots = [".git"]
+
+indent = { tab-width = 2, unit = "  " }
+injection-regex = "md|markdown"
+auto-format = true
+
+[[language]]
+name = "sql"
+language-servers = ["sql"]
+file-types = ["sql"]
+scope = "source.sql"
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+[language-server.sql]
+command = "/opt/homebrew/bin/sql-language-server"
+
+# [[language]]
+# name = "rust"
+# scope = "source.rust"
+# injection-regex = "rust"
+# file-types = ["rs"]
+# roots = ["Cargo.toml", "Cargo.lock"]
+# auto-format = true
+# comment-token = "//"
+# language-server = { command = "rust-analyzer" }
+# indent = { tab-width = 4, unit = "    " }
