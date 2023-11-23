@@ -1,4 +1,3 @@
-# these need to run first BEFORE using LSP hx --grammar fetch and hx --grammar build
 theme = "dark_plus"
 
 [editor]
@@ -6,16 +5,16 @@ line-number = "relative"
 auto-completion = true
 idle-timeout = 0
 completion-trigger-len = 2
-auto-info = true
+auto-info = true # this shows the help shortcut sections
 auto-save = true
 auto-format = true
-auto-pairs = true
 true-color = true
 color-modes = true
 bufferline = "multiple"
 gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
-mouse = true
-middle-click-paste = true
+mouse = true 
+middle-click-paste = true   
+insert-final-newline = true 
 
 [editor.cursor-shape]
 insert = "bar"
@@ -23,20 +22,40 @@ normal = "block"
 select = "underline"
 
 [keys.insert]
-w = { w = [":pipe echo 'println!(\"{:?}\",)'","move_next_word_end", "move_char_left"]}
+w = { w = [":pipe echo 'println!(\"DEBUG this is {:?}\",);'","goto_line_end","move_char_left", "move_char_left", "move_char_left", "move_char_left", "move_char_left", "move_char_left"]}
 
+[keys.select]
+Q = ":x"
+"space" = {v = "vsplit", q = ":bc!"}
+t = {w = ["select_all", "trim_selections"]}
+g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", b = "jump_backward", v = ":w"}
+Y = ":clipboard-yank"
+
+# you cant use v because it is used for visual mode
 [keys.normal]
 Q = ":x"
-R = ":reflow"
-"space" = {v = ":vs"}
-q = {q = ":bc!"}
-g = {c = "toggle_comments", a = "code_action"}
+
+Z = ["half_page_down"]
+V = ["half_page_up"]
+q = ["move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "align_view_center"]
+t = ["move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "align_view_center"]
+
+# R = ":reflow"
+"space" = {v = "vsplit", q = ":bc!", a = ["move_prev_word_start", "move_next_word_start", "search_selection"], c = [":w", ":sh /Users/jj/gits.sh"]}
+Y = ":clipboard-yank"
+# q = {q = ":bc!"}
+g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", b = "jump_backward", v = ":w"}
 "." = "repeat_last_motion"
+"tab" = ":bn"
+"S-tab" = ":bp"
+# V = ["extend_line_below", "select_mode"]
+# t = {w = ["select_all", "trim_selections"]}
+esc = ["collapse_selection", "keep_primary_selection"]
 
 [editor.statusline]
-left = ["mode", "spinner"]
-center = ["file-name"]
-right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+left = ["mode", "file-name", "file-modification-indicator", "spacer", "spinner"]
+center = []
+right = ["diagnostics","workspace-diagnostics", "version-control"]
 separator = "│"
 
 [editor.lsp]
@@ -44,7 +63,7 @@ display-messages = true
 auto-signature-help = true
 display-signature-help-docs = true
 snippets = true
-display-inlay-hints = true
+display-inlay-hints = false
 
 [editor.soft-wrap]
 enable = true
@@ -52,3 +71,32 @@ max-wrap = 20
 max-indent-retain = 40
 wrap-at-text-width = false
 
+# you can only have single pairs for now 
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+"'" = "'"
+
+[editor.indent-guides]
+render = true
+character = "▏"
+skip-levels = 1
+
+[editor.smart-tab]
+enable = true
+
+[editor.whitespace.render]
+space = "none"
+tab = "none"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+tab = "→"
+newline = "⏎"
+tabpad = "·"
