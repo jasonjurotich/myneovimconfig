@@ -1,7 +1,7 @@
 alias dh='git add -A && git commit -m "updated" && git push'
 alias dg='git reset --hard HEAD && git clean -f -d && git pull'
 alias pq='psql postgres'
-alias pf='psql postgres -U jj -d rustpr -a -f'
+alias pf='psql -U jj -d rustpr -a -f'
 alias ex='exit'
 alias cl='clear'                                                                                              
 alias v='NVIM_APPNAME=nvimjj nvim'
