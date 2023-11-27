@@ -100,3 +100,13 @@ nbsp = "⍽"
 tab = "→"
 newline = "⏎"
 tabpad = "·"
+
+
+
+# put this into the gits.sh file to then make it executable
+
+# #!/bin/bash
+# exec > /dev/null 2>&1
+# git add -A
+# git commit -m "updated"
+# git push
