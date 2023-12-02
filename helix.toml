@@ -64,6 +64,7 @@ auto-signature-help = true
 display-signature-help-docs = true
 snippets = true
 display-inlay-hints = false
+hidden = false
 
 [editor.soft-wrap]
 enable = true
