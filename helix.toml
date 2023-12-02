@@ -64,7 +64,7 @@ auto-signature-help = true
 display-signature-help-docs = true
 snippets = true
 display-inlay-hints = false
-hidden = false
+
 
 [editor.soft-wrap]
 enable = true
@@ -102,6 +102,8 @@ tab = "→"
 newline = "⏎"
 tabpad = "·"
 
+[editor.file-picker]
+hidden = false
 
 
 # put this into the gits.sh file to then make it executable
