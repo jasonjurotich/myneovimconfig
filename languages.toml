@@ -20,6 +20,14 @@ auto-format = true
 [language-server.sql]
 command = "/opt/homebrew/bin/sql-language-server"
 
+[[language]]
+name = "rust"
+
+[language-server.rust-analyzer.config]
+checkOnSave = {command = "clippy"}
+# checkOnSave = {command = "clippy", extraArgs = ["--", "-W", "clippy::pedantic"]}
+
+
 # [[language]]
 # name = "rust"
 # scope = "source.rust"
