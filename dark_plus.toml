@@ -51,47 +51,55 @@
 "diff.delta" = { fg = "blue4" }
 "diff.minus" = { fg = "orange_red" }
 
-"ui.background" = "..."
+"ui.background" = {fg = "#323232"}
 
-"ui.window" = { bg = "widget" }
-"ui.popup" = { fg = "text", bg = "NONE" }
-"ui.help" = { fg = "text", bg = "widget" }
-"ui.menu" = { fg = "text", bg = "NONE" }
+"ui.window" = { fg = "#323232" } # border split color for vertical split
+
+"ui.popup" = { } # this is for space k, dont know if it affects borders
+"ui.popup.info" = { fg = "#323232" } # space and goto menus
+"ui.help" = { fg = "black" } # help text explaining something
+"ui.menu" = { fg = "text"  } # command line text in command menus
+
 "ui.menu.selected" = { bg = "dark_blue2" }
 
 # TODO: Alternate bg colour for `ui.cursor.match` and `ui.selection`.
 "ui.cursor" = { fg = "cursor", modifiers = ["reversed"] }
 "ui.cursor.primary" = { fg = "cursor", modifiers = ["reversed"] }
 "ui.cursor.match" = { bg = "#3a3d41", modifiers = ["underlined"] }
+"ui.debug.breakpoint" = { fg = "red"}
+"ui.debug.active" = { fg = "green"}
 
 "ui.selection" = { bg = "#3a3d41" }
 "ui.selection.primary" = { bg = "dark_blue" }
 
 "ui.linenr" = { fg = "dark_gray" }
-"ui.linenr.selected" = { fg = "light_gray2" }
+"ui.linenr.selected" = { fg = "gold" }
 
 "ui.cursorline.primary" = { bg = "dark_gray3" }
-"ui.statusline" = { fg = "white", bg = "NONE" }
-"ui.statusline.inactive" = { fg = "white", bg = "blue" }
-"ui.statusline.insert" = { fg = "white", bg = "orange" }
-"ui.statusline.select" = { fg = "white", bg = "magenta" }
+"ui.statusline" = { fg = "white" }
+"ui.statusline.inactive" = { fg = "white", bg = "NONE" }
+"ui.statusline.insert" = { fg = "white", bg = "red" }
+"ui.statusline.select" = { fg = "white", bg = "dark_green" }
 "ui.statusline.normal" = { fg = "white", bg = "blue" }
 
 "ui.bufferline" = { fg = "text", bg = "widget" }
 "ui.bufferline.active" = { fg = "white", bg = "blue" }
-"ui.bufferline.background" = { bg = "background" }
+"ui.bufferline.background" = { }
 
-"ui.text" = { fg = "text" }
+"ui.text" = { fg = "text" } # this is for the text inside the pop up windows
 "ui.text.focus" = { fg = "white" }
 
 "ui.virtual.whitespace" = { fg = "dark_gray" }
 "ui.virtual.ruler" = { bg = "borders" }
 "ui.virtual.indent-guide" = { fg = "dark_gray4" }
 
+"ui.virtual.inlay-hint.parameter" = {fg = "dark_green"}
+"ui.virtual.inlay-hint" = {fg = "dark_green"}
+
 "warning" = { fg = "gold2" }
 "error" = { fg = "red" }
 "info" = { fg = "light_blue" }
-"hint" = { fg = "light_gray3" }
+"hint" = { fg = "dark_green" }
 
 "diagnostic.error".underline = { color = "red", style = "curl" }
 "diagnostic".underline = { color = "gold", style = "curl" }
