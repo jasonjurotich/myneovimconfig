@@ -99,6 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export EDITOR="/opt/homebrew/bin/hx"
+export VISUAL="/opt/homebrew/bin/hx"
 export PATH="/Users/jj/.surrealdb:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
