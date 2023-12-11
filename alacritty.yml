@@ -5,6 +5,7 @@ env:
 live_config_reload: true
 
 window:
+  option_as_alt: Both
   opacity: 0.7
   dimensions:
     columns: 0
