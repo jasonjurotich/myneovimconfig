@@ -1,6 +1,7 @@
 // you need to change both the main Ctrl and the second one below shared_except if you want to change the main key
-
+// to see the error file for zellij /var/folders/wb/rmtdhg_n2590yclmf7ypn19r0000gn/T/zellij-501/zellij-log
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
+
 keybinds clear-defaults=true {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
@@ -231,7 +232,7 @@ theme "dracula"
 // The name of the default layout to load on startup
 // Default: "dracula"
 //
-default_layout "default"
+default_layout "compact" // default
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -282,7 +283,7 @@ copy_on_select true
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
 //
-// scrollback_editor "/opt/homebrew/bin/hx"
+scrollback_editor "/opt/homebrew/bin/hx"
 
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
