@@ -38,7 +38,7 @@
 "constant.numeric" = { fg = "pale_green" }
 "constant.character.escape" = { fg = "gold" }
 
-"markup.heading" = { fg = "blue2", modifiers = ["bold"] }
+"markup.heading" = { fg = "blue2", modifiers = ["bold", "italic"] }
 "markup.list" = "blue3"
 "markup.bold" = { fg = "blue2", modifiers = ["bold"] }
 "markup.italic" = { modifiers = ["italic"] }
@@ -82,8 +82,8 @@
 "ui.statusline.select" = { fg = "white", bg = "dark_green" }
 "ui.statusline.normal" = { fg = "white", bg = "blue" }
 
-"ui.bufferline" = { fg = "text", bg = "widget" }
-"ui.bufferline.active" = { fg = "white", bg = "blue" }
+"ui.bufferline" = { fg = "dark_yellow1", modifiers = ["italic"] }
+"ui.bufferline.active" = { fg = "green",  modifiers = ["bold"] }
 "ui.bufferline.background" = { }
 
 "ui.text" = { fg = "text" } # this is for the text inside the pop up windows
@@ -109,6 +109,9 @@ white = "#ffffff"
 orange = "#ce9178"
 gold = "#d7ba7d"
 gold2 = "#cca700"
+green = "#39ff14"
+black = "#000000"
+dark_yellow1 = "#8B8000"
 pale_green = "#b5cea8"
 dark_green = "#6A9955"
 dark_green2 = "#487e02"
