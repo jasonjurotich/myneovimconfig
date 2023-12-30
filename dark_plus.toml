@@ -78,9 +78,9 @@
 "ui.cursorline.primary" = { bg = "dark_gray3" }
 "ui.statusline" = { fg = "white" }
 "ui.statusline.inactive" = { fg = "white", bg = "NONE" }
-"ui.statusline.insert" = { fg = "white", bg = "red" }
-"ui.statusline.select" = { fg = "white", bg = "dark_green" }
-"ui.statusline.normal" = { fg = "white", bg = "blue" }
+"ui.statusline.insert" = { fg = "red", modifiers = ["bold"]}
+"ui.statusline.select" = { fg = "green", modifiers = ["bold"]}
+"ui.statusline.normal" = { fg = "blue5", modifiers = ["bold"]  }
 
 "ui.bufferline" = { fg = "dark_yellow1", modifiers = ["italic"] }
 "ui.bufferline.active" = { fg = "green",  modifiers = ["bold"] }
@@ -126,6 +126,7 @@ blue = "#007acc"
 blue2 = "#569CD6"
 blue3 = "#6796E6"
 blue4 = "#1b81a8"
+blue5 = "#2edaff"
 light_blue = "#75beff"
 dark_blue = "#264f78"
 dark_blue2 = "#094771"
