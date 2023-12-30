@@ -1,13 +1,27 @@
+# https://blog.getreu.net/20220828-tp-note-new8/
+# https://medium.com/@CaffeineForCode/helix-setup-for-markdown-b29d9891a812
+# https://github.com/helix-editor/helix/discussions/3637#discussioncomment-6868540
+# https://github.com/helix-editor/helix/issues/7149
+# https://roderik.no/helix-editor-with-multiple-lsps-for-one-language
+
+
+
 [[language]]
 name = "markdown"
 language-servers = ["ltex-ls" ]
 file-types = ["md", "txt"]
 scope = "source.md"
-# roots = [".git"]
-
 indent = { tab-width = 2, unit = "  " }
 injection-regex = "md|markdown"
 auto-format = true
+# roots = [".git"]
+
+[language-server.ltex-ls]
+config = { ltex.language = "en-US" }
+# config = { ltex = {language = "en-US", language = "es-MX"} }
+# [language-server.ltex.config.ltex.dictionary]
+# "en-US" = ["Tp-Note","Zettelkasten"]
+# {"en-US", "es-MX"}
 
 [[language]]
 name = "sql"
@@ -27,9 +41,18 @@ name = "rust"
 checkOnSave = {command = "clippy"}
 # checkOnSave = {command = "clippy", extraArgs = ["--", "-W", "clippy::pedantic"]}
 
+[language.debugger]
+name = "lldb-vscode"
+transport = "stdio"
+command = "lldb-vscode"
 
-# [[language]]
-# name = "rust"
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+completion = [ { name = "binary", completion = "filename" } ]
+# args = { program = "{0}", runInTerminal = true }
+args = { program = "{0}"}
+
 # scope = "source.rust"
 # injection-regex = "rust"
 # file-types = ["rs"]
@@ -37,4 +60,4 @@ checkOnSave = {command = "clippy"}
 # auto-format = true
 # comment-token = "//"
 # language-server = { command = "rust-analyzer" }
-# indent = { tab-width = 4, unit = "    " }
+# indent = { tab-width = 2, unit = "  " }
