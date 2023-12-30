@@ -179,6 +179,11 @@ key = "Minus"
 mods = "Command"
 
 [[keyboard.bindings]]
+action = "ToggleSimpleFullscreen"
+key = "F"
+mods = "Control"
+
+[[keyboard.bindings]]
 chars = "\u001B[5;2~"
 key = "PageUp"
 mods = "Shift"
@@ -635,7 +640,7 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [window]
-decorations = "buttonless"
+decorations = "Transparent"
 dynamic_padding = true
 opacity = 0.8
 option_as_alt = "Both"
