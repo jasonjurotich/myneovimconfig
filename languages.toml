@@ -61,3 +61,35 @@ args = { program = "{0}"}
 # comment-token = "//"
 # language-server = { command = "rust-analyzer" }
 # indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+ name = "javascript"
+ language-servers = [ "typescript-language-server", "tailwindcss-react", "eslint", "emmet-ls", "scls", "graphql"]
+ formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+ indent = { tab-width = 2, unit = "\t" }
+ auto-format = true
+
+[[language]]
+ name = "typescript"
+ language-servers = [  "typescript-language-server", "tailwindcss-react", "eslint", "emmet-ls", "scls", "graphql"]
+ formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+ indent = { tab-width = 2, unit = "\t" }
+ auto-format = true
+
+[[language]]
+ name = "json"
+ language-servers = [ "vscode-json-language-server" ]
+ formatter = { command = 'npx', args = ["prettier", "--parser", "json"] }
+ indent = { tab-width = 2, unit = "\t" }
+ auto-format = true
+
+[[language]]
+ name = "html"
+ formatter = { command = 'npx', args = ["prettier", "--parser", "html"] }
+ language-servers = [ "vscode-html-language-server", "tailwindcss-react", "emmet-ls"]
+ 
+[[language]]
+ name = "css"
+ formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
+ language-servers = [ "vscode-css-language-server", "tailwindcss-react", "emmet-ls"]
+
