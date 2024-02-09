@@ -33,7 +33,6 @@ Y = ":clipboard-yank"
 
 # you cant use v because it is used for visual mode
 [keys.normal]
-# V = ["extend_line_below", "select_mode"]
 Q = ":x"
 Z = ["half_page_down"]
 X = ["half_page_up"]
