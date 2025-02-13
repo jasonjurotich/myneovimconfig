@@ -19,4 +19,6 @@ alias iedu='mosh jason_jurotich@35.232.94.202'
 alias jjorg='mosh jj@34.133.154.205'
 alias tmuv2='cd /Users/jj/Documents/RUSTDEV/adminbotbinaryv2 && rm admv2 && dh && cd /Users/jj/Documents/RUSTDEV/rustglobal/target/x86_64-unknown-linux-musl/release && cp rustglobal /Users/jj/Documents/RUSTDEV/adminbotbinaryv2/admv2 && cd /Users/jj/Documents/RUSTDEV/adminbotbinaryv2 && dh && cd /Users/jj/Documents/RUSTDEV/rustglobal'
 alias tars3='cargo clean && TARGET_CC=x86_64-linux-musl-gcc cargo build --release --target x86_64-unknown-linux-musl && cd /Users/jj/Documents/RUSTDEV/striperust/BINARY && rm striperust && cd /Users/jj/Documents/RUSTDEV/striperust/target/x86_64-unknown-linux-musl/release && cp striperust /Users/jj/Documents/RUSTDEV/striperust/BINARY/striperust && cd /Users/jj/Documents/RUSTDEV/striperust && dh'
+alias deldeb='cd Documents && find /Users/jasonjurotich/Documents/RUSTDEV -name debug -type d -exec rm -rf {} \; && cd'
+
 
