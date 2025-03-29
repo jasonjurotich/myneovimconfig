@@ -23,32 +23,57 @@ select = "underline"
 
 [keys.insert]
 w = { w = [":pipe echo 'println!(\"DEBUG this is {:#?}\",);'","goto_line_end","move_char_left"]}
+esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 
 [keys.select]
 Q = ":x"
+G = "goto_file_end"
 "space" = {v = "vsplit", q = ":bc!"}
-g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", v = ":w"}
-Y = ":clipboard-yank"
-"." = "repeat_last_motion"
+g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", h = ":w"}
+y = ["yank_main_selection_to_clipboard", "normal_mode"]
+p = ["paste_clipboard_after", "normal_mode"]
+P = ["replace_selections_with_clipboard", "normal_mode"] 
+d = ["yank_main_selection_to_clipboard", "delete_selection"]
+esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 
+"." = "repeat_last_motion"
 # you cant use v because it is used for visual mode
 [keys.normal]
+C-v = ":config-reload"
 Q = ":x"
+p = ["paste_clipboard_after", "normal_mode"]
+P = ["replace_selections_with_clipboard", "normal_mode"] 
+y = ["yank_main_selection_to_clipboard", "normal_mode"]
+d = ["yank_main_selection_to_clipboard", "delete_selection"]
+"%" = "match_brackets"
+G = "goto_file_end"
 Z = ["half_page_down"]
 X = ["half_page_up"]
-V = ["goto_first_nonwhitespace", "select_mode", "goto_line_end", "extend_line_below"]
-Y = ":clipboard-yank"
+V = ["select_mode", "extend_to_line_bounds"]
+
+w = ["move_next_word_start", "move_char_right", "collapse_selection"]
+W = ["move_next_long_word_start", "move_char_right", "collapse_selection"]
+e = ["move_next_word_end", "collapse_selection"]
+E = ["move_next_long_word_end", "collapse_selection"]
+b = ["move_prev_word_start", "collapse_selection"]
+B = ["move_prev_long_word_start", "collapse_selection"]
+u = ["undo", "collapse_selection"]
+
+"*" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection", "search_next"]
+"#" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection", "search_prev"]
 
 q = ["move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "align_view_center"]
 t = ["move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "align_view_center"]
 
-"space" = {v = "vsplit", q = ":bc!", a = ["move_prev_word_start", "move_next_word_start", "search_selection"], c = [":w", ":sh /Users/jj/gits.sh"], e = ":show-directory"}
-g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", v = ":w"}
+"space" = {v = "vsplit", q = ":bc!", a = [":w", ":sh /Users/jasonjjurotich/gits.sh"], e = ":show-directory"}
+g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", h = ":w"}
 
 "." = "repeat_last_motion"
 "tab" = ":bn"
 "S-tab" = ":bp"
-esc = ["collapse_selection", "keep_primary_selection"]
+esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
+
+m = {t = ["goto_first_nonwhitespace", "select_mode", "goto_line_end", "surround_add"]}
 
 [editor.statusline]
 left = ["mode", "file-name", "file-modification-indicator", "spacer", "spinner"]
