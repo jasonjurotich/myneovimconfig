@@ -35,11 +35,13 @@ p = ["paste_clipboard_after", "normal_mode"]
 P = ["replace_selections_with_clipboard", "normal_mode"] 
 d = ["yank_main_selection_to_clipboard", "delete_selection"]
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
-
 "." = "repeat_last_motion"
-# you cant use v because it is used for visual mode
+
+V = ["select_mode", "select_line_below", "extend_to_line_bounds"]
+
 [keys.normal]
-C-v = ":config-reload"
+V = ["select_mode", "select_line_below", "extend_to_line_bounds"]
+
 Q = ":x"
 p = ["paste_clipboard_after", "normal_mode"]
 P = ["replace_selections_with_clipboard", "normal_mode"] 
@@ -49,7 +51,6 @@ d = ["yank_main_selection_to_clipboard", "delete_selection"]
 G = "goto_file_end"
 Z = ["half_page_down"]
 X = ["half_page_up"]
-V = ["select_mode", "extend_to_line_bounds"]
 
 w = ["move_next_word_start", "move_char_right", "collapse_selection"]
 W = ["move_next_long_word_start", "move_char_right", "collapse_selection"]
