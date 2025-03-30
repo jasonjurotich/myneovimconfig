@@ -33,11 +33,9 @@ alias pf = psql -U jj -d rustpr -a -f
 alias ex = exit
 alias cl = clear
 alias t = tmux new -s s1
-alias v = NVIM_APPNAME=nvimjj nvim
-alias vvim = v ~/.config/nvim/init.lua
 alias x = hx
 alias j = zellij --layout /Users/jasonjurotich/.config/zellij/layouts/default.kdl options --default-shell nu
-alias rr = z /Users/jasonjurotich/Documents/RUSTDEV/rustglobal2/src
+alias rr = cd /Users/jasonjurotich/Documents/RUSTDEV/rustglobal2/src
 alias iedu = mosh jason_jurotich@35.232.94.202
 alias jjorg = mosh jj@34.133.154.205
 
@@ -100,15 +98,11 @@ $env.PROMPT_INDICATOR_VI_INSERT = ": "
 $env.PROMPT_INDICATOR_VI_NORMAL = "〉"
 $env.PROMPT_MULTILINE_INDICATOR = "::: "
 
-
 zoxide init nushell | save -f ~/.zoxide.nu
 source ~/.zoxide.nu
 
-## ~/.config/nushell/env.nu
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
-
-#~/.config/nushell/config.nu
 source ~/.cache/carapace/init.nu
 
