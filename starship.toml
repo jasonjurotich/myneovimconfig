@@ -1,0 +1,16 @@
+format = """
+[$time]($style) $directory\
+[❯](bold blue) """
+
+add_newline = false
+
+[time]
+disabled = false
+format = '[ $time ]($style) '
+time_format = "%T"
+utc_time_offset = "-6"
+time_range = "00:00:00-23:00:00"
+
+[directory]
+truncation_length = 8
+truncation_symbol = "…/"
