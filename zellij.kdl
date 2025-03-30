@@ -441,6 +441,7 @@ themes {
 
 // https://github.com/zellij-org/zellij/blob/main/zellij-utils/assets/themes/iceberg-dark.kdl
 // https://github.com/ndavd/zellij-cb
+// ZELLIJ_NO_BACKGROUND=true zellij
 
 
 theme "iceberg-dark-jj"
@@ -625,5 +626,10 @@ show_startup_tips false
 // 
 show_release_notes false
 
-
+layout {
+    pane size=1 borderless=true {
+        plugin location="compact-bar"
+    }
+    pane
+}
 
