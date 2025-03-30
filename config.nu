@@ -106,3 +106,12 @@ mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 source ~/.cache/carapace/init.nu
 
+// put this in a nushell script to run it through helix. 
+// Put it into the root directory /Users/jasonjurotich and then run chmod +x gits.nu to make it executable
+
+# gits.nu
+
+# Git commands
+git add -A
+git commit -m "updated"
+git push
