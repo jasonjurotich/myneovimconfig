@@ -1,6 +1,3 @@
-# https://alacritty.org/config-alacritty.html
-
-live_config_reload = true
 # tabspaces = 2
 
 [env]
@@ -9,6 +6,11 @@ TERM = "xterm-256color"
 
 [colors]
 draw_bold_text_with_bright_colors = false
+transparent_background_colors = true
+
+[colors.primary]
+background = "0x000000"
+foreground = "0xF0FDFF"
 
 [colors.bright]
 black = "0x71798a"
@@ -44,9 +46,6 @@ red = "0xd08785"
 white = "0xf0fdff"
 yellow = "0xfdf8ce"
 
-[colors.primary]
-background = "0x000000"
-foreground = "0xF0FDFF"
 
 [colors.selection]
 cursor = "0xF0FDFF"
@@ -64,14 +63,14 @@ render_timer = false
 
 [font]
 # AppleFontSmoothing = true
-size = 13.0
+size = 12.5
 
 [font.bold]
-family = "Menlo"
+family = "JetBrainsMono NF"
 style = "Bold"
 
 [font.bold_italic]
-family = "Menlo"
+family = "JetBrainsMono NF"
 style = "Italic"
 
 [font.glyph_offset]
@@ -79,11 +78,11 @@ x = 0
 y = 1
 
 [font.italic]
-family = "Menlo"
+family = "JetBrainsMono NF"
 style = "Italic"
 
 [font.normal]
-family = "Menlo"
+family = "JetBrainsMono NF"
 style = "Regular"
 
 [font.offset]
@@ -622,7 +621,7 @@ key = "F12"
 mods = "Command"
 
 [mouse]
-hide_when_typing = false
+hide_when_typing = true
 
 # [mouse.double_click]
 # threshold = 300
@@ -653,3 +652,13 @@ lines = 50
 [window.padding]
 x = 2
 y = 0
+
+[general]
+# https://alacritty.org/config-alacritty.html
+
+live_config_reload = true
+
+[terminal]
+  [terminal.shell]
+    program = "/opt/homebrew/bin/nu" # Replace with the output of 'which nu'
+    args = ["-l"]
