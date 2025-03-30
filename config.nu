@@ -1,3 +1,4 @@
+$env.PATH = ($env.PATH | prepend "$HOME")
 $env.PATH = ($env.PATH | prepend '/opt/homebrew/bin')
 $env.PATH = ($env.PATH | prepend "/Users/jasonjurotich/.surrealdb")
 $env.PATH = ($env.PATH | prepend '/Users/jasonjurotich/.cargo/bin')
