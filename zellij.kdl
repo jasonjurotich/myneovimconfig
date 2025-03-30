@@ -626,6 +626,11 @@ show_startup_tips false
 // 
 show_release_notes false
 
+
+// this did not work here, you have to craete a path which is .config/zellij/layouts and in that create a default.kdl file and you put what is below there.
+// then you have to start zellij with this: zellij --layout /Users/jasonjurotich/.config/zellij/layouts/default.kdl options --default-shell nu
+// that is abrreviated as j in the nushell config file
+
 layout {
     pane size=1 borderless=true {
         plugin location="compact-bar"
