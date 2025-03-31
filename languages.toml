@@ -6,6 +6,15 @@
 # https://github.com/H4ckint0sh/dotfiles/blob/main/helix/.config/helix/languages.toml
 
 
+# for nu, after you add the grammar part, you must run 
+# hx -g fetch
+# hx -g build
+
+# then you must create a path which is .config/helix/runtime/queries/nu
+# then you touch highlights.scm in that directory
+# then copy and paste everything from here: https://github.com/nushell/tree-sitter-nu/blob/main/queries/nu/highlights.scm
+# then restart terminal
+
 
 [[language]]
 name = "markdown"
