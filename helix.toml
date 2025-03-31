@@ -1,3 +1,19 @@
+// when you first install helix, you MUST do this FIRST!
+
+hx --grammar fetch to fetch the grammars and hx --grammar build to build them!
+
+// then, check rust!
+hx --health rust
+
+if it failes, check the rust analyzer!
+rust-analyzer --version
+
+// then install!
+rustup component add rust-analyzer
+
+
+
+
 theme = "dark_plus"
 
 [editor]
