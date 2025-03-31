@@ -12,8 +12,6 @@ rust-analyzer --version
 rustup component add rust-analyzer
 
 
-
-
 theme = "dark_plus"
 
 [editor]
@@ -22,7 +20,6 @@ auto-completion = true
 idle-timeout = 0
 completion-trigger-len = 2
 auto-info = true # this shows the help shortcut sections
-auto-save = true
 auto-format = true
 true-color = true
 color-modes = true
@@ -30,7 +27,13 @@ bufferline = "multiple"
 gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
 mouse = true 
 middle-click-paste = true   
-insert-final-newline = true 
+insert-final-newline = true
+shell = ["nu", "-c"]
+continue-comments = false
+completion-timeout = 250
+preview-completion-insert	= true
+text-width = 80
+
 
 [editor.cursor-shape]
 insert = "bar"
@@ -45,20 +48,19 @@ esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 Q = ":x"
 G = "goto_file_end"
 "space" = {v = "vsplit", q = ":bc!"}
-g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", h = ":w"}
+g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", h = [":format",":w"]}
 y = ["yank_main_selection_to_clipboard", "normal_mode"]
 p = ["paste_clipboard_after", "normal_mode"]
 P = ["replace_selections_with_clipboard", "normal_mode"] 
 d = ["yank_main_selection_to_clipboard", "delete_selection"]
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 "." = "repeat_last_motion"
-
 "%" = "match_brackets"
 V = ["select_mode", "select_line_below", "extend_to_line_bounds"]
 
-
 [keys.normal]
 V = ["select_mode", "select_line_below", "extend_to_line_bounds"]
+"." = "repeat_last_motion"
 
 Q = ":x"
 p = ["paste_clipboard_after", "normal_mode"]
@@ -84,10 +86,9 @@ u = ["undo", "collapse_selection"]
 q = ["move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "align_view_center"]
 t = ["move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "align_view_center"]
 
-"space" = {v = "vsplit", q = ":bc!", a = [":w", ":sh /Users/jasonjurotich/gits.sh"], e = ":show-directory"}
-g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", h = ":w"}
+"space" = {v = "vsplit", q = ":bc!", a = [":w", ":sh nu -c /Users/jasonjurotich/gits.nu"], e = ":show-directory"}
+g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", h = [":format",":w"]}
 
-"." = "repeat_last_motion"
 "tab" = ":bn"
 "S-tab" = ":bp"
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
@@ -101,11 +102,17 @@ right = ["diagnostics","workspace-diagnostics"]
 separator = "│"
 
 [editor.lsp]
+display-progress-messages = true
 display-messages = true
+display-inlay-hints = true
 auto-signature-help = true
 display-signature-help-docs = true
 snippets = true
-display-inlay-hints = false
+
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+other-lines = "error"
 
 [editor.soft-wrap]
 enable = true
@@ -145,3 +152,13 @@ tabpad = "·"
 
 [editor.file-picker]
 hidden = false
+ignore = true
+
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout = 10000
+
+[editor.search]
+wrap-around = true
