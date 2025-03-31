@@ -38,6 +38,9 @@ command = "/opt/homebrew/bin/sql-language-server"
 [[language]]
 name = "rust"
 
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
 [language-server.rust-analyzer.config]
 checkOnSave = {command = "clippy"}
 # checkOnSave = {command = "clippy", extraArgs = ["--", "-W", "clippy::pedantic"]}
@@ -93,4 +96,10 @@ args = { program = "{0}"}
  name = "css"
  formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
  language-servers = [ "vscode-css-language-server", "tailwindcss-react", "emmet-ls"]
+
+
+[[grammar]]
+name = "nu"
+source = { git = "https://github.com/nushell/tree-sitter-nu", rev = "main" }
+
 
