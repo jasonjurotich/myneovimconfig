@@ -112,6 +112,7 @@ source ~/.cache/carapace/init.nu
 # gits.nu
 
 # Git commands
-git add -A
-git commit -m "updated"
-git push
+git add -A &>/dev/null 
+git commit -m "updated" &>/dev/null
+git push &>/dev/null
+
