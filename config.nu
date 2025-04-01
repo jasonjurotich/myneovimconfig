@@ -117,7 +117,7 @@ git commit -m "updated" &>/dev/null
 git push &>/dev/null
 
 
-cpu_usage.nu
+CPU
 #!/usr/bin/env nu
 
 # Extract the CPU usage line
@@ -146,10 +146,45 @@ $usage
 
 
 
-
-
+DISK
 #!/usr/bin/env nu
 
+# Get disk usage for the root filesystem (/)
+let disk_info = (
+  run-external "df" "-h" "/"
+  | complete
+  | get stdout
+  | lines
+  | skip 1  # Skip the header line
+  | first
+  | split row " "  # Split by whitespace
+  | where {|x| $x != ""}  # Remove empty entries
+)
+
+# Print parsed disk info for debugging
+# print $"Parsed disk info: ( $disk_info )"
+
+# Extract the total and available space values
+let total = $disk_info | get 1  # The "Size" column (228Gi)
+let available = $disk_info | get 3  # The "Avail" column (83Gi)
+
+# Remove unit (Gi) and convert to integers
+let total_int = ($total | str replace "Gi" "") | into int
+let available_int = ($available | str replace "Gi" "") | into int
+
+# Calculate the disk usage percentage
+let disk_usage_percent = (((($total_int - $available_int) / $total_int) * 100))
+
+# Round the result and remove the decimal
+let rounded_disk_usage_percent = ($disk_usage_percent | math round)
+
+# Output the result
+$rounded_disk_usage_percent
+
+
+
+RAM
+#!/usr/bin/env nu
 # Get memory info from vm_stat
 let vm_stats = (run-external "vm_stat" | complete | get stdout | lines)
 
@@ -157,189 +192,119 @@ let vm_stats = (run-external "vm_stat" | complete | get stdout | lines)
 let page_size = (
   $vm_stats 
   | where {|line| $line | str contains "page size of"} 
-  | first
-  | parse --regex "page size of (\\d+) bytes"
-  | get capture0.0
+  | first 
+  | parse --regex "page size of (\\d+) bytes" 
+  | get capture0.0 
   | into int
 )
 
-# Extract free and total memory pages
+# Extract various memory page counts
 let pages_free = (
   $vm_stats 
   | where {|line| $line | str contains "Pages free:"} 
-  | first
-  | parse --regex "Pages free:\\s+(\\d+)\\."
-  | get capture0.0
+  | first 
+  | parse --regex "Pages free:\\s+(\\d+)\\." 
+  | get capture0.0 
   | into int
 )
 
 let pages_inactive = (
   $vm_stats 
   | where {|line| $line | str contains "Pages inactive:"} 
-  | first
-  | parse --regex "Pages inactive:\\s+(\\d+)\\."
-  | get capture0.0
+  | first 
+  | parse --regex "Pages inactive:\\s+(\\d+)\\." 
+  | get capture0.0 
+  | into int
+)
+
+let pages_active = (
+  $vm_stats 
+  | where {|line| $line | str contains "Pages active:"} 
+  | first 
+  | parse --regex "Pages active:\\s+(\\d+)\\." 
+  | get capture0.0 
+  | into int
+)
+
+let pages_wired = (
+  $vm_stats 
+  | where {|line| $line | str contains "Pages wired down:"} 
+  | first 
+  | parse --regex "Pages wired down:\\s+(\\d+)\\." 
+  | get capture0.0 
+  | into int
+)
+
+let pages_compressed = (
+  $vm_stats 
+  | where {|line| $line | str contains "Pages occupied by compressor:"} 
+  | first 
+  | parse --regex "Pages occupied by compressor:\\s+(\\d+)\\." 
+  | get capture0.0 
+  | into int
+)
+
+let pages_speculative = (
+  $vm_stats 
+  | where {|line| $line | str contains "Pages speculative:"} 
+  | first 
+  | parse --regex "Pages speculative:\\s+(\\d+)\\." 
+  | get capture0.0 
+  | into int
+)
+
+let pages_purgeable = (
+  $vm_stats 
+  | where {|line| $line | str contains "Pages purgeable:"} 
+  | first 
+  | parse --regex "Pages purgeable:\\s+(\\d+)\\." 
+  | get capture0.0 
   | into int
 )
 
 # Get total physical memory
 let total_memory = (
   run-external "sysctl" "-n" "hw.memsize" 
-  | complete
-  | get stdout
-  | str trim
+  | complete 
+  | get stdout 
+  | str trim 
   | into int
 )
 
-# Calculate free memory in bytes
-let free_memory = ($page_size * ($pages_free + $pages_inactive))
+# Calculate free memory differently - count more categories as "free"
 
-# Calculate usage percentage (rounded to integer)
+let free_memory = $page_size * ($pages_free + $pages_speculative + $pages_purgeable + ($pages_inactive * 2 / 3))
+# let free_memory = $page_size * ($pages_free + $pages_speculative + $pages_purgeable + ($pages_inactive / 3))
+
+# Calculate RAM usage percentage with the new free memory calculation
 let ram_usage = (
   (($total_memory - $free_memory) / $total_memory * 100) 
   | math round 
   | into int
 )
 
-# Output the result
+
+# Format memory values in GB with 2 decimal places
+let total_gb = (($total_memory / 1024 / 1024 / 1024) | math round -p 2)
+let active_gb = (($pages_active * $page_size / 1024 / 1024 / 1024) | math round -p 2)
+let wired_gb = (($pages_wired * $page_size / 1024 / 1024 / 1024) | math round -p 2)
+let compressed_gb = (($pages_compressed * $page_size / 1024 / 1024 / 1024) | math round -p 2)
+let inactive_gb = (($pages_inactive * $page_size / 1024 / 1024 / 1024) | math round -p 2)
+let free_gb = (($pages_free * $page_size / 1024 / 1024 / 1024) | math round -p 2)
+let speculative_gb = (($pages_speculative * $page_size / 1024 / 1024 / 1024) | math round -p 2)
+let purgeable_gb = (($pages_purgeable * $page_size / 1024 / 1024 / 1024) | math round -p 2)
+
+# Print memory breakdown
+# print "Memory breakdown (GB):"
+# print $"Total: ($total_gb)"
+# print $"Active: ($active_gb)"
+# print $"Wired: ($wired_gb)"
+# print $"Compressed: ($compressed_gb)"
+# print $"Inactive: ($inactive_gb)"
+# print $"Free: ($free_gb)"
+# print $"Speculative: ($speculative_gb)"
+# print $"Purgeable: ($purgeable_gb)"
+# print $"RAM Usage: ($ram_usage)%"
+
+# Output the RAM usage percentage
 $ram_usage
-
-
-#!/usr/bin/env nu
-
-# Get disk usage for the root filesystem (/)
-let disk_info = (
-  run-external "df" "-h" "/" 
-  | complete
-  | get stdout
-  | lines
-  | skip 1  # Skip the header line
-  | first
-)
-
-# Parse the disk usage percentage
-let disk_usage = (
-  $disk_info
-  | split row " "
-  | where {|part| $part != ""}  # Remove empty strings
-  | get 4  # The percentage field (may need adjustment)
-  | str replace "%" ""  # Remove the % symbol
-  | into int
-)
-
-# Output the result
-$disk_usage
-
-
-
-#!/usr/bin/env nu
-
-# Note: This script requires sudo privileges to run powermetrics.
-# Ensure you have recently authenticated with sudo (e.g., run 'sudo -v' in your terminal first)
-
-# Configuration
-let sample_interval_ms = 500
-let samples_to_take = 1
-let target_metric_name = "GPU HW active residency"
-let target_regex = 'GPU HW active residency:\s*(?<value>[\d\.]+)%'
-let power_regex = '.*?:\s*(?<value>[\d\.]+)\s*mW.*'
-
-# --- Run powermetrics ---
-let gpu_data = (
-    do -i {
-        run-external "sudo" "powermetrics" "--samplers" "gpu_power" "-n" $samples_to_take "-i" $sample_interval_ms
-        | complete
-        | get stdout
-    }
-)
-
-if ($gpu_data | is-empty) {
-    print "Error: powermetrics command failed or produced no output. Ensure sudo was used."
-    exit 1
-}
-
-# --- Data Extraction ---
-let gpu_line = (
-    $gpu_data
-    | lines
-    | where {|line| $line | str contains $target_metric_name }
-    | get 0
-)
-
-if ($gpu_line | is-not-empty) {
-    print $"Debug: Found target metric line: ($gpu_line)"
-
-    let gpu_percentage_result = (
-        $gpu_line
-        | parse --regex $target_regex
-        | get value? | get 0
-    )
-
-    print $"Debug: Parsed result: ($gpu_percentage_result | to nuon)"
-
-    if ($gpu_percentage_result | is-not-empty) {
-        print $"Debug: Extracted GPU percentage result before conversion: ($gpu_percentage_result)"
-        print $"Debug: Type of extracted value: ({$gpu_percentage_result | describe})"
-
-        try {
-            let cleaned_value = (
-                $gpu_percentage_result
-                | into string
-                | str trim
-            )
-            print $"Debug: Cleaned value before conversion: ($cleaned_value)"
-            print $"Debug: Type of cleaned value: ({$cleaned_value | describe})"
-
-            let float_value = ($cleaned_value | into float)
-            print $"Debug: Successfully converted to float: ($float_value)"
-
-            $float_value
-                | math round --precision 0
-                | into int
-        } catch {
-            print $"Warning: Could not convert extracted value '($gpu_percentage_result)' to float. Using default 0."
-            0
-        }
-    } else {
-        print $"Warning: Regex failed to extract percentage value from line: ($gpu_line). Outputting 0."
-        0
-    }
-} else {
-    print "Debug: Target metric line not found. Using GPU Power fallback."
-
-    let gpu_power_result_str = (
-        $gpu_data
-        | lines
-        | where {|line| $line | str contains "GPU Power:"}
-        | get 0
-        | if ($in | is-not-empty) {
-              $in | parse --regex $power_regex | get value?
-          } else {
-              null
-          }
-    )
-
-    print $"Debug: Extracted GPU Power result: ($gpu_power_result_str | to nuon)"
-
-    if ($gpu_power_result_str | is-not-empty) {
-        print $"Debug: Found GPU Power: ($gpu_power_result_str) mW"
-        try {
-            let gpu_power_watts = ($gpu_power_result_str | into float | $in / 1000.0)
-            let max_gpu_power_watts = 20.0
-            let calculated_percentage = ($gpu_power_watts / $max_gpu_power_watts * 100.0)
-
-            print $"Debug: Calculated GPU percentage from power: ($calculated_percentage)"
-
-            $calculated_percentage
-                | round --digits 0
-                | into int
-                | if $in < 0 { 0 } else { if $in > 100 { 100 } else { $in } }
-        } catch {
-            print $"Warning: Could not convert extracted power value '($gpu_power_result_str | to nuon)' to float. Outputting 0."
-            0
-        }
-    } else {
-        print "Error: Could not determine GPU usage. Target line and Power metric both failed."
-        0
-    }
-}
