@@ -633,7 +633,6 @@ show_release_notes false
 
 
 
-
 // layout {
 //     pane size=1 borderless=true {
 //         plugin location="compact-bar"
@@ -644,9 +643,11 @@ show_release_notes false
 layout {
     pane size=1 borderless=true {
       plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
-        format_left   "#[fg=#89B4FA,bold]{session} |{tabs}"
+        // format_left   "#[fg=#89B4FA,bold]{session} |{tabs}"
+        format_left   "#[fg=#89B4FA,bold]{session} |{tabs} | {command_git_branch}"
         format_center  ""
-        format_right   "{command_git_branch} {datetime}"
+        // format_right   "{command_git_branch} {datetime}"
+        format_right   "C{command_cpu} | G{command_gpu} | R{command_ram} | D{command_disk} | {datetime}"
         format_space   ""
 
         border_enabled    "false"
@@ -655,23 +656,41 @@ layout {
         border_position   "top"
 
         hide_frame_for_single_pane "false"
+
         mode_normal   "#[bg=blue] "
         mode_tmux     "#[bg=#ffc387] "
         tab_normal    "#[fg=#6C7086] {name} "
         tab_active    "#[fg=#9399B2,bold,italic] {name} "
+
+        datetime        "#[fg=#6C7086,bold] {format} "
+        datetime_format "%A, %d %b %Y %H:%M"
+        datetime_timezone "America/Mexico_City"
 
         command_git_branch_command    "git rev-parse --abbrev-ref HEAD"
         command_git_branch_format     "#[fg=blue] {stdout} "
         command_git_branch_interval   "10"
         command_git_branch_rendermode "static"
 
-        datetime        "#[fg=#6C7086,bold] {format} "
-        datetime_format "%A, %d %b %Y %H:%M"
-        datetime_timezone "America/Mexico_City"
+        command_cpu_command    "nu /Users/jasonjurotich/cpu_usage.nu"
+        command_cpu_format     "#[fg=blue] {stdout}%"
+        command_cpu_interval   "3"
+        command_cpu_rendermode "static"
+
+        command_ram_command    "nu /Users/jasonjurotich/ram_usage.nu"
+        command_ram_format     "#[fg=green] {stdout}%"
+        command_ram_interval   "3"
+        command_ram_rendermode "static"
+
+        command_disk_command    "nu /Users/jasonjurotich/disk_usage.nu"
+        command_disk_format     "#[fg=yellow] {stdout}%"
+        command_disk_interval   "3"
+        command_disk_rendermode "static"
+
+        command_gpu_command     "nu /Users/jasonjurotich/gpu_usage.nu"
+        command_gpu_format      "#[fg=magenta] {stdout}%"
+        command_gpu_interval    "3"
+        command_gpu_rendermode  "static"
       }
     }
     pane
   }
-
-
-
