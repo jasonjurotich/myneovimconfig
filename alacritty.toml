@@ -12,15 +12,15 @@ transparent_background_colors = true
 background = "0x000000"
 foreground = "0xF0FDFF"
 
-[colors.bright]
-black = "0x71798a"
-blue = "0x7aa6da"
-cyan = "0x54ced6"
-green = "0x9ec400"
-magenta = "0xb77ee0"
-red = "0xff3334"
-white = "0xffffff"
-yellow = "0xe7c547"
+# [colors.bright]
+# black = "0x71798a"
+# blue = "0x7aa6da"
+# cyan = "0x54ced6"
+# green = "0x9ec400"
+# magenta = "0xb77ee0"
+# red = "0xff3334"
+# white = "0xffffff"
+# yellow = "0xe7c547"
 
 [colors.cursor]
 cursor = "0xffd17f"
@@ -36,15 +36,15 @@ red = "0xf2777a"
 white = "0xdddddd"
 yellow = "0xffcc66"
 
-[colors.normal]
-black = "0x2a2e38"
-blue = "0xa6b8cc"
-cyan = "0xffd17f"
-green = "0x6f98b3"
-magenta = "0xfcdbd9"
-red = "0xd08785"
-white = "0xf0fdff"
-yellow = "0xfdf8ce"
+# [colors.normal]
+# black = "0x2a2e38"
+# blue = "0xa6b8cc"
+# cyan = "0xffd17f"
+# green = "0x6f98b3"
+# magenta = "0xfcdbd9"
+# red = "0xd08785"
+# white = "0xf0fdff"
+# yellow = "0xfdf8ce"
 
 [colors.selection]
 cursor = "0xF0FDFF"
@@ -62,7 +62,7 @@ render_timer = false
 
 [font]
 # AppleFontSmoothing = true
-size = 13
+size = 12.5
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
@@ -73,8 +73,8 @@ family = "JetBrainsMono Nerd Font"
 style = "Bold Italic"
 
 [font.glyph_offset]
-x = 1
-y = 1
+x = 0
+y = 0
 
 [font.italic]
 family = "JetBrainsMono Nerd Font"
