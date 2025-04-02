@@ -1,0 +1,22 @@
+# yazi.toml
+
+#https://github.com/BennyOe/onedark.yazi?tab=readme-ov-file
+# in the path .config/yazi/ you create another file theme.toml and yo put this 
+# [flavor]
+# dark = "onedark"
+
+# run this afterwords git clone https://github.com/BennyOe/onedark.yazi.git ~/.config/yazi/flavors/onedark.yazi
+
+
+[manager]
+show_hidden = true
+
+ratio          = [ 0, 1, 4 ]
+sort_by        = "alphabetical"
+linemode       = "size"
+mouse_events   = [ "click", "scroll", "touch", "drag", "move" ]
+
+[opener]
+edit = [
+  { run = 'hx %*', block = true, desc = "hx", for = "unix" }
+]
