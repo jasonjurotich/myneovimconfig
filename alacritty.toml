@@ -46,7 +46,6 @@ red = "0xd08785"
 white = "0xf0fdff"
 yellow = "0xfdf8ce"
 
-
 [colors.selection]
 cursor = "0xF0FDFF"
 text = "0x2a2e38"
@@ -63,31 +62,31 @@ render_timer = false
 
 [font]
 # AppleFontSmoothing = true
-size = 12
+size = 13
 
 [font.bold]
-family = "JetBrainsMono NF"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono NF"
-style = "Italic"
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
 
 [font.glyph_offset]
-x = 0
+x = 1
 y = 1
 
 [font.italic]
-family = "JetBrainsMono NF"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono NF"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.offset]
 x = 1
-y = 5
+y = 1
 
 [[keyboard.bindings]]
 chars = '\p'
@@ -621,7 +620,7 @@ key = "F12"
 mods = "Command"
 
 [mouse]
-hide_when_typing = true
+hide_when_typing = false
 
 # [mouse.double_click]
 # threshold = 300
