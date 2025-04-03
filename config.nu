@@ -39,6 +39,7 @@ alias rr = cd /Users/jasonjurotich/Documents/RUSTDEV/rustglobal2/src
 alias iedu = mosh jason_jurotich@35.232.94.202
 alias jjorg = mosh jj@34.133.154.205
 alias zj = zellij
+alias zd = zellij delete-all-sessions
 alias nuc = cd `/Users/jasonjurotich/Library/Application Support/nushell`
 
 
