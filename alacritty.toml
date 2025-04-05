@@ -62,7 +62,7 @@ render_timer = false
 
 [font]
 # AppleFontSmoothing = true
-size = 12.5
+size = 12
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
