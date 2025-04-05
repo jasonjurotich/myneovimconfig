@@ -58,8 +58,7 @@
 "ui.popup" = { } # this is for space k, dont know if it affects borders
 "ui.popup.info" = { fg = "#323232" } # space and goto menus
 "ui.help" = { fg = "black" } # help text explaining something
-"ui.menu" = { fg = "text"  } # command line text in command menus
-
+"ui.menu" = { fg = "dark_gray" } # changes both the text color and the border for code actions
 "ui.menu.selected" = { bg = "dark_blue2" }
 
 # TODO: Alternate bg colour for `ui.cursor.match` and `ui.selection`.
