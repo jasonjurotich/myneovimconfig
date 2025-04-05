@@ -60,7 +60,8 @@ formatter = { command = 'prettier', args = [
 ] }
 auto-format = true
 # add ltex-ls-plus in the list to review spanish
-language-servers = ["marksman", "harper-ls"]
+
+language-servers = ["marksman", "harper-ls", "markdown-oxide"]
 file-types = ["md", "txt"]
 scope = "source.md"
 indent = { tab-width = 2, unit = "  " }
