@@ -1,8 +1,8 @@
-$env.PATH = ($env.PATH | prepend "$HOME")
+$env.PATH = ($env.PATH | prepend $env.HOME)
 $env.PATH = ($env.PATH | prepend '/opt/homebrew/bin')
 $env.PATH = ($env.PATH | prepend "/Users/jasonjurotich/.surrealdb")
 $env.PATH = ($env.PATH | prepend '/Users/jasonjurotich/.cargo/bin')
-$env.PATH = ($env.PATH | prepend "$HOME/.local/bin")
+$env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/bin")
 
 # You can remove the redundant $env.PATH prepend here for /opt/homebrew/bin
 $env.EDITOR = "/opt/homebrew/bin/hx"
