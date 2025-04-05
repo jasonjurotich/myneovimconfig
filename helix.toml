@@ -49,7 +49,7 @@ esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 Q = ":x"
 G = "goto_file_end"
 
-"space" = {v = "vsplit", q = [":w",":bc!"]}
+"space" = {v = "vsplit", t = ":reload", q = [":w",":bc!"]}
 
 g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", o =  "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", t = "goto_prev_diag", u = "goto_next_diag", h = [":format",":w"]}
 
@@ -93,7 +93,7 @@ u = ["undo", "collapse_selection"]
 q = ["move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "align_view_center"]
 t = ["move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "align_view_center"]
 
-"space" = {v = "vsplit", q = [":w",":bc!"], a = [":w", ":sh nu -c /Users/jasonjurotich/gits.nu"], e = ":show-directory"}
+"space" = {v = "vsplit", q = [":w",":bc!"], t = ":reload", a = [":w", ":sh nu -c /Users/jasonjurotich/gits.nu"], e = ":show-directory"}
 
 g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", o =  "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", t = "goto_prev_diag", u = "goto_next_diag", h = [":format",":w"]}
 
@@ -173,3 +173,4 @@ after-delay.timeout = 10000
 
 [editor.search]
 wrap-around = true
+
