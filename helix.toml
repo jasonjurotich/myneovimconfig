@@ -33,6 +33,7 @@ continue-comments = false
 completion-timeout = 250
 preview-completion-insert	= true
 text-width = 80
+popup-border = "all"
 
 
 [editor.cursor-shape]
@@ -47,8 +48,11 @@ esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 [keys.select]
 Q = ":x"
 G = "goto_file_end"
-"space" = {v = "vsplit", q = ":bc!"}
-g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", h = [":format",":w"]}
+
+"space" = {v = "vsplit", q = [":w",":bc!"]}
+
+g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", o =  "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", t = "goto_prev_diag", u = "goto_next_diag", h = [":format",":w"]}
+
 y = ["yank_main_selection_to_clipboard", "normal_mode"]
 p = ["paste_clipboard_after", "normal_mode"]
 P = ["replace_selections_with_clipboard", "normal_mode"] 
@@ -59,6 +63,9 @@ esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 V = ["select_mode", "select_line_below", "extend_to_line_bounds"]
 
 [keys.normal]
+"C-v" = ":config-reload"
+"C-o" = ":config-open"
+
 V = ["select_mode", "select_line_below", "extend_to_line_bounds"]
 "." = "repeat_last_motion"
 
@@ -86,17 +93,21 @@ u = ["undo", "collapse_selection"]
 q = ["move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "align_view_center"]
 t = ["move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "align_view_center"]
 
-"space" = {v = "vsplit", q = ":bc!", a = [":w", ":sh nu -c /Users/jasonjurotich/gits.nu"], e = ":show-directory"}
-g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", p = "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", h = [":format",":w"]}
+"space" = {v = "vsplit", q = [":w",":bc!"], a = [":w", ":sh nu -c /Users/jasonjurotich/gits.nu"], e = ":show-directory"}
+
+g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", o =  "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", t = "goto_prev_diag", u = "goto_next_diag", h = [":format",":w"]}
+
 
 "tab" = ":bn"
 "S-tab" = ":bp"
+
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 
 m = {t = ["goto_first_nonwhitespace", "select_mode", "goto_line_end", "surround_add"]}
 
 [editor.statusline]
-left = ["mode", "file-absolute-path", "file-modification-indicator", "spacer", "spinner"]
+# file path can be file-absolute-path or file-name or file-base-name
+left = ["mode", "file-name", "file-modification-indicator", "spacer", "spinner"]
 center = []
 right = ["diagnostics","workspace-diagnostics"]
 separator = "│"
@@ -111,8 +122,8 @@ snippets = true
 
 
 [editor.inline-diagnostics]
-cursor-line = "error"
-other-lines = "error"
+cursor-line = "hint"
+other-lines = "disable"
 
 [editor.soft-wrap]
 enable = true
