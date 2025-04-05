@@ -42,6 +42,8 @@ alias zj = zellij
 alias zd = zellij delete-all-sessions
 alias cup = cargo upgrades
 alias nuc = cd `/Users/jasonjurotich/Library/Application Support/nushell`
+alias goo = goose session
+alias ce = claude
 
 
 def cr [] {
