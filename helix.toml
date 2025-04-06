@@ -51,7 +51,7 @@ G = "goto_file_end"
 
 "space" = {v = "vsplit", t = ":reload", q = [":w",":bc!"]}
 
-g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", o =  "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", t = "goto_prev_diag", u = "goto_next_diag", h = [":format",":w"]}
+g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", o =  "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", t = "goto_prev_diag", u = "goto_next_diag", h = [":format", ":w"]}
 
 y = ["yank_main_selection_to_clipboard", "normal_mode"]
 p = ["paste_clipboard_after", "normal_mode"]
@@ -95,7 +95,7 @@ t = ["move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_
 
 "space" = {v = "vsplit", q = [":w",":bc!"], t = ":reload", a = [":w", ":sh nu -c /Users/jasonjurotich/gits.nu"], e = ":show-directory"}
 
-g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", o =  "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", t = "goto_prev_diag", u = "goto_next_diag", h = [":format",":w"]}
+g = {c = "toggle_comments", a = "code_action", n = "jump_view_left", o =  "jump_view_right", j = "jump_view_down", k = "jump_view_up", b = "jump_backward", f = "jump_forward", t = "goto_prev_diag", u = "goto_next_diag", h = [":format", ":w"]}
 
 
 "tab" = ":bn"
@@ -115,7 +115,7 @@ separator = "│"
 [editor.lsp]
 display-progress-messages = true
 display-messages = true
-display-inlay-hints = true
+display-inlay-hints = false
 auto-signature-help = true
 display-signature-help-docs = true
 snippets = true
@@ -173,4 +173,5 @@ after-delay.timeout = 10000
 
 [editor.search]
 wrap-around = true
+ 
 
