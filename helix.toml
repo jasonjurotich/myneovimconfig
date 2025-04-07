@@ -171,13 +171,6 @@ tabpad = "·"
 hidden = false
 ignore = true
 
-
-after-delay.enable = true
-after-delay.timeout = 10000
-
-[editor.search]
-wrap-around = true
-
 [editor.auto-save]
 focus-lost = true
 after-delay.enable = true
